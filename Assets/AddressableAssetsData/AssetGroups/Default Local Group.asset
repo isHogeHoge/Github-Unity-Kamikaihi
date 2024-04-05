@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 695b862e4797b49d59cc3b83e9b04f9e
+  m_SerializeEntries:
+  - m_GUID: 6aa8faba42506403183aa4fd3e386838
+    m_Address: Assets/Prefab/Stages1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5804666dbe3a24ab5aa83b3c775c207e
+    m_Address: Assets/Prefab/Stages2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 949b51da5b1cd4373846373567c77554
+    m_Address: Assets/Prefab/Stages3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dc5f4e30543c74629a19e1e42c1e9f7c
+    m_Address: Assets/Prefab/Stages4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 54fa3d6449f224563bffd5aa7d6f0370
+    m_Address: Assets/Prefab/Stages5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 03f0447690dbb478fb97fc654edc07b5
+    m_Address: Assets/Prefab/Stages6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a3c48ac38565f485ebc2851719753a2c
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage31Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: de9193192a57d4a28a75392e3383cce3
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage30Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae0bee46edc2e42879c4b59de711078f
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage29Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a863c7561ca374780824bbb9f30a1483
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage28Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f16f1fb4699674f3696d9e9b7851a407
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage27Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e483baf41a9bf4fb0a045a99ad295658
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage25Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f822ec341b92f4093a3dabbab5530d12
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage26Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5dd1c22a55b2e417790d6160fe4eb9da
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage1Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 982d5938f0d084d4c95837466283c4c1
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage2Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 74006485cd4694ab3ae7de5442f21ddf
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage3Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 45f8ea117ac8f4c0bb8b294cb3da9efb
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage4Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ba5aeb911022946f7b289fe320615a48
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage5Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 557a96b90256e47eaa37a8d129e947cd
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage6Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d43f986c1cb5646c0856c469ec11f754
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage7Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4ef0988cb8ac7458880aa089d57e54ba
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage8Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a5faf7d3c53314c4eabcc8d34120330c
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage9Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 15aad2ebcc32c4e0c9c90ad5c1d48551
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage10Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7af7038625d604546aadaf0ad7b985fb
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage11Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8315cbf80f2cb433798351be6c4bc2ca
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage12Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 964820c439deb4b4b891528c053605f9
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage13Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 632e3513c7ad949399a1857067f5fd1b
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage14Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e40d2e744c017464b925ab7f43c7afef
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage15Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4462bed0689a14fb6888060099fdb76c
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage16Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 42289a92179454994be89e7e5b1d3862
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage17Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9347564404fdf4852bd6a56011bd21fd
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage18Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2957b3e5de4be4ac88190d7d59b7dd4c
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage19Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 46450d132471a462ebf51e97e3d26c80
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage20Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5f0b47198381a41b3b3f4755c85372a2
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage21Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae473c4a027b14fceac2b589ed08f986
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage22Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 71cabc96f0ca6433db2e18f333684554
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage23Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b6c3dfa318f9d4dea996f1f959f143b6
+    m_Address: Assets/Image/StageSelect/StageSelectBtn/Stage24Clear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f42c010d4760241178a73c4588bc00c8
+    m_Address: Assets/Prefab/Stage31/HighScoreImg.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 370dbae5e2a9944639f2138e0cc23003
+    m_Address: Assets/Prefab/Stage31/10PointsText.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3224b2c0abe40431896e16f05818ebab
+    m_Address: Assets/Prefab/Stage31/5PointsText.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dac25feddd2034cc98a9084a6b4fe417
+    m_Address: Assets/Prefab/Stage31/1PointsText.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5eb099a920a664725a735756de7c257f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a6ede3cc2eb974c2881ae7c044a57391, type: 2}
+    - {fileID: 11400000, guid: 6d500eb1866884fc1ad5989543ae1bef, type: 2}
