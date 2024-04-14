@@ -82,7 +82,7 @@ public class ClearDataManager : MonoBehaviour
 
     
     // (クリア済みなら)ステージ選択ボタンの画像を変更
-    internal async void ChangeBtnImg()
+    internal async void ChangeStageSelectBtnImg()
     {
         Load();
         for(var i = 0; i < loadDatas.dataLists.Count; i++)

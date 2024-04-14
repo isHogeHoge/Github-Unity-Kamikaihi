@@ -16,7 +16,7 @@ public class StageSelectScene_DataManager : MonoBehaviour
 
         // ステージ(クリア済み)遷移ボタンの画像を変更
         cdm = this.GetComponent<ClearDataManager>();
-        cdm.ChangeBtnImg();
+        cdm.ChangeStageSelectBtnImg();
     }
 
     private void Update()
