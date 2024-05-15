@@ -28,7 +28,7 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
     private Vector3 targetPos;                        // stagesPanelの移動先ポジション
     private Vector3 leftBottom;                       // 画面左下座標
     private Vector3 rightTop;　　　　　　　　　　　　　　 // 画面右下座標
-    private float cameraWidth;                        // カメラの横幅
+    private float gameScreen_width;                   // ゲーム画面の横幅
     private const float scrollXSpeed = 14.0f;         // stagesPanelのスクロールスピード(X軸)
     private static bool isLoaded = false;             // シーンがすでにロードされているかを判定するフラグ
     private bool isScrolling = false;
@@ -54,9 +54,11 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
 
         pageText_tmpUGUI = pagesUIText.GetComponent<TextMeshProUGUI>();
 
+        float cameraWidth = Camera.main.rect.width;
+        float cameraHeight = Camera.main.rect.height;
         leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        cameraWidth = rightTop.x - leftBottom.x;
+        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * cameraWidth, Screen.height * cameraHeight, 0));
+        gameScreen_width = rightTop.x - leftBottom.x;
         
     }
 
@@ -110,7 +112,7 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
     {
         se.PlayOneShot(audioClipSE2);
         // (stagesPanelの)移動先を、現在位置 - カメラの横幅分に設定
-        targetPos = stagesPanel.transform.position + new Vector3(-1, 0, 0) * cameraWidth;
+        targetPos = stagesPanel.transform.position + new Vector3(-1, 0, 0) * gameScreen_width;
         isScrolling = true;
         topBorder.SetActive(true);
         bottomBorder.SetActive(true);
@@ -133,13 +135,13 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
             // 右側
             case "RIGHT":
                 // (stagesPanelの)移動先を、現在位置 - カメラの横幅分に設定
-                targetPos = stagesPanel.transform.position + new Vector3(-1, 0, 0) * cameraWidth;
+                targetPos = stagesPanel.transform.position + new Vector3(-1, 0, 0) * gameScreen_width;
                 defPage++;
                 break;
             // 左側
             case "LEFT":
                 // (stagesPanelの)移動先を、現在位置 + カメラの横幅分に設定
-                targetPos = stagesPanel.transform.position + new Vector3(1, 0, 0) * cameraWidth;
+                targetPos = stagesPanel.transform.position + new Vector3(1, 0, 0) * gameScreen_width;
                 defPage--;
                 break;
 

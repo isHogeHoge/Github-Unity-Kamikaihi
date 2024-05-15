@@ -10,7 +10,7 @@ public class CloudController : MonoBehaviour
     [SerializeField] GameObject openingVP;           
     [SerializeField] GameObject tutorialVP;          
 
-    private const float scrollSpeedX = 1.1f;        // スクロールスピード
+    private const float scrollSpeedX = 1.1f;
 
     private void Update()
     {
