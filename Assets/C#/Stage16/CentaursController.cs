@@ -70,7 +70,7 @@ public class CentaursController : MonoBehaviour
         itemManager.GetComponent<ItemManager>().UsedItem();
 
         // 自身に飾りアイテムを被せる
-        obj.GetComponent<SpriteRenderer>().enabled = true;
+        obj.GetComponent<Image>().enabled = true;
     }
 
     // Centaur2出現処理

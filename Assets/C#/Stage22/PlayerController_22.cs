@@ -11,6 +11,7 @@ public class PlayerController_22 : MonoBehaviour
     [SerializeField] GameObject blueEnemy;  // 敵(青)
     [SerializeField] GameObject redEnemy; // 敵(赤)
 
+    private CancelClickOutOfScreen cancelClickCnt;
     private Animator animator;   
     private Rigidbody2D rbody2d; 
     private Vector3 leftBottom;  // 画面左下座標
@@ -24,6 +25,7 @@ public class PlayerController_22 : MonoBehaviour
 
     void Start()
     {
+        cancelClickCnt = stageManager.GetComponent<CancelClickOutOfScreen>();
         animator = this.GetComponent<Animator>();
         rbody2d = this.GetComponent<Rigidbody2D>();
 
@@ -43,7 +45,7 @@ public class PlayerController_22 : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && cancelClickCnt.isWithinTheGameScreen())
         {
             // --- Playerの移動先座標の取得 ---
             Vector3 mousePos = Input.mousePosition;

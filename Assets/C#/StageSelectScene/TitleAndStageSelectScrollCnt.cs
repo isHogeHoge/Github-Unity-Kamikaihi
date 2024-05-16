@@ -54,6 +54,7 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
 
         pageText_tmpUGUI = pagesUIText.GetComponent<TextMeshProUGUI>();
 
+        // ゲーム画面の横幅を取得
         float cameraWidth = Camera.main.rect.width;
         float cameraHeight = Camera.main.rect.height;
         leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);

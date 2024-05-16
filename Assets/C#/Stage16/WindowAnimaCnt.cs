@@ -11,13 +11,11 @@ public class WindowAnimaCnt : MonoBehaviour
     // 窓を開けるアニメーション終了時
     private void CanCloseTheWindow()
     {
-        // 窓を閉めることが出来るようにする
         btn_OpenTheWindow.GetComponent<Image>().enabled = false;
     }
     // 窓を閉めるアニメーション終了時
     private void CanOpenTheWindow()
     {
-        // 再び窓を開けることが出来るようにする
         btn_OpenTheWindow.GetComponent<Image>().enabled = true;
     }
 }

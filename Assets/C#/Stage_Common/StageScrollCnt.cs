@@ -14,7 +14,7 @@ public class StageScrollCnt : MonoBehaviour
     private Vector3 targetPos;                        // stagePanelの移動先ポジション
     private Vector3 leftBottom;                       // 画面左下座標
     private Vector3 rightTop;　　　　　　　　　　　　　　 // 画面右上座標
-    private float cameraWidth;                        // カメラの横幅
+    private float gameScreen_width;                  // ゲーム画面の横幅
     private const float scrollSpeed = 15f;          // stagePanelのスクロールスピード
     private bool isScrolling = false;                  // stagePanelスクロール中フラグ
     private bool isActive_CancelPnl = false;           // clickCancelPnlのアクティブor非アクティブフラグ
@@ -52,10 +52,12 @@ public class StageScrollCnt : MonoBehaviour
         rBtn_Image = rButton.GetComponent<Image>();
         lBtn_Image = lButton.GetComponent<Image>();
 
-        // カメラの横幅設定
+        // ゲーム画面の横幅取得
+        float cameraWidth = Camera.main.rect.width;
+        float cameraHeight = Camera.main.rect.height;
         leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        cameraWidth = rightTop.x - leftBottom.x;
+        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * cameraWidth, Screen.height * cameraHeight, 0));
+        gameScreen_width = rightTop.x - leftBottom.x;
     }
 
     private void Update()
@@ -112,13 +114,13 @@ public class StageScrollCnt : MonoBehaviour
         {
             ClickCount++;
             // (stagePanelの)移動先を、現在位置 - カメラの横幅分に設定(-X方向に移動)
-            targetPos = stagePanel.transform.position + new Vector3(-1, 0, 0) * cameraWidth;
+            targetPos = stagePanel.transform.position + new Vector3(-1, 0, 0) * gameScreen_width;
         }
         else if (dir == "LEFT")
         {
             ClickCount--;
             // (stagePanelの)移動先を、現在位置 + カメラの横幅分に設定(X方向に移動)
-            targetPos = stagePanel.transform.position + new Vector3(1, 0, 0) * cameraWidth;
+            targetPos = stagePanel.transform.position + new Vector3(1, 0, 0) * gameScreen_width;
         }
 
         // スクロール前のclickCancelPnlの状態を代入

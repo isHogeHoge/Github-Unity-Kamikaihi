@@ -1159,10 +1159,10 @@ MonoBehaviour:
         - m_Target: {fileID: 614732103}
           m_TargetAssemblyTypeName: RotateFoodsCnt, Assembly-CSharp
           m_MethodName: ClickRotateBtn_DOWN
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 516051681}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1346,8 +1346,8 @@ MonoBehaviour:
   friend2: {fileID: 1373666404}
   foodsPnl: {fileID: 1223735116}
   foods: {fileID: 906642592}
-  RotateBtnL: {fileID: 516051681}
-  RotateBtnR: {fileID: 2091655308}
+  rotateBtnL: {fileID: 516051681}
+  rotateBtnR: {fileID: 2091655308}
   playersFood: {fileID: 87377793}
   friend1sFood: {fileID: 751560186}
   friend2sFood: {fileID: 669923929}
@@ -4763,10 +4763,10 @@ MonoBehaviour:
         - m_Target: {fileID: 614732103}
           m_TargetAssemblyTypeName: RotateFoodsCnt, Assembly-CSharp
           m_MethodName: ClickRotateBtn_DOWN
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2091655308}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

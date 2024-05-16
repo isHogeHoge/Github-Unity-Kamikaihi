@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1368916867146637153}
   - component: {fileID: -1751592450954077224}
   - component: {fileID: 3134029706622181196}
+  - component: {fileID: 3502845589724695023}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -56,6 +57,8 @@ MonoBehaviour:
   itemInventory: {fileID: 0}
   topBorder: {fileID: 0}
   clickCancelPnl: {fileID: 0}
+  pausePanel: {fileID: 0}
+  pauseManager: {fileID: 0}
   rButton: {fileID: 0}
   lButton: {fileID: 0}
 --- !u!114 &-1368916867146637153
@@ -92,5 +95,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be8360990297c481eb06c2af6015c449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3502845589724695023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906817111337588352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c129973e23a54fcda6c6a2bddf8f383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

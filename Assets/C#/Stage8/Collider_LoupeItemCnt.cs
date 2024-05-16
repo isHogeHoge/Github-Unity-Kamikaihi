@@ -40,11 +40,11 @@ public class Collider_LoupeItemCnt : MonoBehaviour
         {
             // アイテム消費処理
             col.GetComponent<Image>().sprite = null; 
-            im.UsedItem();                          
+            im.UsedItem();
 
             // 吹き出しの画像をシュークリーム&ルーペに変更
-            creamPuffImg.GetComponent<Image>().enabled = false;
-            creamPuffWithLoupeImg.GetComponent<Image>().enabled = true;
+            creamPuffImg.SetActive(false);
+            creamPuffWithLoupeImg.SetActive(true);
 
             // ルーペを使用した時、Playerの目前にあるシュークリーム(からし入りシュークリーム)のインデックスを取得
             indexOfSpicyCf = rfc.indexOfFoods[0];

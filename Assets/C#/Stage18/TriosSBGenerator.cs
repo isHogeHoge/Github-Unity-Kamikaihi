@@ -61,7 +61,7 @@ public class TriosSBGenerator : MonoBehaviour
                 return;
             }
 
-            // "isStart"フラグを初期状態にリセットし、タップされるまで吹き出しが表示されるようにする
+            // タップされるまで吹き出しが表示されるようにする
             for (var i = 0; i < someone.transform.childCount; i++)
             {
                 someone.transform.GetChild(i).GetComponent<Animator>().SetBool("isStart", false);

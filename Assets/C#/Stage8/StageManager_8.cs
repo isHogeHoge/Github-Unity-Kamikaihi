@@ -27,7 +27,7 @@ public class StageManager_8 : MonoBehaviour
     public void ClickRotateBtn_UP()
     {
         // ルーペを使用していなかったら、メソッドを抜ける
-        if(clc.usedLoupe == false)
+        if(!clc.usedLoupe)
         {
             return;
         }

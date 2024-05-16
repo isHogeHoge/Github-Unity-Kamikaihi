@@ -14,8 +14,8 @@ public class RotateFoodsCnt : MonoBehaviour
     [SerializeField] GameObject friend2;      
     [SerializeField] GameObject foodsPnl;    // 食べ物の吹き出しパネル
     [SerializeField] GameObject foods;      // 食べ物の親オブジェクト
-    [SerializeField] GameObject RotateBtnL; // 食べ物を時計回りに回転させるボタン 
-    [SerializeField] GameObject RotateBtnR; // 食べ物を反時計回りに回転させるボタン
+    [SerializeField] GameObject rotateBtnL; // 食べ物を時計回りに回転させるボタン 
+    [SerializeField] GameObject rotateBtnR; // 食べ物を反時計回りに回転させるボタン
     [SerializeField] GameObject playersFood;
     [SerializeField] GameObject friend1sFood;
     [SerializeField] GameObject friend2sFood;
@@ -69,7 +69,7 @@ public class RotateFoodsCnt : MonoBehaviour
                 // すべての食べ物が目的地に着いたら、移動を終える
                 if (count == endPos_foods.Count)
                 {
-                    foodsPnl.SetActive(true);  
+                    ActiveFoodsPnl();
                     isRotating = false;
                 }
             }
@@ -77,7 +77,7 @@ public class RotateFoodsCnt : MonoBehaviour
         }
     }
     // 食べ物回転ボタンを押した時
-    public void ClickRotateBtn_DOWN()
+    public void ClickRotateBtn_DOWN(GameObject rotateBtn)
     {
         // 食べ物回転中ならメソッドを抜ける
         if (isRotating)
@@ -85,10 +85,8 @@ public class RotateFoodsCnt : MonoBehaviour
             return;
         }
 
-        clickedRotateBtn = EventSystem.current.currentSelectedGameObject;
-
         // 左
-        if (clickedRotateBtn == RotateBtnL)
+        if (rotateBtn == rotateBtnL)
         {
             // 右隣の食べ物の座標を移動先に
             // ex)リストを{0,1,2,3,4} → {1,2,3,4,0}にする
@@ -120,7 +118,7 @@ public class RotateFoodsCnt : MonoBehaviour
 
         // 移動開始
         isRotating = true;
-        foodsPnl.SetActive(false);
+        InActiveFoodsPnl();
     }
 
     // 「食べる」ボタンをクリックした時
@@ -177,6 +175,21 @@ public class RotateFoodsCnt : MonoBehaviour
                 triosFoods[i].GetComponent<SpriteRenderer>().enabled = true;
             }
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: ct);
+        }
+    }
+
+    private void ActiveFoodsPnl()
+    {
+        for (var i = 0; i < foodsPnl.transform.childCount; i++)
+        {
+            foodsPnl.transform.GetChild(i).GetComponent<Image>().enabled = true;
+        }
+    }
+    private void InActiveFoodsPnl()
+    {
+        for (var i = 0; i < foodsPnl.transform.childCount; i++)
+        {
+            foodsPnl.transform.GetChild(i).GetComponent<Image>().enabled = false;
         }
     }
 

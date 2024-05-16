@@ -90,8 +90,7 @@ public class MonkController : MonoBehaviour
         Animator animator_Down = this.transform.GetChild(0).GetComponent<Animator>();
         Animator animator_Up = this.transform.GetChild(1).GetComponent<Animator>();
 
-        // "isStart"フラグを初期状態にリセット
-        // 吹き出し出現アニメーション再生時、初期アニメーションに移行しないようにする
+        // 初期アニメーションに移行しないようにする
         animator_Down.SetBool("isStart", false);
         animator_Up.SetBool("isStart", false);
 
