@@ -24,6 +24,7 @@ TagManager:
   - Enter
   - Obstacle
   - RainCloud
+  - Turn
   layers:
   - Default
   - TransparentFX

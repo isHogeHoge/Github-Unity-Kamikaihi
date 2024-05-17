@@ -93,6 +93,10 @@ public class EnemyAnimaCnt_21 : MonoBehaviour
         // 岩の移動再開
         rock.GetComponent<RockController>().isMoving = true;
     }
+    private void InActiveBigEnemy()
+    {
+        this.GetComponent<SpriteRenderer>().enabled = false;
+    }
     // ++++++++++++++++++++++++++++++++
 
 }

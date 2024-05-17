@@ -5102,9 +5102,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3616266
+    x: 0.3589825
     y: 0
-    width: 0.2767468
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -5283,6 +5283,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1747236630}
+    - target: {fileID: -6999746464847234700, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
+      propertyPath: stageManager
+      value: 
+      objectReference: {fileID: 1358945574}
     - target: {fileID: 1250507045210962, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
       propertyPath: m_Name
       value: HitEffect_B
@@ -7239,8 +7243,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1655923436}
   - {fileID: 1747236631}
-  - {fileID: 1507739272}
   - {fileID: 1751242405}
+  - {fileID: 1507739272}
   - {fileID: 6605863045485553026}
   - {fileID: 60401939671393390}
   - {fileID: 882161160}

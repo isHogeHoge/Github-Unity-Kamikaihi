@@ -2823,9 +2823,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.37572834
+    x: 0.3589825
     y: 0
-    width: 0.2485433
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -2894,6 +2894,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1747236630}
+    - target: {fileID: -6999746464847234700, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
+      propertyPath: stageManager
+      value: 
+      objectReference: {fileID: 614732092}
     - target: {fileID: 1250507045210962, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
       propertyPath: m_Name
       value: HitEffect_B
@@ -5152,6 +5156,10 @@ PrefabInstance:
       propertyPath: changedObj
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6804129038491999610, guid: 1fc3c5190371547bebb6eddd53426cd6, type: 3}
+      propertyPath: stageManger
+      value: 
+      objectReference: {fileID: 614732092}
     - target: {fileID: 6804129038491999610, guid: 1fc3c5190371547bebb6eddd53426cd6, type: 3}
       propertyPath: audioPlayerSE
       value: 

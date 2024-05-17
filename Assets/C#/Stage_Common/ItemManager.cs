@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField] GameObject stageManger;
     [SerializeField] GameObject itemPanel;            
     [SerializeField] GameObject itemImage;            
     [SerializeField] GameObject label_fullItem;       // アイテム所持数Max時に表示されるラベル
@@ -13,6 +14,7 @@ public class ItemManager : MonoBehaviour
     [SerializeField] GameObject audioPlayerSE;        
     [SerializeField] AudioClip itemSE;                // アイテム取得時SE
 
+    private CancelClickOutOfScreen cancelClickCnt;       
     private GameObject clickedItem = null;               // クリックされた所持アイテム
     private Ray ray;　　　　　　　　　　　                  // マウスポジションへのray(光線)
     private RaycastHit2D hit2d;                          // rayに当たったもの
@@ -21,6 +23,11 @@ public class ItemManager : MonoBehaviour
     internal bool isFull = false;                         // アイテム所持数最大フラグ
     private int count_gottenItem = 0;                          // 現在のアイテム所持数
 
+    private void Start()
+    {
+        cancelClickCnt = stageManger.GetComponent<CancelClickOutOfScreen>();
+    }
+
     private void Update()
     {
         // ポーズ中ならUpdateを抜ける
@@ -28,10 +35,16 @@ public class ItemManager : MonoBehaviour
         {
             return;
         }
-
+        
         // アイテムをマウスに追従させる
         if (isFollowing)
         {
+            // アイテムがゲーム画面外にドラックされたら、アイテム欄に戻す
+            if (!cancelClickCnt.isWithinTheGameScreen())
+            {
+                PointerUpItem();
+                return;
+            }
             //スクリーン座標をワールド座標に変換
             Vector3 mousePos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10f));
@@ -190,8 +203,6 @@ public class ItemManager : MonoBehaviour
             isFollowing = true;
         }
         
-
-        
     }
 
     // ホールド中のアイテムを離した時
@@ -201,6 +212,5 @@ public class ItemManager : MonoBehaviour
         isFollowing = false;
         clickedItem.transform.position = itemStartPos;
     }
-
     
 }

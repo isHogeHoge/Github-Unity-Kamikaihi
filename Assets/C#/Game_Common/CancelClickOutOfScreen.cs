@@ -9,29 +9,24 @@ public class CancelClickOutOfScreen : MonoBehaviour
 
     void Start()
     {
-        // ゲーム画面左下&右上座標を取得
+        // ゲーム画面左下&右上座標を取得(スクリーン座標)
         float cameraWidth = Camera.main.rect.width;
         float cameraHeight = Camera.main.rect.height;
-        leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * cameraWidth, Screen.height * cameraHeight, 0f));
-        Debug.Log(leftBottom);
-        Debug.Log(rightTop);
+        Vector3 cameraPos = Camera.main.WorldToScreenPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f));
+        leftBottom = new Vector3(cameraPos.x - (Screen.width * cameraWidth * 0.5f), cameraPos.y - (Screen.height * cameraHeight * 0.5f), 0f);
+        rightTop = new Vector3(cameraPos.x + (Screen.width * cameraWidth * 0.5f), cameraPos.y + (Screen.height * cameraHeight * 0.5f), 0f);
     }
 
     
     // 画面をタップした時、ゲーム画面内ならtrue,範囲外ならfalseを返す
     internal bool isWithinTheGameScreen()
     {
-        Vector3 mousePos_screen = Input.mousePosition;
-        Vector3 mousePos_world = Camera.main.ScreenToWorldPoint(new Vector3(mousePos_screen.x, mousePos_screen.y, 10f));
-        Debug.Log(mousePos_world);
-        if ((leftBottom.x <= mousePos_world.x && mousePos_world.x <= rightTop.x) &&
-            (leftBottom.y <= mousePos_world.y && mousePos_world.y <= rightTop.y))
+        Vector3 mousePos = Input.mousePosition;
+        if ((leftBottom.x <= mousePos.x && mousePos.x <= rightTop.x) &&
+            (leftBottom.y <= mousePos.y && mousePos.y <= rightTop.y))
         {
-            Debug.Log("範囲内");
             return true;
         }
-        Debug.Log("範囲外");
         return false;
     }
 }

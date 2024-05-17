@@ -132,4 +132,10 @@ public class StageScrollCnt : MonoBehaviour
 
         isScrolling = true;
     }
+
+    // スクロール中判定メソッド
+    internal bool isStageScrolling()
+    {
+        return isScrolling;
+    }
 }

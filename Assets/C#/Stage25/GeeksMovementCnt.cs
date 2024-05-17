@@ -13,13 +13,17 @@ public class GeeksMovementCnt : MonoBehaviour
     [SerializeField] GameObject targetPos4; // geek移動先ポジション4
     // ---------------------------
     [SerializeField] GameObject geekInTopRightRoom;
-    
+    [SerializeField] GameObject stagePanel;
+
+    private StageScrollCnt scrollCnt;
     private Animator animator_Geek;
     private Animator animator_GeekInTopRightRoom;
     private SpriteRenderer sr_Geek;
     private SpriteRenderer sr_GeekInTopRightRoom;
-    private List<Vector3> targetPos; // geek移動先ポジション代入用リスト
-    private Vector3 stagePnlPos_ScrollR; // (右側へスクロール時)stagePanelの座標
+    private List<Vector3> targetPos = new List<Vector3>(); // geek移動先ポジション(判定用)
+    private List<Vector3> targetPos_R = new List<Vector3>(); // geek移動先ポジション(右側ページ)
+    private List<Vector3> targetPos_L = new List<Vector3>(); // geek移動先ポジション(左側ページ)
+    private Vector3 stagePnlPos_PageR; // (右側ページ)stagePanelの座標
     internal bool isGoing = false;     // CDを止めに移動中フラグ
     private bool isGoingBack = false; // 自身の部屋へ移動中フラグ
     private int index_targetPos = 1;     // 移動先ポジション指定用変数
@@ -47,21 +51,27 @@ public class GeeksMovementCnt : MonoBehaviour
     }
     void Start()
     {
+        scrollCnt = stagePanel.GetComponent<StageScrollCnt>();
         animator_Geek = this.GetComponent<Animator>();
         animator_GeekInTopRightRoom = geekInTopRightRoom.GetComponent<Animator>();
         sr_Geek = this.GetComponent<SpriteRenderer>();
         sr_GeekInTopRightRoom = geekInTopRightRoom.GetComponent<SpriteRenderer>();
 
-        stagePnlPos_ScrollR = new Vector3(-4.6f, 0f, 0f);
+        stagePnlPos_PageR = new Vector3(-4.6f, 0f, 0f);
         // geekの移動先候補を代入していく
-        targetPos = new List<Vector3>
+        targetPos_L = new List<Vector3>
         {
             this.transform.position,   // 初期位置
             targetPos1.transform.position,
             targetPos2.transform.position,
             targetPos3.transform.position,
             targetPos4.transform.position
-        };        
+        };
+        for(var i = 0; i < targetPos_L.Count; i++)
+        {
+            // 右側ページ移動の際、stagePanel(親オブジェクト)がずれる分だけ調節
+            targetPos_R.Add(targetPos_L[i] + stagePnlPos_PageR);
+        }
     }
 
     void Update()
@@ -76,15 +86,10 @@ public class GeeksMovementCnt : MonoBehaviour
         if (isGoing)
         {
             GeekMoveToTargetPos();
-            if (this.transform.position == targetPos[index_targetPos])
+            if (this.transform.position == targetPos[index_targetPos] && !scrollCnt.isStageScrolling())
             {
-                // 1つ目の階段を登った後(targetPos2到着後)、向きを変える
-                if (index_targetPos == 2)
-                {
-                    this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                }
                 // CDPlayerがある部屋まで到着した時(targetPos4到着時)、音楽を止めるアニメーション再生
-                else if (index_targetPos == targetPos.Count - 1)
+                if (index_targetPos == targetPos.Count - 1)
                 {
                     sr_GeekInTopRightRoom.enabled = true;
                     animator_GeekInTopRightRoom.enabled = true;
@@ -92,6 +97,7 @@ public class GeeksMovementCnt : MonoBehaviour
 
                     sr_Geek.enabled = false;
                     isGoing = false;
+                    return;
                 }
 
                 // 移動先ポジションを更新
@@ -105,19 +111,15 @@ public class GeeksMovementCnt : MonoBehaviour
         if (isGoingBack)
         {
             GeekMoveToTargetPos();
-            if (this.transform.position == targetPos[index_targetPos])
+            if (this.transform.position == targetPos[index_targetPos] && !scrollCnt.isStageScrolling())
             {
-                // 1つ目の階段を降った後なら(targetPos2到着時)、向きを変える
-                if (index_targetPos == 2)
-                {
-                    this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                }
                 // 自身の部屋の前まで移動したら、移動終了
-                else if (index_targetPos == 0)
+                if (index_targetPos == 0)
                 {
                     this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                     animator_Geek.SetBool("GoInFlag", true);
                     isGoingBack = false;
+                    return;
                 }
 
                 // 移動先ポジションを更新
@@ -139,7 +141,6 @@ public class GeeksMovementCnt : MonoBehaviour
     // 現在の位置から、自身の部屋まで引き返す
     internal void GeekGoBack()
     {
-        // すでに自身の部屋まで移動中ならメソッドを抜ける
         if (isGoingBack)
         {
             return;
@@ -163,21 +164,24 @@ public class GeeksMovementCnt : MonoBehaviour
         isGoingBack = true;
     }
 
-    // --- スクロールボタン(onClick)に登録する ---
-    // 右or左側にスクロールした時、stagePanel(親オブジェクト)がずれる分だけtargetPosを再設定する
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // 階段の折り返し地点で(targetPos2)、向きを変える
+        if (col.transform.CompareTag("Turn"))
+        {
+            this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
+
+    // --- スクロールボタンに登録する ---
+    // ページ移動の際、stagePanel(親オブジェクト)がずれる分だけtargetPosを再設定する
     public void ResetTargetPos_ScrollR()
     {
-        for (var i = 0; i < targetPos.Count; i++)
-        {
-            targetPos[i] += stagePnlPos_ScrollR;
-        }
+        targetPos = targetPos_R;
     }
     public void ResetTargetPos_ScrollL()
     {
-        for (var i = 0; i < targetPos.Count; i++)
-        {
-            targetPos[i] -= stagePnlPos_ScrollR;
-        }
+        targetPos = targetPos_L;
     }
     // ----------------------------------------
 }
