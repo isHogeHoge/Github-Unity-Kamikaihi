@@ -27,7 +27,7 @@ public class GeeksMovementCnt : MonoBehaviour
     internal bool isGoing = false;     // CDを止めに移動中フラグ
     private bool isGoingBack = false; // 自身の部屋へ移動中フラグ
     private int index_targetPos = 1;     // 移動先ポジション指定用変数
-    // num_targetPosをtargetPosリストの範囲内に納めるためのプロパティ
+    // index_targetPosをtargetPosリストの範囲内に納めるためのプロパティ
     private int Index_targetPos {
         get
         {
@@ -164,12 +164,27 @@ public class GeeksMovementCnt : MonoBehaviour
         isGoingBack = true;
     }
 
+    // 階段の折り返し地点で(targetPos2)、向きを変える
+    // 行き
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // 階段の折り返し地点で(targetPos2)、向きを変える
-        if (col.transform.CompareTag("Turn"))
+        if (isGoing)
         {
-            this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            if (col.transform.CompareTag("Turn"))
+            {
+                this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+        }
+    }
+    // 帰り
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (isGoingBack)
+        {
+            if (col.transform.CompareTag("Turn"))
+            {
+                this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
         }
     }
 
