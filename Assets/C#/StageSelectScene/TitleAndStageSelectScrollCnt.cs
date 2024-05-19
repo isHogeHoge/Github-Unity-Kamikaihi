@@ -58,7 +58,7 @@ public class TitleAndStageSelectScrollCnt : MonoBehaviour
         float cameraWidth = Camera.main.rect.width;
         float cameraHeight = Camera.main.rect.height;
         leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * cameraWidth, Screen.height * cameraHeight, 0));
+        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * cameraWidth, Screen.height * cameraHeight, 0f));
         gameScreen_width = rightTop.x - leftBottom.x;
         
     }
