@@ -658,9 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a0cb4b1e34a4094bbdccf4e2b0e416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 0}
-  car: {fileID: 0}
-  player: {fileID: 0}
+  animator_car: {fileID: 875327029}
+  animator_player: {fileID: 680238591}
 --- !u!1 &500625708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4723902890994592725, guid: a02a2aad13f8e46a0a6e55a8c05a5121, type: 3}
@@ -965,10 +964,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3762fd8add5094429af99286d81ba8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 875327026}
-  ballAtPlayersFeet: {fileID: 679895977}
-  raisedSoccerBall: {fileID: 1476629718}
-  ballBesidePlayer: {fileID: 1387759489}
+  sr_ballAtPlayersFeet: {fileID: 679895978}
+  sr_raisedSoccerBall: {fileID: 1476629719}
+  sr_ballBesidePlayer: {fileID: 1387759490}
   stageManager: {fileID: 1906817111797123005}
   itemManager: {fileID: 853292984}
   soccerBallSpr: {fileID: 21300000, guid: 34cee960cac2241a889f043a8b1045b4, type: 3}
@@ -1387,9 +1385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a0cb4b1e34a4094bbdccf4e2b0e416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 0}
-  car: {fileID: 875327026}
-  player: {fileID: 680238585}
+  animator_car: {fileID: 875327029}
+  animator_player: {fileID: 680238591}
 --- !u!1 &882161156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,6 +3618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objs_changeColor: {fileID: 819175621}
+  car: {fileID: 875327026}
   player: {fileID: 680238585}
 --- !u!1001 &2406440567917162757
 PrefabInstance:

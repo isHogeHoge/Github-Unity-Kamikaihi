@@ -9,7 +9,8 @@ public class BeeUpAndDown : MonoBehaviour
 {
     [SerializeField] string dir; // Beeの向いている方向
 
-    private RectTransform rect;      // RectTransform
+    private BeeUpAndDown thisScript;
+    private RectTransform rect_bees;      
     private Vector3 startPos;        // 初期位置
     private Vector3 goalPos;         // ゴール座標
     private Vector3 targetPos_current;   // 現在の移動先ポジション
@@ -18,9 +19,10 @@ public class BeeUpAndDown : MonoBehaviour
 
     private void Start()
     {
-        rect = this.GetComponent<RectTransform>();
+        thisScript = this.GetComponent<BeeUpAndDown>();
+        rect_bees = this.GetComponent<RectTransform>();
         // 初期位置の代入
-        startPos = this.rect.anchoredPosition;
+        startPos = rect_bees.anchoredPosition;
         // 移動スピードを200f~300fの間でランダムに設定
         moveSpeed = Random.Range(200f, 300f);
 
@@ -43,20 +45,20 @@ public class BeeUpAndDown : MonoBehaviour
             Debug.Log("無効な文字列です");
         }
         // 移動先座標の設定
-        goalPos = new Vector3(this.rect.anchoredPosition.x, this.rect.anchoredPosition.y + deltaPosY, 0);
+        goalPos = new Vector3(rect_bees.anchoredPosition.x, rect_bees.anchoredPosition.y + deltaPosY, 0);
         targetPos_current = goalPos;
     }
 
     private void Update()
     {
         // ゲーム停止中orこのスクリプトが非アクティブならメソッドを抜ける
-        if (Mathf.Approximately(Time.timeScale, 0f) || !this.GetComponent<BeeUpAndDown>().enabled)
+        if (Mathf.Approximately(Time.timeScale, 0f) || !thisScript.enabled)
         {
             return;
         }
 
         // Bee移動
-        this.rect.anchoredPosition = Vector3.MoveTowards(this.rect.anchoredPosition, targetPos_current, moveSpeed * Time.deltaTime);
+        rect_bees.anchoredPosition = Vector3.MoveTowards(rect_bees.anchoredPosition, targetPos_current, moveSpeed * Time.deltaTime);
 
         // 経過時間に応じて、移動先座標を設定
         passedTime += Time.deltaTime;

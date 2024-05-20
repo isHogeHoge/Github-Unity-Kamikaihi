@@ -5,29 +5,34 @@ using UnityEngine;
 
 public class PlayerController_13 : MonoBehaviour
 {
-    [SerializeField] GameObject friend1;
-    [SerializeField] GameObject friend2;
+    [SerializeField] Animator animator_friend1;
+    [SerializeField] Animator animator_friend2;
     [SerializeField] GameObject stageManager;
 
+    private StageManager sm;
+    private void Start()
+    {
+        sm = stageManager.GetComponent<StageManager>();
+    }
     // ---------- Animation ----------
     // ゲームオーバーアニメーション終了時
     private void GameOver()
     {
         // friend1,2のアニメーション切り替え
-        friend1.GetComponent<Animator>().Play("Friend1Clear");
-        friend2.GetComponent<Animator>().Play("Friend2Clear");
+        animator_friend1.Play("Friend1Clear");
+        animator_friend2.Play("Friend2Clear");
         // ゲームオーバー処理
-        stageManager.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
+        sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
     }
 
     // ゲームクリアアニメーション終了時
     private void GameClear()
     {
         // friend1,2のアニメーション切り替え
-        friend1.GetComponent<Animator>().Play("Friend1Over");
-        friend2.GetComponent<Animator>().Play("Friend2Over");
+        animator_friend1.Play("Friend1Over");
+        animator_friend2.Play("Friend2Over");
         // ゲームクリア処理
-        stageManager.GetComponent<StageManager>().GameClear(13, this.GetCancellationTokenOnDestroy()).Forget();
+        sm.GameClear(13, this.GetCancellationTokenOnDestroy()).Forget();
     }
     // ---------------------------------
 }

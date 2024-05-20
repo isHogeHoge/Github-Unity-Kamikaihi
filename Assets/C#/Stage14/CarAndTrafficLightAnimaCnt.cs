@@ -5,9 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CarAndTrafficLightAnimaCnt : MonoBehaviour
 {
-    [SerializeField] GameObject stageManager;
-    [SerializeField] GameObject car;
-    [SerializeField] GameObject player;
+    [SerializeField] Animator animator_car;
+    [SerializeField] Animator animator_player;
 
     private static bool isRedLight = false; // 赤信号
 
@@ -34,11 +33,11 @@ public class CarAndTrafficLightAnimaCnt : MonoBehaviour
         if (isRedLight)
         {
             // 現在のアニメーションを一度終了
-            car.GetComponent<Animator>().enabled = false;
-            car.GetComponent<Animator>().enabled = true;
-            car.GetComponent<Animator>().Play("CarStop");
+            animator_car.enabled = false;
+            animator_car.enabled = true;
+            animator_car.Play("CarStop");
 
-            player.GetComponent<Animator>().Play("PlayerStop");
+            animator_player.Play("PlayerStop");
 
         }
     }
@@ -46,13 +45,13 @@ public class CarAndTrafficLightAnimaCnt : MonoBehaviour
     // ゲームオーバーアニメーション再生
     private void PlayPlayerOverAnima()
     {
-        player.GetComponent<Animator>().Play("PlayerOver");
+        animator_player.Play("PlayerOver");
     }
 
     // 車が止まった後、ゲームクリアアニメーション再生
     private void PlayPlayerClearAnima()
     {
-        player.GetComponent<Animator>().Play("PlayerClear");
+        animator_player.Play("PlayerClear");
     }
     // ---------------------------
     

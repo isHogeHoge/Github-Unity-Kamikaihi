@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StageManager_14 : MonoBehaviour
 {
     [SerializeField] GameObject objs_changeColor; // 色を変更するオブジェクト(Player,Car,CrossWalk,Clock)
+    [SerializeField] GameObject car;
     [SerializeField] GameObject player;
 
     // ---------- Button ------------
@@ -21,7 +22,7 @@ public class StageManager_14 : MonoBehaviour
             obj.GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 1f);
 
             // PlayerとCarのアニメーションスピードを0にする
-            if(obj.name == "Player" || obj.name == "Car")
+            if(obj == player || obj == car)
             {
                 obj.GetComponent<Animator>().SetFloat("Speed", 0f);
             }
@@ -44,12 +45,11 @@ public class StageManager_14 : MonoBehaviour
             obj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
             // PlayerとCarのアニメーションスピードを元に戻す
-            if (obj.name == "Player" || obj.name == "Car")
+            if (obj == player || obj == car)
             {
                 obj.GetComponent<Animator>().SetFloat("Speed", 1f);
             }
         }
-        
     }
     // ------------------------------------
 }

@@ -8,8 +8,8 @@ using System;
 public class Friend1Controller_12 : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject friend2;
-    [SerializeField] GameObject speechBubble;
+    [SerializeField] Animator animator_friend2;
+    [SerializeField] SpriteRenderer sr_speechBubble;
     [SerializeField] GameObject playerAndFriend1;
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
@@ -21,11 +21,13 @@ public class Friend1Controller_12 : MonoBehaviour
 
     private ItemManager im;
     private StageManager sm;
+    private Animator animator_friend1;
 
     private void Start()
     {
         im = itemManager.GetComponent<ItemManager>();
         sm = stageManager.GetComponent<StageManager>();
+        animator_friend1 = this.GetComponent<Animator>();
     }
 
     // 接触判定(Item)
@@ -48,11 +50,11 @@ public class Friend1Controller_12 : MonoBehaviour
         if (itemSpr == candySpr)
         {
             // キャンディー取得アニメーションを再生
-            this.GetComponent<Animator>().Play("Friend1EatACandy");
-            friend2.GetComponent<Animator>().Play("Friend2EatACandy");
+            animator_friend1.Play("Friend1EatACandy");
+            animator_friend2.Play("Friend2EatACandy");
 
             // 吹き出しの画像変更
-            speechBubble.GetComponent<SpriteRenderer>().sprite = SB_ClearSpr;
+            sr_speechBubble.sprite = SB_ClearSpr;
 
             // Playerのゲームクリアアニメーションを再生
             await UniTask.Delay(TimeSpan.FromSeconds(1f),cancellationToken: this.GetCancellationTokenOnDestroy());
@@ -81,10 +83,10 @@ public class Friend1Controller_12 : MonoBehaviour
     private void PlayGameOverAnima(string animation)
     {
         // 吹き出しの画像変更
-        speechBubble.GetComponent<SpriteRenderer>().sprite = SB_OverSpr;
+        sr_speechBubble.sprite = SB_OverSpr;
 
         // 使用されたアイテムを食べるアニメーション再生
-        this.GetComponent<Animator>().Play($"{animation}");
+        animator_friend1.Play($"{animation}");
     }
 
     // --------- Animation ---------

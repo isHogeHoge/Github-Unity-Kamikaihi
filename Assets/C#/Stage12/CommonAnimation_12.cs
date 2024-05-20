@@ -5,11 +5,11 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 
-public class AnimaController_12 : MonoBehaviour
+public class CommonAnimation_12 : MonoBehaviour
 {
-    [SerializeField] GameObject cushion1Btn; 
-    [SerializeField] GameObject cushion2Btn; 
-    [SerializeField] GameObject fakeBtn;     
+    [SerializeField] Button cushion1Btn; 
+    [SerializeField] Button cushion2Btn; 
+    [SerializeField] Button fakeBtn;     
 
     /// <summary>
     /// 自身を再びクリックできるようにする
@@ -20,13 +20,13 @@ public class AnimaController_12 : MonoBehaviour
         switch (name)
         {
             case "Cushion1":
-                cushion1Btn.GetComponent<Button>().enabled = true;
+                cushion1Btn.enabled = true;
                 break;
             case "Cushion2":
-                cushion2Btn.GetComponent<Button>().enabled = true;
+                cushion2Btn.enabled = true;
                 break;
             case "Fake":
-                fakeBtn.GetComponent<Button>().enabled = true;
+                fakeBtn.enabled = true;
                 break;
             default:
                 Debug.Log("無効な文字列です");

@@ -5,18 +5,26 @@ using UnityEngine.UI;
 
 public class BrotherController_13 : MonoBehaviour
 {
+    [SerializeField] Image img_cakeBesideBrother;
+    [SerializeField] Image img_cakeInFrontOfBrother;
+    [SerializeField] Animator animator_display;
+    [SerializeField] Image img_controllerItem;
+    [SerializeField] Image img_brotherFoot;
+    [SerializeField] Button controllerBtn;
+    [SerializeField] Image img_brotherBtn;
     [SerializeField] GameObject itemManager;
-    [SerializeField] GameObject brotherFoot;
-    [SerializeField] GameObject display;
-    [SerializeField] GameObject cakeBesideBrother;
-    [SerializeField] GameObject cakeInFrontOfBrother;
-    [SerializeField] GameObject controllerItem;
-    [SerializeField] GameObject controllerBtn;
-    [SerializeField] GameObject brotherBtn;
     [SerializeField] Sprite cakeItemSpr;
     [SerializeField] Sprite forkItemSpr;
 
+    private ItemManager im;
+    private Animator animator_brother;
     private bool usedCakeItem = false; // ケーキアイテム使用フラグ
+
+    private void Start()
+    {
+        im = itemManager.GetComponent<ItemManager>();
+        animator_brother = this.GetComponent<Animator>();
+    }
 
     // 接触判定(Item)
     private void OnTriggerExit2D(Collider2D col)
@@ -27,45 +35,46 @@ public class BrotherController_13 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // ケーキアイテム使用
-        if (col.GetComponent<Image>().sprite == cakeItemSpr)
+        if (img_item.sprite == cakeItemSpr)
         {
             // フォークアイテムを使用可に
             usedCakeItem = true;
 
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
-            itemManager.GetComponent<ItemManager>().UsedItem();
+            img_item.sprite = null;
+            im.UsedItem();
 
             // 右隣にケーキをおく
-            cakeBesideBrother.GetComponent<Image>().enabled = true;
+            img_cakeBesideBrother.enabled = true;
 
             // ゲームアニメーション → ケーキの方を見るアニメーションに切り替え
-            this.GetComponent<Animator>().Play("BrotherTurn_Loop");
-            display.GetComponent<Animator>().enabled = false;
-            brotherBtn.GetComponent<Image>().enabled = false;
+            animator_brother.Play("BrotherTurn_Loop");
+            animator_display.enabled = false;
+            img_brotherBtn.enabled = false;
 
         }
         // フォークアイテム使用
-        else if (col.GetComponent<Image>().sprite == forkItemSpr)
+        else if (img_item.sprite == forkItemSpr)
         {
             // ケーキアイテムを使用していたら、フォークアイテム使用判定に
             if(usedCakeItem)
             {
                 // アイテム使用処理
-                col.GetComponent<Image>().sprite = null;
-                itemManager.GetComponent<ItemManager>().UsedItem();
+                img_item.sprite = null;
+                im.UsedItem();
 
                 // コントローラーアイテム取得可能に
-                controllerItem.GetComponent<Image>().enabled = true;
-                controllerBtn.GetComponent<Button>().enabled = true;
+                img_controllerItem.enabled = true;
+                controllerBtn.enabled = true;
 
                 // ケーキを食べるアニメーション再生
-                this.GetComponent<Animator>().Play("BrotherEat");
-                brotherFoot.GetComponent<Image>().enabled = true;
+                animator_brother.Play("BrotherEat");
+                img_brotherFoot.enabled = true;
                 // ケーキを手前に表示する
-                cakeBesideBrother.GetComponent<Image>().enabled = false;
-                cakeInFrontOfBrother.GetComponent<Image>().enabled = true;
+                img_cakeBesideBrother.enabled = false;
+                img_cakeInFrontOfBrother.enabled = true;
             }
 
             

@@ -34,8 +34,8 @@ public class SoccerBallCnt : MonoBehaviour
         {
             // endPosまで(一定のスピードで)移動
             const float speed = 500f;   
-            this.rect.anchoredPosition = Vector3.MoveTowards(this.rect.anchoredPosition, endPos, speed * Time.deltaTime);
-            if(this.rect.anchoredPosition.x == endPos.x)
+            rect.anchoredPosition = Vector3.MoveTowards(rect.anchoredPosition, endPos, speed * Time.deltaTime);
+            if(rect.anchoredPosition.x == endPos.x)
             {
                 isMoving = false;
             }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BearController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] Animator animator_player;
 
     // -------- Animation --------
     // 出現後、ゲームオーバーアニメーション再生
     private void PlayPlayerOverAnima()
     {
-        player.GetComponent<Animator>().SetBool("OverFlag", true);
+        animator_player.SetBool("OverFlag", true);
     }
     // ---------------------------
 }

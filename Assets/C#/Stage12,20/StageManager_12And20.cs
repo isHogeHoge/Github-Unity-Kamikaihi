@@ -5,16 +5,8 @@ using UnityEngine.UI;
 
 public class StageManager_12And20 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject speechBubble;
-
-    private Animator animator;  // Playerのアニメーター
+    [SerializeField] Animator animator_player;
     private bool gotCandyItem = false;  // キャンディーアイテム取得フラグ
-
-    private void Start()
-    {
-        animator = player.GetComponent<Animator>();
-    }
 
     // -----------  Button -----------
     // (Player)帽子を脱ぐアニメーション再生ボタン
@@ -23,11 +15,11 @@ public class StageManager_12And20 : MonoBehaviour
         // 帽子を脱ぐアニメーション再生
         if (gotCandyItem)
         {
-            animator.Play("PlayerTakeOffAHat2"); // 頭上にキャンディー有
+            animator_player.Play("PlayerTakeOffAHat2"); // 頭上にキャンディー有
         }
         else
         {
-            animator.Play("PlayerTakeOffAHat1"); // 頭上にキャンディー無
+            animator_player.Play("PlayerTakeOffAHat1"); // 頭上にキャンディー無
         }
         
     }
@@ -37,11 +29,11 @@ public class StageManager_12And20 : MonoBehaviour
         // 帽子をかぶるアニメーション再生
         if (gotCandyItem)
         {
-            animator.Play("PlayerPutOnAHat2"); // 頭上にキャンディー有
+            animator_player.Play("PlayerPutOnAHat2"); // 頭上にキャンディー有
         }
         else
         {
-            animator.Play("PlayerPutOnAHat1"); // 頭上にキャンディー無
+            animator_player.Play("PlayerPutOnAHat1"); // 頭上にキャンディー無
         }
     }
     // キャンディーアイテム
@@ -50,7 +42,7 @@ public class StageManager_12And20 : MonoBehaviour
         // キャンディー取得済みに
         gotCandyItem = true;
         // 帽子をかぶるアニメーション再生
-        animator.Play("PlayerPutOnAHat2");
+        animator_player.Play("PlayerPutOnAHat2");
     }
     // -----------------------------------
 

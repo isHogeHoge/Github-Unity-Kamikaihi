@@ -7,15 +7,21 @@ using UnityEngine.UI;
 
 public class PlayerController_15 : MonoBehaviour
 {
-    [SerializeField] GameObject grandma;
+    [SerializeField] Animator animator_grandma;
     [SerializeField] GameObject beesInTheBeehive;
     [SerializeField] GameObject stone;
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite stoneSpr;
 
+    private StageManager_15 sm_15;
     internal bool throwedAStone = false; // 石アイテム使用でtrue
     internal bool wearHazmatSuits = false; // 防護服着用フラグ
+
+    private void Start()
+    {
+        sm_15 = stageManager.GetComponent<StageManager_15>();
+    }
 
     // 接触判定(Item)
     private void OnTriggerExit2D(Collider2D col)
@@ -26,18 +32,19 @@ public class PlayerController_15 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 石アイテム使用
-        if (col.GetComponent<Image>().sprite == stoneSpr)
+        if (img_item.sprite == stoneSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // ゲーム操作をできないようにする
-            stageManager.GetComponent<StageManager_15>().CantGameControl();
+            sm_15.CantGameControl();
 
             // 石を投げるアニメーション再生
-            this.gameObject.GetComponent<Animator>().SetBool("ThrowFlag", true);
+            this.GetComponent<Animator>().SetBool("ThrowFlag", true);
             throwedAStone = true;
         }
     }
@@ -83,9 +90,9 @@ public class PlayerController_15 : MonoBehaviour
     private void GameClear()
     {
         // ドアを開ける
-        stageManager.GetComponent<StageManager_15>().OpenTheDoor();
+        sm_15.OpenTheDoor();
         // Grandmaのアニメーション切り替え
-        grandma.GetComponent<Animator>().Play("GrandmaMove");
+        animator_grandma.Play("GrandmaMove");
 
         // ゲームクリア処理
         stageManager.GetComponent<StageManager>().GameClear(15, this.GetCancellationTokenOnDestroy()).Forget();

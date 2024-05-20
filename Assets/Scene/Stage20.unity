@@ -2490,8 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1250d21c652cb4c76b4214ae278c1467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  speechBubble: {fileID: 1711896411}
+  animator_player: {fileID: 680238591}
 --- !u!114 &614732102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,7 +3488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb76a6d94f5c04197afa10efa85ca81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn_TakeOffAHat: {fileID: 704366807}
+  img_takeOffAHatBtn: {fileID: 704366810}
 --- !u!1 &683104664
 GameObject:
   m_ObjectHideFlags: 0

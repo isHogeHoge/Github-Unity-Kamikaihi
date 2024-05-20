@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dbf072b830049939ccd43f82652ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beehiveOnTheTree: {fileID: 1936962621}
+  animator_beehiveOnTheTree: {fileID: 1936962625}
 --- !u!1 &429670923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2568559376776822685, guid: a4dfb2041cbed4a519bcf951944342f9, type: 3}
@@ -1257,7 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0339e113849374c5dab8fb7daffce934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1134982221}
+  animator_player: {fileID: 1134982225}
 --- !u!1001 &491985743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,10 +1699,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9db77147162f403ba1ff608b0221642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door_Closed: {fileID: 1399616940}
-  door_Open: {fileID: 1347480767}
-  doorBtn: {fileID: 1557003852}
-  goButton: {fileID: 993187141}
+  img_door_Closed: {fileID: 1399616942}
+  img_door_Open: {fileID: 1347480769}
+  doorBtn: {fileID: 1557003854}
+  img_goButton: {fileID: 993187144}
 --- !u!1001 &616761456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2266,11 +2266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15a7e9c669ac4b53bfc0ddd2ad9e9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowersEffect: {fileID: 1253705483}
   player: {fileID: 1134982221}
-  fairyBtn: {fileID: 494894075}
-  goBtn: {fileID: 993187141}
-  lButton: {fileID: 890666611}
+  animator_flowersEffect: {fileID: 1253705485}
+  img_fairyBtn: {fileID: 494894078}
+  img_goBtn: {fileID: 993187144}
+  img_LButton: {fileID: 890666613}
 --- !u!1 &882161156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -199, y: 267}
@@ -3943,7 +3943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -217, y: 219}
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ba22f0e18e64c9dae2f825c8e58b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grandma: {fileID: 701398752}
+  animator_grandma: {fileID: 701398756}
   beesInTheBeehive: {fileID: 2051227309}
   stone: {fileID: 402460716}
   itemManager: {fileID: 49511309}
@@ -4153,7 +4153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dbf072b830049939ccd43f82652ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beehiveOnTheTree: {fileID: 0}
+  animator_beehiveOnTheTree: {fileID: 0}
 --- !u!114 &1134982230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 464504886}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -413, y: 148}
@@ -4792,7 +4792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -201, y: 195}
@@ -5036,7 +5036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -237, y: 150}
@@ -5253,7 +5253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -186, y: 112}
@@ -6729,7 +6729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 464504886}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -311, y: 80}
@@ -6947,7 +6947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ce6dc2cefe24830badde94c6256856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bear: {fileID: 0}
+  animator_bear: {fileID: 464504890}
   player: {fileID: 1134982221}
   stageManager: {fileID: 614732092}
   targetPos: {x: -160, y: 261}
@@ -7505,13 +7505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2881d49d306234b75b6a355fb7f8551d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img_beehiveOnTheGround: {fileID: 1936962623}
+  fairy: {fileID: 847777194}
   smokeUnderTheBeehive: {fileID: 220768155}
-  beehiveOnTheGround: {fileID: 1912718020}
   beesByTheBeehive: {fileID: 1201002814}
   beesInTheBeehive: {fileID: 2051227309}
   beesNearTheGround: {fileID: 638198507}
-  fairy: {fileID: 847777194}
-  fairyBtn: {fileID: 494894075}
   itemManager: {fileID: 49511309}
   smokeSpr: {fileID: 21300000, guid: 60aa330d6df08481f8a4d739aa94ba84, type: 3}
 --- !u!1001 &1959046027

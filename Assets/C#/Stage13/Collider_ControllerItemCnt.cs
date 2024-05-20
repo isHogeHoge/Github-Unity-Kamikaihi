@@ -18,11 +18,12 @@ public class Collider_ControllerItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // コントローラーアイテム使用
-        if (col.GetComponent<Image>().sprite == controllerItemSpr)
+        if (img_item.sprite == controllerItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 中央のページに「あける」or「かいひ」の選択画面を表示

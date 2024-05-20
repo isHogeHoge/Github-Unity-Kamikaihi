@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerController_14 : MonoBehaviour
 {
-    [SerializeField] GameObject car;
-    [SerializeField] GameObject ballAtPlayersFeet;
-    [SerializeField] GameObject raisedSoccerBall;
-    [SerializeField] GameObject ballBesidePlayer;
+    [SerializeField] SpriteRenderer sr_ballAtPlayersFeet;
+    [SerializeField] SpriteRenderer sr_raisedSoccerBall;
+    [SerializeField] SpriteRenderer sr_ballBesidePlayer;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite soccerBallSpr;
@@ -24,16 +23,17 @@ public class PlayerController_14 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // サッカーボールアイテム使用
-        if (col.GetComponent<Image>().sprite == soccerBallSpr)
+        if (img_item.sprite == soccerBallSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // サッカーボールを掲げるアニメーション再生
             this.GetComponent<Animator>().Play("PlayerRaiseABall");
-            raisedSoccerBall.GetComponent<SpriteRenderer>().enabled = true;
+            sr_raisedSoccerBall.enabled = true;
             usedBallItem = true;
         }
     }
@@ -45,8 +45,8 @@ public class PlayerController_14 : MonoBehaviour
     {
         if (usedBallItem)
         {
-            raisedSoccerBall.GetComponent<SpriteRenderer>().enabled = false;
-            ballAtPlayersFeet.GetComponent<SpriteRenderer>().enabled = true;
+            sr_raisedSoccerBall.enabled = false;
+            sr_ballAtPlayersFeet.enabled = true;
         }
     }
 
@@ -62,9 +62,9 @@ public class PlayerController_14 : MonoBehaviour
     {
         if (usedBallItem)
         {
-            raisedSoccerBall.GetComponent<SpriteRenderer>().enabled = false;
-            ballAtPlayersFeet.GetComponent<SpriteRenderer>().enabled = false;
-            ballBesidePlayer.GetComponent<SpriteRenderer>().enabled = true;
+            sr_raisedSoccerBall.enabled = false;
+            sr_ballAtPlayersFeet.enabled = false;
+            sr_ballBesidePlayer.enabled = true;
         }
     }
     // Clearアニメーション開始時
@@ -73,8 +73,8 @@ public class PlayerController_14 : MonoBehaviour
     {
         if (usedBallItem)
         {
-            ballAtPlayersFeet.GetComponent<SpriteRenderer>().enabled = false;
-            raisedSoccerBall.GetComponent<SpriteRenderer>().enabled = true;
+            sr_ballAtPlayersFeet.enabled = false;
+            sr_raisedSoccerBall.enabled = true;
         }
     }
     // -----------------------------------

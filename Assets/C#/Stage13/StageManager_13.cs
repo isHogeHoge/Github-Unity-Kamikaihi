@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class StageManager_13 : MonoBehaviour
 {
-    [SerializeField] GameObject brother;
-    [SerializeField] GameObject present;
-    [SerializeField] GameObject arrow;  // 選択カーソル
+    [SerializeField] Animator animator_present;
+    [SerializeField] Animator animator_arrow;  // 選択カーソル
     [SerializeField] GameObject upBtn;
 
+    private StageScrollCnt scrollCnt;
     private GameObject clickedBtn;  // クリックした十字キー(UpButton,DownButton)
 
     private void Start()
@@ -18,8 +18,9 @@ public class StageManager_13 : MonoBehaviour
         clickedBtn = upBtn;
 
         // ステージ初期位置から右・左に1ページ分だけ移動できるように設定
-        this.GetComponent<StageScrollCnt>().maxCountL = -1;
-        this.GetComponent<StageScrollCnt>().maxCountR = 1;
+        scrollCnt = this.GetComponent<StageScrollCnt>();
+        scrollCnt.maxCountL = -1;
+        scrollCnt.maxCountR = 1;
     }
 
     // 十字キー
@@ -27,7 +28,7 @@ public class StageManager_13 : MonoBehaviour
     {
         clickedBtn = EventSystem.current.currentSelectedGameObject;
         // 選択カーソルをクリックした方向へ動かす
-        arrow.GetComponent<Animator>().Play($"Arrow_{dir}");
+        animator_arrow.Play($"Arrow_{dir}");
     }
     // 決定ボタン
     public void ClickSelectBtn()
@@ -37,14 +38,14 @@ public class StageManager_13 : MonoBehaviour
         // ゲームオーバーアニメーション再生
         if(clickedBtn == upBtn)
         {
-            present.GetComponent<Animator>().Play("PresentMove_Over");
+            animator_present.GetComponent<Animator>().Play("PresentMove_Over");
         }
         // 最後十字キー(下)を押していたら
         //「かいひ」を選択しているなら
         // ゲームクリアアニメーション再生
         else
         {
-            present.GetComponent<Animator>().Play("PresentMove_Clear");
+            animator_present.GetComponent<Animator>().Play("PresentMove_Clear");
         }
     }
 

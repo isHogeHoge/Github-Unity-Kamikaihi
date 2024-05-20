@@ -1016,8 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1250d21c652cb4c76b4214ae278c1467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  speechBubble: {fileID: 1711896411}
+  animator_player: {fileID: 680238591}
 --- !u!1 &644114898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb76a6d94f5c04197afa10efa85ca81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn_TakeOffAHat: {fileID: 704366807}
+  img_takeOffAHatBtn: {fileID: 704366810}
 --- !u!1 &704366807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cushion1Btn: {fileID: 0}
-  cushion2Btn: {fileID: 1353770600}
+  cushion2Btn: {fileID: 1353770602}
   fakeBtn: {fileID: 0}
 --- !u!1 &882161156
 GameObject:
@@ -2090,8 +2089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 680238585}
-  friend2: {fileID: 1831473517}
-  speechBubble: {fileID: 1711896411}
+  animator_friend2: {fileID: 1831473520}
+  sr_speechBubble: {fileID: 1711896412}
   playerAndFriend1: {fileID: 2074037038}
   itemManager: {fileID: 57130970}
   stageManager: {fileID: 614732092}
@@ -2221,7 +2220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cushion1Btn: {fileID: 0}
   cushion2Btn: {fileID: 0}
-  fakeBtn: {fileID: 329508833}
+  fakeBtn: {fileID: 329508835}
 --- !u!1 &1262556177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6497119950821488bb3bf7497b0c715b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cushion1Btn: {fileID: 29313773}
+  cushion1Btn: {fileID: 29313775}
   cushion2Btn: {fileID: 0}
   fakeBtn: {fileID: 0}
 --- !u!1 &1353770600

@@ -7,13 +7,13 @@ using Cysharp.Threading.Tasks;
 
 public class BeehiveController : MonoBehaviour
 {
+    
+    [SerializeField] Image img_beehiveOnTheGround;
+    [SerializeField] GameObject fairy;
     [SerializeField] GameObject smokeUnderTheBeehive;
-    [SerializeField] GameObject beehiveOnTheGround;
     [SerializeField] GameObject beesByTheBeehive;
     [SerializeField] GameObject beesInTheBeehive;
     [SerializeField] GameObject beesNearTheGround;
-    [SerializeField] GameObject fairy;
-    [SerializeField] GameObject fairyBtn;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite smokeSpr;
 
@@ -26,11 +26,12 @@ public class BeehiveController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 煙アイテム使用
-        if (col.GetComponent<Image>().sprite == smokeSpr)
+        if (img_item.sprite == smokeSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // (beehive下に)煙アニメーション再生
@@ -64,7 +65,7 @@ public class BeehiveController : MonoBehaviour
     private void BeesMoveAndAppear()
     {
         // 落下後のbeehiveを表示
-        beehiveOnTheGround.GetComponent<Image>().enabled = true;
+        img_beehiveOnTheGround.enabled = true;
 
         // 横にいたハチ2匹を落下した位置まで移動させる
         for (var i = 0; i < beesByTheBeehive.transform.childCount; i++)
