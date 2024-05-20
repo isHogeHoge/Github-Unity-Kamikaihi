@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Collider_BananaItemCnt : MonoBehaviour
+public class BridsNestCnt : MonoBehaviour
 {
-    [SerializeField] GameObject BananaInBirdsNest;
+    [SerializeField] Image img_bananaInBirdsNest;
     [SerializeField] GameObject monkey;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite bananaSpr;
@@ -26,16 +26,18 @@ public class Collider_BananaItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // バナナアイテム使用
-        if (col.GetComponent<Image>().sprite == bananaSpr)
+        if (img_item.sprite == bananaSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+
+            img_item.sprite = null;
             im.UsedItem();                           
 
             // 鳥の巣にバナナを表示
             this.GetComponent<Image>().enabled = false;
-            BananaInBirdsNest.GetComponent<Image>().enabled = true;
+            img_bananaInBirdsNest.enabled = true;
 
             // 猿出現
             monkey.SetActive(true);

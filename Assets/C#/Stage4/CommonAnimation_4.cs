@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimaController_4 : MonoBehaviour
+public class CommonAnimation_4 : MonoBehaviour
 {
-    [SerializeField] GameObject eraserBtn;
-    [SerializeField] GameObject door;
+    [SerializeField] Animator animator_eraserBtn;
+    [SerializeField] Animator animator_door;
 
     /// <summary>
     /// ドアが開くアニメーション再生
@@ -13,11 +13,11 @@ public class AnimaController_4 : MonoBehaviour
     /// <param name="amount">ドアの開き具合(Half,Full)</param>
     private void OpenTheDoor(string amount)
     {
-        door.GetComponent<Animator>().Play($"DoorIsOpened_{amount}");
+        animator_door.Play($"DoorIsOpened_{amount}");
     }
     // 黒板消しが落ちるアニメーション再生
     private void EraserFall()
     {
-        eraserBtn.GetComponent<Animator>().Play("EraserFall");
+        animator_eraserBtn.Play("EraserFall");
     }
 }
