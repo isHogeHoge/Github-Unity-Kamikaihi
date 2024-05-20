@@ -826,10 +826,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b0f095545774d588492c8339bb96d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1682734945}
-  friend1: {fileID: 600218226}
-  friend2: {fileID: 1373666404}
-  creamPuffWithLoupeImg: {fileID: 796509223}
+  animator_player: {fileID: 1682734949}
+  animator_friend1: {fileID: 600218230}
+  animator_friend2: {fileID: 1373666408}
+  img_creamPuffWithLoupe: {fileID: 796509225}
   collider_LoupeItem: {fileID: 379121521}
   spicyCreamPuffSpr: {fileID: 21300000, guid: ea477c1bbcf94464fa07e2618eff620a, type: 3}
   sweetCreamPuffSpr: {fileID: 21300000, guid: 70037b379c1994cde8049861f1368314, type: 3}

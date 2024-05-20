@@ -13,25 +13,24 @@ public class StageManager_9 : MonoBehaviour
     [SerializeField] GameObject over2VP;
     // ---------------------------
     [SerializeField] GameObject endVideo;
-    [SerializeField] GameObject rope2;
+    [SerializeField] Image img_rope2;
     [SerializeField] GameObject bird; 
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject knot;  // ロープの結び目
+    [SerializeField] Animator animator_player;
+    [SerializeField] Image img_knot;  // ロープの結び目
     [SerializeField] Vector3 endPos;   // Birdの移動先座標
 
     private StageManager sm;
-    private RectTransform rect;            // BirdのRectTransform
+    private RectTransform rect_bird;            
     private const float moveSpeed = 500f;   // Birdの移動スピード
     private bool moving = false;            // Bird移動フラグ
 
     void Start()
     {
         sm = this.GetComponent<StageManager>();
-        rect = bird.GetComponent<RectTransform>();
+        rect_bird = bird.GetComponent<RectTransform>();
 
         // ステージ初期位置から右に1ページ分だけ移動できるように設定
         this.GetComponent<StageScrollCnt>().maxCountR = 1;
-
     }
 
     private void Update()
@@ -39,9 +38,9 @@ public class StageManager_9 : MonoBehaviour
         // Bird移動
         if (moving)
         {
-            rect.anchoredPosition = Vector3.MoveTowards(rect.anchoredPosition, endPos, moveSpeed * Time.deltaTime);
+            rect_bird.anchoredPosition = Vector3.MoveTowards(rect_bird.anchoredPosition, endPos, moveSpeed * Time.deltaTime);
             // endPosまで移動したら、移動終了
-            if (rect.anchoredPosition.x == endPos.x)
+            if (rect_bird.anchoredPosition.x == endPos.x)
             {
                 moving = false;
             }
@@ -57,19 +56,20 @@ public class StageManager_9 : MonoBehaviour
         sm.CantGameControl();
 
         // Playerとロープが繋がっているなら
-        // ロープの切れ目を結んでいるかいないかで再生するビデオを選択
-        if (rope2.GetComponent<Image>().enabled)
+        
+        if (img_rope2.enabled)
         {
             GameObject videoPlayer = null;
+            // ロープの切れ目を結んでいるかいないかで再生するビデオを選択
             // 結び目⚪︎
-            if (knot.activeSelf == false)
+            if (img_knot.enabled)
             {
-                videoPlayer = over1VP;
+                videoPlayer = over2VP;
             }
             // 結び目×
             else
             {
-                videoPlayer = over2VP;
+                videoPlayer = over1VP;
             }
 
             // ゲームオーバービデオの再生 → ゲームオーバー処理
@@ -80,14 +80,13 @@ public class StageManager_9 : MonoBehaviour
         else
         {
             // ゲームオーバーアニメーション再生
-            player.GetComponent<Animator>().Play("PlayerFall1");
+            animator_player.Play("PlayerFall1");
         }
     }
     // 鳥をクリックした時、移動開始
     public void BirdMove()
     {
-        Animator animator = bird.GetComponent<Animator>();
-        animator.Play("BirdFly");
+        bird.GetComponent<Animator>().Play("BirdFly");
         moving = true;
     }
     // -------------------------------

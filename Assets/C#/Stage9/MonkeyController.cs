@@ -6,20 +6,19 @@ using UnityEngine.UI;
 
 public class MonkeyController : MonoBehaviour
 {
-    [SerializeField] GameObject monkey;
-    [SerializeField] GameObject birdsNest;
-    [SerializeField] GameObject BananaInBirdsNest;
-    [SerializeField] GameObject RVine;
-    [SerializeField] GameObject MVine;
-    [SerializeField] GameObject LVine;
+    [SerializeField] Image img_birdsNest;
+    [SerializeField] Image img_bananaInBirdsNest;
+    [SerializeField] Animator animator_RVine;
+    [SerializeField] Animator animator_MVine;
+    [SerializeField] Animator animator_LVine;
 
     // ------------ Animation ------------
     // バナナ取得時
     private void InActiveBananaInBirdsNest()
     {
         // 鳥の巣からバナナを非表示
-        BananaInBirdsNest.GetComponent<Image>().enabled = false;
-        birdsNest.GetComponent<Image>().enabled = true;
+        img_bananaInBirdsNest.enabled = false;
+        img_birdsNest.enabled = true;
     }
     // ツタを通り過ぎた後
     private void VineHangDown(string dir)
@@ -28,13 +27,13 @@ public class MonkeyController : MonoBehaviour
         switch (dir)
         {
             case "R":
-                RVine.GetComponent<Animator>().Play($"RVineHangDown");
+                animator_RVine.Play($"RVineHangDown");
                 break;
             case "M":
-                MVine.GetComponent<Animator>().Play($"MVineHangDown");
+                animator_MVine.Play($"MVineHangDown");
                 break;
             case "L":
-                LVine.GetComponent<Animator>().Play($"LVineHangDown");
+                animator_LVine.Play($"LVineHangDown");
                 break;
             default:
                 Debug.Log("無効な文字列です");

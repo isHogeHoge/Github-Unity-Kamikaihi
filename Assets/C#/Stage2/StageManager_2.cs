@@ -8,22 +8,22 @@ using Cysharp.Threading.Tasks;
 
 public class StageManager_2 : MonoBehaviour
 {
-    [SerializeField] GameObject toiletLever;
-    [SerializeField] GameObject player;        
-    [SerializeField] GameObject speechBubble;  
-    [SerializeField] GameObject paperHolder;   
-    [SerializeField] Sprite openSpr;           // トイレットペーパーホルダーが開いている画像
-    [SerializeField] Sprite closeSpr;          // トイレットペーパーホルダーが閉まっている画像
+    [SerializeField] Image img_paperHolder;
+    [SerializeField] Animator animator_toiletLever;
+    [SerializeField] Animator animator_player;
+    [SerializeField] SpriteRenderer sr_speechBubble;
+    [SerializeField] Sprite openSpr;   // トイレットペーパーホルダーが開いている画像
+    [SerializeField] Sprite closeSpr;  // トイレットペーパーホルダーが閉まっている画像
 
-    private bool isOpen = false;                    // トイレットペーパーホルダー開閉フラグ
-    private int clickCount = 0;                 // トイレのレバークリック数
+    private bool isOpen = false;        // トイレットペーパーホルダー開閉フラグ
+    private int clickCount = 0;        // トイレのレバークリック数
 
     // ---------- ボタン -----------
     // ドア
     public void ClickDoor()
     {
         // Playerがドアの方を見るアニメーションを再生
-        player.GetComponent<Animator>().Play("PlayerTurn");
+        animator_player.Play("PlayerTurn");
     }
     // トイレットペーパーホルダー
     public void ClickToiletPaperHodler()
@@ -33,31 +33,32 @@ public class StageManager_2 : MonoBehaviour
         if (isOpen) 
         {
             // トイレットペーパーホルダーが開いている画像を代入
-            paperHolder.GetComponent<Image>().sprite = openSpr;
+            img_paperHolder.sprite = openSpr;
         }
         else
         {
             // トイレットペーパーホルダーが閉まっている画像を代入
-            paperHolder.GetComponent<Image>().sprite = closeSpr;
+            img_paperHolder.sprite = closeSpr;
         }
     }
     // トイレのレバー
     public void ClickToiletLever()
     {
         clickCount++;
-        toiletLever.GetComponent<Animator>().Play("ToiletLeverIsPulled", 0, 0);
+        animator_toiletLever.Play("ToiletLeverIsPulled", 0, 0);
         // レバーを5回引いたら、ゲームオーバー
         if(clickCount == 5)
         {
-            toiletLever.GetComponent<Animator>().Play("ToiletLeverFall");
-            player.GetComponent<Animator>().Play("PlayerOver2");
+            this.GetComponent<StageManager>().CantGameControl();
+            animator_toiletLever.Play("ToiletLeverFall");
+            animator_player.Play("PlayerOver2");
         }
     }
     // プレイヤー
     public void ClickPlayer()
     {
         // 吹き出しを表示・非表示
-        speechBubble.GetComponent<SpriteRenderer>().enabled = !speechBubble.GetComponent<SpriteRenderer>().enabled;
+        sr_speechBubble.enabled = !sr_speechBubble.enabled;
     }
     // -----------------------------
 }

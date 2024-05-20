@@ -10,8 +10,15 @@ public class StageManager_6 : MonoBehaviour
     [SerializeField] GameObject centaurs;
     [SerializeField] GameObject femaleCentaur;
     [SerializeField] GameObject enemy;
-    [SerializeField] GameObject player;
+    [SerializeField] Animator animator_player;
     [SerializeField] GameObject fadePanel;
+
+    private FadeInAndOut fadeCnt;
+
+    private void Start()
+    {
+        fadeCnt = fadePanel.GetComponent<FadeInAndOut>();
+    }
 
     // Enemyに花冠&イチゴアイテムを使用後、揺れている草むらをクリックしたらゲームクリア
     public async void AppearFemaleCentaur()
@@ -23,7 +30,7 @@ public class StageManager_6 : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeIn(this.GetCancellationTokenOnDestroy());
 
         // FemaleCentaur & Enemyの切り替え
         femaleCentaur.GetComponent<Image>().enabled = false;
@@ -31,10 +38,10 @@ public class StageManager_6 : MonoBehaviour
         centaurs.GetComponent<Image>().enabled = true;
 
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeOut(this.GetCancellationTokenOnDestroy());
 
         // FemaleCentaur & Enemy退場(ゲームクリア)
-        player.GetComponent<Animator>().Play("PlayerSeeOff");
+        animator_player.Play("PlayerSeeOff");
         centaurs.GetComponent<Animator>().enabled = true;
         this.GetComponent<StageManager>().GameClear(6, this.GetCancellationTokenOnDestroy()).Forget();
     }

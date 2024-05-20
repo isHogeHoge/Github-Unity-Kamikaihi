@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController_3 : MonoBehaviour
 {
-    [SerializeField] GameObject sittingOni;
+    [SerializeField] Animator animator_sittingOni;
     private const float flowSpeedY = -0.6f;  // (プレイヤーが)川を流れるスピード
 
     private void Update()
@@ -25,8 +25,8 @@ public class PlayerController_3 : MonoBehaviour
         if(col.tag == "Change")
         {
             // Oniのアニメーション切り替え
-            Animator animator = sittingOni.GetComponent<Animator>();
-            animator.Play("OniStop");
+            animator_sittingOni.GetComponent<Animator>();
+            animator_sittingOni.Play("OniStop");
         }
     }
 }

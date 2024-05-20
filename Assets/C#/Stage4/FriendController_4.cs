@@ -4,26 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 public class FriendController_4 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject friend;
-    [SerializeField] GameObject friendsHand;
-    [SerializeField] GameObject candyOnTheGround;
-    [SerializeField] GameObject door;
+    [SerializeField] Animator animator_player;
+    [SerializeField] SpriteRenderer sr_friend;
+    [SerializeField] Animator animator_friend;
+    [SerializeField] SpriteRenderer sr_friendsHand;
+    [SerializeField] Animator animator_friendsHand;
+    [SerializeField] SpriteRenderer sr_candyOnTheGround;
 
     // --------- Friend ---------
     // キャンディーを覗き見た後
     private void ActiveFriendsHand()
     {
         // キャンディーの方に手を伸ばす
-        friend.GetComponent<SpriteRenderer>().enabled = false;
-        friendsHand.GetComponent<SpriteRenderer>().enabled = true;
-        friendsHand.GetComponent<Animator>().enabled = true;
+        sr_friend.enabled = false;
+        sr_friendsHand.enabled = true;
+        animator_friendsHand.enabled = true;
     }
     // キャンディーを取得した後
     private void PlayGameClearAnima()
     {
         // ゲームクリアアニメーション再生
-        player.GetComponent<Animator>().Play("PlayerClear");
+        animator_player.Play("PlayerClear");
     }
     // --------------------------
 
@@ -31,10 +32,10 @@ public class FriendController_4 : MonoBehaviour
     private void FriendGetACandy()
     {
         // キャンディーを取得する
-        candyOnTheGround.GetComponent<SpriteRenderer>().enabled = false;
-        friendsHand.GetComponent<SpriteRenderer>().enabled = false;
-        friend.GetComponent<Animator>().Play("FriendGetACandy");
-        friend.GetComponent<SpriteRenderer>().enabled = true;
+        sr_candyOnTheGround.enabled = false;
+        sr_friendsHand.enabled = false;
+        animator_friend.Play("FriendGetACandy");
+        sr_friend.enabled = true;
     }
     // --------------------------
 }

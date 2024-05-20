@@ -23,12 +23,19 @@ public class PlayerController_2 : MonoBehaviour
 
     private StageManager sm;   
     private ItemManager im;
+    private FadeInAndOut fadeCnt;
+    private SpriteRenderer sr_player;
+    private Animator animator_player;
 
     private void Start()
     {
         sm = stageManager.GetComponent<StageManager>();
         im = itemManager.GetComponent<ItemManager>();
+        fadeCnt = fadePanel.GetComponent<FadeInAndOut>();
 
+        sr_player = this.GetComponent<SpriteRenderer>();
+        animator_player = this.GetComponent<Animator>();
+        
     }
 
     // 接触判定(Item)
@@ -51,13 +58,13 @@ public class PlayerController_2 : MonoBehaviour
         // リコーダーアイテム使用
         if (itemSpr == recoderSpr)
         {
-            this.GetComponent<Animator>().Play("PlayerPlayARecoder");
+            animator_player.Play("PlayerPlayARecoder");
 
         }
         // テスト用紙アイテム使用
         else if (itemSpr == testpaperSpr)
         {
-            this.GetComponent<Animator>().Play("PlayerUseTestpaper");
+            animator_player.Play("PlayerUseTestpaper");
         }
         
     }
@@ -73,16 +80,16 @@ public class PlayerController_2 : MonoBehaviour
     private async void GoOutOfTheBathroom()
     {
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeIn(this.GetCancellationTokenOnDestroy());
 
         // クリア時の背景を表示
         clearImg.GetComponent<Image>().enabled = true;
         // Playerの切り替え
-        this.GetComponent<SpriteRenderer>().enabled = false;
+        sr_player.enabled = false;
         player_clear.GetComponent<Image>().enabled = true;
         
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeOut(this.GetCancellationTokenOnDestroy());
 
         // Playerがトイレから出るアニメーション再生
         player_clear.GetComponent<Animator>().enabled = true;
@@ -93,7 +100,7 @@ public class PlayerController_2 : MonoBehaviour
         toiletLid.GetComponent<Image>().enabled = true;
         toiletSeat.GetComponent<Image>().enabled = true;
         // Playerの切り替え
-        this.GetComponent<SpriteRenderer>().enabled = false;
+        sr_player.enabled = false;
         playerOnTheFountain.GetComponent<Image>().enabled = true;
         // Playが噴水に押し上げられるアニメーション再生
         playerOnTheFountain.GetComponent<Animator>().enabled = true;

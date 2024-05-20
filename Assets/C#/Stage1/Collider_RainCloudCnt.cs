@@ -10,7 +10,7 @@ public class Collider_RainCloudCnt : MonoBehaviour
 {
     [SerializeField] GameObject stageManager;  
     [SerializeField] GameObject rainbow;       
-    [SerializeField] GameObject player;        
+    [SerializeField] GameObject player;
     [SerializeField] Sprite gameClearSpr;      
     [SerializeField] int stageId;             
 

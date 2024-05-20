@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;
-using UnityEngine.Video;
-using Cysharp.Threading.Tasks;
 
 public class Collider_CandyItemCnt : MonoBehaviour
 {
-    [SerializeField] GameObject eraserBtn;
-    [SerializeField] GameObject friend;
-    [SerializeField] GameObject candyOnTheGround;
+    [SerializeField] Animator animator_eraserBtn;
+    [SerializeField] Animator animator_friend;
+    [SerializeField] SpriteRenderer sr_candyOnTheGround;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite candySpr;
@@ -33,22 +30,23 @@ public class Collider_CandyItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // キャンディーアイテム使用
-        if (col.GetComponent<Image>().sprite == candySpr)
+        if (img_item.sprite == candySpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             im.UsedItem();                           
             
             // ゲーム操作を禁止にする
             sm.CantGameControl();
 
             // friendにキャンディーを取らせる
-            friend.GetComponent<Animator>().Play("FriendPeek");
-            candyOnTheGround.GetComponent<SpriteRenderer>().enabled = true;
+            animator_friend.Play("FriendPeek");
+            sr_candyOnTheGround.enabled = true;
 
             // 黒板消しが落ちるアニメーション(クリア時)再生フラグON
-            eraserBtn.GetComponent<Animator>().SetBool("isClear", true);
+            animator_eraserBtn.SetBool("isClear", true);
 
         }
 

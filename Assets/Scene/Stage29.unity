@@ -5027,8 +5027,8 @@ MonoBehaviour:
   rightButton: {fileID: 286686259}
   kickButton: {fileID: 1417828071}
   itemButton: {fileID: 1806782233}
-  hpBar: {fileID: 599487700}
-  itemBar: {fileID: 863996238}
+  img_hpBar: {fileID: 599487702}
+  img_itemBar: {fileID: 863996240}
   slimes: {fileID: 526981495}
   hpBar_OverSpr: {fileID: 21300000, guid: 2e9e60b1f57954083acf06014614a1d1, type: 3}
   stageNum: 29
@@ -10723,9 +10723,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3589825
     y: 0
-    width: 1
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

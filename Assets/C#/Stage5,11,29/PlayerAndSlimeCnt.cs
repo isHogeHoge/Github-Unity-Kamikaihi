@@ -18,8 +18,8 @@ public class PlayerAndSlimeCnt : MonoBehaviour
     [SerializeField] GameObject rightButton; 
     [SerializeField] GameObject kickButton;
     [SerializeField] GameObject itemButton; // きな粉アイテム使用ボタン
-    [SerializeField] GameObject hpBar;       
-    [SerializeField] GameObject itemBar;    
+    [SerializeField] Image img_hpBar;       
+    [SerializeField] Image img_itemBar;    
     [SerializeField] GameObject slimes;      
     [SerializeField] Sprite hpBar_OverSpr;  // ゲームオーバー時のHPBar画像
     [SerializeField] int stageNum;
@@ -276,18 +276,21 @@ public class PlayerAndSlimeCnt : MonoBehaviour
         GameObject slime = direction.GetSlimeInFrontOfPlayer(this.transform.gameObject);
         if (slime)
         {
+            SpriteRenderer sr_kinakoOnSlime = slime.transform.GetChild(1).GetComponent<SpriteRenderer>();
+            SpriteRenderer sr_sprinkledKinako = slime.transform.GetChild(2).GetComponent<SpriteRenderer>();
+
             float playerHeight = this.GetComponent<SpriteRenderer>().bounds.size.y;
             // SlimeがPlayer(足元座標)より上にあるなら、きな粉が奥に表示されるようにレイヤーを変更する
             if (slime.transform.position.y > this.transform.position.y - playerHeight / 2)
             {
-                slime.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 3;
-                slime.transform.GetChild(2).GetComponent<SpriteRenderer>().sortingOrder = 3;
+                sr_kinakoOnSlime.sortingOrder = 3;
+                sr_sprinkledKinako.sortingOrder = 3;
             }
 
             // スライムの上にきな粉を表示
-            slime.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            sr_kinakoOnSlime.enabled = true;
             // スライムにきな粉を振りかけるアニメーション再生
-            slime.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+            sr_sprinkledKinako.enabled = true;
             slime.transform.GetChild(2).GetComponent<Animator>().enabled = true;
         }
     }
@@ -314,7 +317,7 @@ public class PlayerAndSlimeCnt : MonoBehaviour
                 // きな粉アイテムを使用可能に
                 gotAKinako = true;
                 col.transform.gameObject.SetActive(false);
-                itemBar.GetComponent<Image>().enabled = true;
+                img_itemBar.enabled = true;
                 itemButton.GetComponent<Button>().enabled = true;
             }
             // スライム内部と接触(ゲームオーバー)
@@ -324,7 +327,7 @@ public class PlayerAndSlimeCnt : MonoBehaviour
                 cancelPnl.SetActive(true);
                 isClicked_WASDBtn = false;
                 // ゲームオーバー処理
-                hpBar.GetComponent<Image>().sprite = hpBar_OverSpr;
+                img_hpBar.sprite = hpBar_OverSpr;
                 animator_player.Play("PlayerDead");
                 sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
             }
@@ -364,9 +367,7 @@ public class PlayerAndSlimeCnt : MonoBehaviour
                 col_slime = col.gameObject;
                 endPos_slime = direction.SetTargetPos(col_slime);
                 moving_slime = true;
-
             }
-            
         }
     }
     // ++++++++++++++++++++++++++++++++

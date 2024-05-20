@@ -4411,10 +4411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478e36bdd7f7e4492a4cd4ae456d7f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toiletLever: {fileID: 2120210690}
-  player: {fileID: 680238585}
-  speechBubble: {fileID: 1125789388}
-  paperHolder: {fileID: 1115954277}
+  img_paperHolder: {fileID: 1115954281}
+  animator_toiletLever: {fileID: 2120210696}
+  animator_player: {fileID: 680238591}
+  sr_speechBubble: {fileID: 1125789389}
   openSpr: {fileID: 21300000, guid: 9a7484c0e310345b8943aced6eeb006b, type: 3}
   closeSpr: {fileID: 21300000, guid: 33e1d1fc9519f4aa5a8afd07d3a6204e, type: 3}
 --- !u!1001 &2406440567917162757

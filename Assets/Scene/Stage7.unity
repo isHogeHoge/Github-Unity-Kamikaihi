@@ -1142,9 +1142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0258a5c1721c14ff68e426c799d14bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gUmbrella: {fileID: 303829448}
-  rUmbrella: {fileID: 1831594977}
-  yUmbrella: {fileID: 699446732}
+  sr_RUmbrella: {fileID: 1831594978}
+  sr_YUmbrella: {fileID: 699446733}
+  sr_GUmbrella: {fileID: 303829449}
   stageManager: {fileID: 614732092}
   endPos: {x: 3.75, y: -1.62}
 --- !u!1 &565486639
@@ -1418,8 +1418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b221b6d11dc4bce817dae18a3fbe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rUmbrellaOnTheGround: {fileID: 1654611324}
-  yUmbrellaOnTheGround: {fileID: 2083461339}
+  img_RUmbrellaOnTheGround: {fileID: 1654611326}
+  img_YUmbrellaOnTheGround: {fileID: 2083461341}
   itemManager: {fileID: 57130970}
   stageManager: {fileID: 614732092}
   gUmbrellaSpr: {fileID: 21300000, guid: c708ed7f2fcab4641aaf57147c47fb11, type: 3}

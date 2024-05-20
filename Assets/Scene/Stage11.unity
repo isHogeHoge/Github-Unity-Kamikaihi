@@ -2896,8 +2896,8 @@ MonoBehaviour:
   rightButton: {fileID: 286686259}
   kickButton: {fileID: 1417828071}
   itemButton: {fileID: 0}
-  hpBar: {fileID: 599487700}
-  itemBar: {fileID: 0}
+  img_hpBar: {fileID: 599487702}
+  img_itemBar: {fileID: 0}
   slimes: {fileID: 526981495}
   hpBar_OverSpr: {fileID: 21300000, guid: 2e9e60b1f57954083acf06014614a1d1, type: 3}
   stageNum: 11

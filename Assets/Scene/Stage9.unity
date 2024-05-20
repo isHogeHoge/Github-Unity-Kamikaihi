@@ -244,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135eac611e7af4db4be4394ed27f40e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RVineBtn: {fileID: 314899881}
-  MVineBtn: {fileID: 363364723}
-  LVineBtn: {fileID: 1260954992}
+  RVineBtn: {fileID: 314899884}
+  MVineBtn: {fileID: 363364726}
+  LVineBtn: {fileID: 1260954995}
 --- !u!1 &128522745
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,9 +597,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135eac611e7af4db4be4394ed27f40e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RVineBtn: {fileID: 314899881}
-  MVineBtn: {fileID: 363364723}
-  LVineBtn: {fileID: 1260954992}
+  RVineBtn: {fileID: 314899884}
+  MVineBtn: {fileID: 363364726}
+  LVineBtn: {fileID: 1260954995}
 --- !u!1 &266135488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,12 +1019,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3d0eb3bbe504273b6d29beb1fcc55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monkey: {fileID: 314441200}
-  birdsNest: {fileID: 799261514}
-  BananaInBirdsNest: {fileID: 1857149966}
-  RVine: {fileID: 86453694}
-  MVine: {fileID: 227423608}
-  LVine: {fileID: 1282480760}
+  img_birdsNest: {fileID: 799261518}
+  img_bananaInBirdsNest: {fileID: 1857149968}
+  animator_RVine: {fileID: 86453698}
+  animator_MVine: {fileID: 227423612}
+  animator_LVine: {fileID: 1282480764}
 --- !u!1 &314899881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,10 +2390,10 @@ MonoBehaviour:
   over1VP: {fileID: 167677236}
   over2VP: {fileID: 1217849945}
   endVideo: {fileID: 505513493}
-  rope2: {fileID: 624633833}
+  img_rope2: {fileID: 624633835}
   bird: {fileID: 178593626}
-  player: {fileID: 680238585}
-  knot: {fileID: 839182942}
+  animator_player: {fileID: 680238594}
+  img_knot: {fileID: 839182944}
   endPos: {x: -710, y: 827, z: 0}
 --- !u!114 &614732102
 MonoBehaviour:
@@ -2847,8 +2846,8 @@ MonoBehaviour:
   clearVP: {fileID: 266135488}
   over3VP: {fileID: 288142712}
   over4VP: {fileID: 287557100}
-  rope2: {fileID: 624633833}
-  knot: {fileID: 839182942}
+  img_rope2: {fileID: 624633835}
+  img_knot: {fileID: 839182944}
   GameEndVideo: {fileID: 505513493}
   itemManager: {fileID: 1620335196}
   stageManager: {fileID: 614732092}
@@ -3114,7 +3113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7e9e13564654abfb5cf87e7d58ec10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BananaInBirdsNest: {fileID: 1857149966}
+  img_bananaInBirdsNest: {fileID: 1857149968}
   monkey: {fileID: 314441200}
   itemManager: {fileID: 1620335196}
   bananaSpr: {fileID: 21300000, guid: ffb9c8997219243259d729451f42be21, type: 3}
@@ -4214,9 +4213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135eac611e7af4db4be4394ed27f40e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RVineBtn: {fileID: 314899881}
-  MVineBtn: {fileID: 363364723}
-  LVineBtn: {fileID: 1260954992}
+  RVineBtn: {fileID: 314899884}
+  MVineBtn: {fileID: 363364726}
+  LVineBtn: {fileID: 1260954995}
 --- !u!1 &1422724661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 118548120412157141, guid: 1cfa655e963724e8890947780acdf265, type: 3}

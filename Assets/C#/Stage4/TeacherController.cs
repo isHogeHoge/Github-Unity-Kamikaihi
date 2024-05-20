@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TeacherController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] SpriteRenderer sr_player;
     [SerializeField] GameObject playerAndTeacher;
     private const float moveSpeed = -2.0f;
     private bool isMoving = true;
@@ -26,8 +26,7 @@ public class TeacherController : MonoBehaviour
         {
             // 移動ストップ & アニメーションの切り替え
             isMoving = false;   // 移動ストップ
-            Animator animator = this.GetComponent<Animator>();
-            animator.Play("TeacherStop");
+            this.GetComponent<Animator>().Play("TeacherStop");
         }
 
     }
@@ -36,7 +35,7 @@ public class TeacherController : MonoBehaviour
     private void PlayPlayerAndTeacherAnima()
     {
         this.GetComponent<SpriteRenderer>().enabled = false;
-        player.GetComponent<SpriteRenderer>().enabled = false;
+        sr_player.enabled = false;
         playerAndTeacher.SetActive(true);
     }
 }

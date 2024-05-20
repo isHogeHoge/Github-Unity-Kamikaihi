@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FriendController_10 : MonoBehaviour
 {
-    [SerializeField] GameObject magicCircle;
+    [SerializeField] Animator animator_magicCircle;
     [SerializeField] GameObject ball;
 
     private int count = 0; // "FriendStop"アニメーション再生回数
@@ -13,7 +13,7 @@ public class FriendController_10 : MonoBehaviour
     // Friend召喚後、魔法陣アニメーション終了
     private void StopMagicCircleAnima()
     {
-        magicCircle.GetComponent<Animator>().Play("MagicCircleFinish");
+        animator_magicCircle.Play("MagicCircleFinish");
     }
 
     // "FriendStop"アニメーションが3回再生されていたら、ボールを投げるアニメーション再生

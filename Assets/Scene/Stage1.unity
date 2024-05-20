@@ -742,6 +742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae467772a38f461d859582d695e307d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr_player: {fileID: 680238588}
+  boxCol_player: {fileID: 680238587}
   itemManager: {fileID: 57130970}
   stageManager: {fileID: 614732092}
   umbrellaSpr: {fileID: 21300000, guid: df624bd92d384489981ac09aae10db01, type: 3}

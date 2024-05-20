@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b073988ab2e8a43118f50d2704d26637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sittingOni: {fileID: 1696532324}
+  animator_sittingOni: {fileID: 1696532327}
 --- !u!1 &844794606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,8 +1980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38cfed1183bf4752853cff5803bbba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peachBesideOni1: {fileID: 1546717120}
-  peachBesideOni2: {fileID: 1903134026}
+  sr_peachBesideOni1: {fileID: 1546717121}
+  sr_peachBesideOni2: {fileID: 1903134027}
   standingOni: {fileID: 1826195933}
 --- !u!1 &1747236628
 GameObject:
@@ -2388,8 +2388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 1986257764}
-  player: {fileID: 680238585}
-  newPlayerSpr: {fileID: 21300000, guid: 7eecd855c89fd42ac967ccd3da3f0b8e, type: 3}
+  sr_player: {fileID: 680238588}
+  playerClearSpr: {fileID: 21300000, guid: 7eecd855c89fd42ac967ccd3da3f0b8e, type: 3}
 --- !u!1001 &1829357077
 PrefabInstance:
   m_ObjectHideFlags: 0

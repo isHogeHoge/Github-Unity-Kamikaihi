@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerController_4 : MonoBehaviour
 {
-    [SerializeField] GameObject door;
-    [SerializeField] GameObject eraser;
-    [SerializeField] GameObject friend;
+    [SerializeField] Animator animator_friend;
 
     // ---------- Animation -----------
     // ジャンプアニメーション後、Friendをドアガラスの中に表示
     private void PlayFriendLookAnima()
     {
-        friend.GetComponent<Animator>().Play("FriendLookThroughTheGlass");
+        animator_friend.Play("FriendLookThroughTheGlass");
     }
     // -----------------------------------
 

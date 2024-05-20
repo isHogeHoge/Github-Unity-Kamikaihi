@@ -5,8 +5,8 @@ using Cysharp.Threading.Tasks;
 public class StandingOniCnt : MonoBehaviour
 {
     [SerializeField] GameObject stageManager;   
-    [SerializeField] GameObject player;        
-    [SerializeField] Sprite newPlayerSpr;       // クリア後のプレイヤー画像
+    [SerializeField] SpriteRenderer sr_player;        
+    [SerializeField] Sprite playerClearSpr;
 
     private StageManager sm;
 
@@ -19,7 +19,7 @@ public class StandingOniCnt : MonoBehaviour
     // "OniWalk"アニメーション再生後に実行
     private void GameClear()
     {
-        player.GetComponent<SpriteRenderer>().sprite = newPlayerSpr;
+        sr_player.sprite = playerClearSpr;
         sm.GameClear(3, this.GetCancellationTokenOnDestroy()).Forget();
     }
 

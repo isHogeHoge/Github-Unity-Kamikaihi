@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class StageManager_4 : MonoBehaviour
 {
-    [SerializeField] GameObject player;            
-    [SerializeField] GameObject friend;           
+    [SerializeField] Animator animator_player;            
+    [SerializeField] Animator animator_friend;           
     [SerializeField] GameObject teacher;          
 
     private StageManager sm;
@@ -27,7 +27,7 @@ public class StageManager_4 : MonoBehaviour
     public void ClickDoorBtn()
     {
         GameOver("PlayerOpenTheDoor");
-        friend.GetComponent<Animator>().Play("FriendTeasePlayer");
+        animator_friend.Play("FriendTeasePlayer");
     }
     // 消火栓の警報器
     public void ClickAlarmBtn()
@@ -47,8 +47,7 @@ public class StageManager_4 : MonoBehaviour
         sm.CantGameControl();
 
         // Playerのアニメーション切り替え(ゲームオーバー)
-        Animator animator = player.GetComponent<Animator>();
-        animator.Play($"{animation}");
+        animator_player.Play($"{animation}");
     }
 
 }

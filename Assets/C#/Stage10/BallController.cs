@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField] GameObject lEnemy;
-    [SerializeField] GameObject mEnemy;
-    [SerializeField] GameObject rEnemy;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject friend;
+    [SerializeField] Animator animator_LEnemy;
+    [SerializeField] Animator animator_MEnemy;
+    [SerializeField] Animator animator_REnemy;
+    [SerializeField] Animator animator_friend;
+    [SerializeField] Animator animator_player;
 
     // Playerが投げたボールのアニメーション終了後
     // Enemyがボールをキャッチするアニメーション再生
@@ -18,13 +18,13 @@ public class BallController : MonoBehaviour
         switch (someone)
         {
             case "LEnemy":
-                lEnemy.GetComponent<Animator>().Play("LEnemyCatch");
+                animator_LEnemy.Play("LEnemyCatch");
                 break;
             case "MEnemy":
-                mEnemy.GetComponent<Animator>().Play("MEnemyCatch");
+                animator_MEnemy.Play("MEnemyCatch");
                 break;
             case "REnemy":
-                rEnemy.GetComponent<Animator>().Play("REnemyCatch");
+                animator_REnemy.Play("REnemyCatch");
                 break;
             default:
                 Debug.Log("無効な文字列です");
@@ -39,13 +39,13 @@ public class BallController : MonoBehaviour
         switch (someone)
         {
             case "LEnemy":
-                lEnemy.GetComponent<Animator>().Play("LEnemyHit");
+                animator_LEnemy.Play("LEnemyHit");
                 break;
             case "MEnemy":
-                mEnemy.GetComponent<Animator>().Play("MEnemyHit");
+                animator_MEnemy.Play("MEnemyHit");
                 break;
             case "REnemy":
-                rEnemy.GetComponent<Animator>().Play("REnemyHit");
+                animator_REnemy.Play("REnemyHit");
                 break;
             default:
                 Debug.Log("無効な文字列です");
@@ -57,8 +57,8 @@ public class BallController : MonoBehaviour
     private void PlayGameClearAnima()
     {
         // ゲームクリアアニメーション再生
-        friend.GetComponent<Animator>().Play("FriendStop");
-        player.GetComponent<Animator>().Play("PlayerClear");
+        animator_friend.Play("FriendStop");
+        animator_player.Play("PlayerClear");
 
     }
     

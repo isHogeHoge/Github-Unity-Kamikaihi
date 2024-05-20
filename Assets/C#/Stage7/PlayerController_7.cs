@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerController_7 : MonoBehaviour
 {
-    [SerializeField] GameObject rUmbrellaOnTheGround;
-    [SerializeField] GameObject yUmbrellaOnTheGround;
+    [SerializeField] Image img_RUmbrellaOnTheGround;
+    [SerializeField] Image img_YUmbrellaOnTheGround;
     [SerializeField] GameObject itemManager;   
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite gUmbrellaSpr;
@@ -20,13 +20,14 @@ public class PlayerController_7 : MonoBehaviour
 
     private ItemManager im;          
     private StageManager sm;
+    private SpriteRenderer sr_player;
     private bool openGUmbrella = false;
 
     private void Start()
     {
         im = itemManager.GetComponent<ItemManager>();        
-        sm = stageManager.GetComponent<StageManager>();    
-
+        sm = stageManager.GetComponent<StageManager>();
+        sr_player = this.GetComponent<SpriteRenderer>();
     }
 
     // 雨粒と接触時(ゲームオーバー)
@@ -41,17 +42,17 @@ public class PlayerController_7 : MonoBehaviour
         // さしていた傘を地面に表示
         if (col.tag == "Dead")
         {
-            if (this.GetComponent<SpriteRenderer>().sprite == openRUmbrellaSpr)
+            if (sr_player.sprite == openRUmbrellaSpr)
             {
-                rUmbrellaOnTheGround.GetComponent<Image>().enabled = true;
+                img_RUmbrellaOnTheGround.enabled = true;
             }
-            else if (this.GetComponent<SpriteRenderer>().sprite == openYUmbrellaSpr)
+            else if (sr_player.sprite == openYUmbrellaSpr)
             {
-                yUmbrellaOnTheGround.GetComponent<Image>().enabled = true;
+                img_YUmbrellaOnTheGround.enabled = true;
             }
 
             // ゲームオーバー処理
-            this.GetComponent<SpriteRenderer>().sprite = playerOverSpr;
+            sr_player.sprite = playerOverSpr;
             sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
             this.GetComponent<BoxCollider2D>().enabled = false;
         }
@@ -78,7 +79,7 @@ public class PlayerController_7 : MonoBehaviour
         {
             // 緑色の傘を刺している状態に変更
             openGUmbrella = true;
-            this.GetComponent<SpriteRenderer>().sprite = openGUmbrellaSpr;
+            sr_player.sprite = openGUmbrellaSpr;
 
             // タグをGroundにし、接触時Rainオブジェクトが消えるようにする
             this.tag = "Ground";
@@ -88,13 +89,13 @@ public class PlayerController_7 : MonoBehaviour
         else if (itemSpr == rUmbrellaSpr)
         {
             // 赤色の傘を刺している状態に変更
-            this.GetComponent<SpriteRenderer>().sprite = openRUmbrellaSpr;
+            sr_player.sprite = openRUmbrellaSpr;
         }
         // 黄色
         else if (itemSpr == yUmbrellaSpr)
         {
             // 緑色の傘を刺している状態に変更
-            this.GetComponent<SpriteRenderer>().sprite = openYUmbrellaSpr;
+            sr_player.sprite = openYUmbrellaSpr;
         } 
     }
 

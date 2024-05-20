@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9c099b782a54c34a8dee54dc67bf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mEnemy: {fileID: 1848799256}
-  player: {fileID: 1363089985}
+  animator_MEnemy: {fileID: 1848799260}
+  animator_player: {fileID: 1363089991}
   ball: {fileID: 2009738530}
 --- !u!1 &322319734
 GameObject:
@@ -1718,7 +1718,7 @@ MonoBehaviour:
   cancelPnl: {fileID: 66049821}
   ball: {fileID: 2009738530}
   magicCircle: {fileID: 1877499506}
-  friend: {fileID: 1817651996}
+  animator_friend: {fileID: 1817651998}
   linecarSpr: {fileID: 21300000, guid: 3ae108fa4938240b3a40581b225d4f3a, type: 3}
 --- !u!1 &1422724661 stripped
 GameObject:
@@ -2252,7 +2252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7c60fbf937d4bb5b907d88266e7d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicCircle: {fileID: 1877499506}
+  animator_magicCircle: {fileID: 1877499510}
   ball: {fileID: 2009738530}
 --- !u!1 &1825688083 stripped
 GameObject:
@@ -2440,8 +2440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9c099b782a54c34a8dee54dc67bf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mEnemy: {fileID: 1848799256}
-  player: {fileID: 1363089985}
+  animator_MEnemy: {fileID: 1848799260}
+  animator_player: {fileID: 1363089991}
   ball: {fileID: 2009738530}
 --- !u!114 &1873747361 stripped
 MonoBehaviour:
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714e99e5f33854a7bbca0de34dbb0ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1363089985}
+  ainmator_player: {fileID: 1363089991}
   friend: {fileID: 1817651996}
 --- !u!1 &1902815717 stripped
 GameObject:
@@ -2780,8 +2780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9c099b782a54c34a8dee54dc67bf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mEnemy: {fileID: 1848799256}
-  player: {fileID: 1363089985}
+  animator_MEnemy: {fileID: 1848799260}
+  animator_player: {fileID: 1363089991}
   ball: {fileID: 2009738530}
 --- !u!1 &2009738530
 GameObject:
@@ -2894,11 +2894,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176cd52c60e25409281aaeab75508863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lEnemy: {fileID: 283026519}
-  mEnemy: {fileID: 1848799256}
-  rEnemy: {fileID: 1950629314}
-  player: {fileID: 1363089985}
-  friend: {fileID: 1817651996}
+  animator_LEnemy: {fileID: 283026523}
+  animator_MEnemy: {fileID: 1848799260}
+  animator_REnemy: {fileID: 1950629318}
+  animator_friend: {fileID: 1817651998}
+  animator_player: {fileID: 1363089991}
 --- !u!114 &2009738536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,10 +3435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a10f40108f2b452697dc07d884aabdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1363089985}
-  parentOfBall: {fileID: 93373937}
-  ball: {fileID: 2009738530}
   mob: {fileID: 910920689}
+  ball: {fileID: 2009738530}
+  img_ball: {fileID: 2009738533}
+  animator_ball: {fileID: 2009738532}
+  animator_player: {fileID: 1363089991}
+  parentOfBall: {fileID: 93373937}
 --- !u!1001 &2406440567917162757
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,9 +9,14 @@ public class PlayerController_10 : MonoBehaviour
     [SerializeField] GameObject cancelPnl;
     [SerializeField] GameObject ball;
     [SerializeField] GameObject magicCircle;
-    [SerializeField] GameObject friend;
+    [SerializeField] Animator animator_friend;
     [SerializeField] Sprite linecarSpr;
 
+    private Animator animator_player;
+    private void Start()
+    {
+        animator_player = this.GetComponent<Animator>();
+    }
     // --------- Animation ---------
     // ボールを投げるモーション終了時
     // ボールがクリックしたEnemyの方に向かっていくアニメーション再生
@@ -25,12 +30,12 @@ public class PlayerController_10 : MonoBehaviour
     // Friendのアニメーション切り替え
     private void PlayFriendStopAnima()
     {
-        friend.GetComponent<Animator>().Play("FriendStop");
+        animator_friend.Play("FriendStop");
     }
     // 再度ボールを渡すアニメーションが再生されないようにする
     private void CantPassABall()
     {
-        this.GetComponent<Animator>().SetBool("canPass", false);
+        animator_player.SetBool("canPass", false);
     }
     // -----------------------------
 
@@ -43,18 +48,19 @@ public class PlayerController_10 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // ラインカーアイテム使用
-        if (col.GetComponent<Image>().sprite == linecarSpr)
+        if (img_item.sprite == linecarSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // ゲーム操作できないようにする
             cancelPnl.SetActive(true);
 
             // 魔法陣出現アニメーション再生
-            this.GetComponent<Animator>().Play("PlayerDrawR");
+            animator_player.Play("PlayerDrawR");
             magicCircle.SetActive(true);
         }
 

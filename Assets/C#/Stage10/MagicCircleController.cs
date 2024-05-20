@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MagicCircleController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] Animator ainmator_player;
     [SerializeField] GameObject friend;
 
     // 魔法陣出現後、Playerのアニメーション切り替え
     private void PlayPlayerHopeAnima()
     {
-        player.GetComponent<Animator>().Play("PlayerHope");
+        ainmator_player.Play("PlayerHope");
     }
 
     // 魔法陣が光った後、Friend出現

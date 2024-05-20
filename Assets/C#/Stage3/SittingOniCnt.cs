@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SittingOniCnt : MonoBehaviour
 {
-    [SerializeField] GameObject peachBesideOni1; // 回収された桃(1個目)
-    [SerializeField] GameObject peachBesideOni2; // 回収された桃(2個目)
+    [SerializeField] SpriteRenderer sr_peachBesideOni1; // 回収された桃(1個目)
+    [SerializeField] SpriteRenderer sr_peachBesideOni2; // 回収された桃(2個目)
     [SerializeField] GameObject standingOni;   
     
-    private Animator animator;   
+    private Animator animator_sittingOni;
+    private Animator animator_standingOni;
     private int peachCount = 0;      // 接触した桃の数
 
     private void Start()
     {
-        animator = this.GetComponent<Animator>();
+        animator_sittingOni = this.GetComponent<Animator>();
+        animator_standingOni = standingOni.GetComponent<Animator>();
     }
 
     // 接触判定
@@ -23,10 +25,9 @@ public class SittingOniCnt : MonoBehaviour
         if(col.tag == "Item")
         {
             peachCount++;
-            Debug.Log(peachCount);
             // 流れてきた桃を回収する(非アクティブ)
             col.gameObject.SetActive(false);
-            animator.Play("OniPickup",0,0);     
+            animator_sittingOni.Play("OniPickup",0,0);     
 
         }
         // Playerと接触した時
@@ -51,11 +52,11 @@ public class SittingOniCnt : MonoBehaviour
         switch (peachCount)
         {
             case 1:
-                peachBesideOni1.GetComponent<SpriteRenderer>().enabled = true;
+                sr_peachBesideOni1.enabled = true;
                 break;
             case 2:
-                peachBesideOni1.GetComponent<SpriteRenderer>().enabled = true;
-                peachBesideOni2.GetComponent<SpriteRenderer>().enabled = true;
+                sr_peachBesideOni1.enabled = true;
+                sr_peachBesideOni2.enabled = true;
                 break;
             
         }
@@ -66,13 +67,13 @@ public class SittingOniCnt : MonoBehaviour
         if (peachCount == 3)
         {
             // 回収した桃を非表示
-            peachBesideOni1.GetComponent<SpriteRenderer>().enabled = false;
-            peachBesideOni2.GetComponent<SpriteRenderer>().enabled = false;
+            sr_peachBesideOni1.enabled = false;
+            sr_peachBesideOni2.enabled = false;
 
             // Oniの切り替え & ゲームクリアアニメーションの再生
             this.gameObject.SetActive(false);
             standingOni.SetActive(true);
-            standingOni.GetComponent<Animator>().SetBool("isClear", true);
+            animator_standingOni.SetBool("isClear", true);
 
         }
 

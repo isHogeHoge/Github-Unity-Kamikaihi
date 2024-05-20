@@ -7,6 +7,8 @@ using Cysharp.Threading.Tasks;
 
 public class PlayerController_1 : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer sr_player;
+    [SerializeField] BoxCollider2D boxCol_player;
     [SerializeField] GameObject itemManager;   
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite umbrellaSpr;
@@ -33,9 +35,9 @@ public class PlayerController_1 : MonoBehaviour
         // 雨粒と接触したらゲームオーバー
         if(col.gameObject.tag == "Dead")
         {
-            this.GetComponent<SpriteRenderer>().sprite = playerOverSpr;
+            sr_player.sprite = playerOverSpr;
             sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
-            this.GetComponent<BoxCollider2D>().enabled = false;
+            boxCol_player.enabled = false;
         }
 
     }
@@ -48,16 +50,17 @@ public class PlayerController_1 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 傘アイテム使用
-        if (col.GetComponent<Image>().sprite == umbrellaSpr)
+        if (img_item.sprite == umbrellaSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             im.UsedItem();
 
             // 傘をさしている状態に変更
             isOpeningAUmbrella = true;
-            GetComponent<SpriteRenderer>().sprite = openAnUmbrellaSpr;
+            sr_player.sprite = openAnUmbrellaSpr;
 
             // PlayerのタグをGroundにし、接触時Rainオブジェクトが消えるようにする
             this.tag = "Ground";   

@@ -302,10 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0184b3197769c45c195e6a4360e4b8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraserBtn: {fileID: 80467306}
-  eraserOnGround: {fileID: 219814266}
-  smoke1: {fileID: 592058194}
-  smoke2: {fileID: 1869784951}
+  img_eraserBtn: {fileID: 80467309}
+  sr_eraserOnGround: {fileID: 219814267}
+  sr_smoke1: {fileID: 592058195}
+  sr_smoke2: {fileID: 1869784952}
 --- !u!114 &80467313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 541530361}
   - component: {fileID: 541530364}
   m_Layer: 0
-  m_Name: Collider_UseCandyItem
+  m_Name: Collider_CandyItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1009,9 +1009,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c7937cf0e9b4ad0b3c40c70f846a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraserBtn: {fileID: 80467306}
-  friend: {fileID: 1101414857}
-  candyOnTheGround: {fileID: 1618314043}
+  animator_eraserBtn: {fileID: 80467311}
+  animator_friend: {fileID: 1101414860}
+  sr_candyOnTheGround: {fileID: 1618314044}
   stageManager: {fileID: 1906817111797123005}
   itemManager: {fileID: 1098904461}
   candySpr: {fileID: 21300000, guid: b3ab33142f8b8492db9834a3e25ed579, type: 3}
@@ -1230,9 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4504014f3095d41a3b85b28236e88ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2018113405}
-  eraser: {fileID: 80467306}
-  friend: {fileID: 1101414857}
+  animator_friend: {fileID: 1101414860}
 --- !u!114 &680238593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,8 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af888b708a444ccaaa1a10c20a9a2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraserBtn: {fileID: 80467306}
-  door: {fileID: 2018113405}
+  animator_eraserBtn: {fileID: 80467311}
+  animator_door: {fileID: 2018113408}
 --- !u!1 &699318596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e4f7f163a643ff82c00a21ef183b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
+  sr_player: {fileID: 680238588}
   playerAndTeacher: {fileID: 1160533383}
 --- !u!1 &722385690
 GameObject:
@@ -1534,11 +1532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe7b9d9ea8884c01837c88a9e34506a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  friend: {fileID: 1101414857}
-  friendsHand: {fileID: 722385690}
-  candyOnTheGround: {fileID: 1618314043}
-  door: {fileID: 2018113405}
+  animator_player: {fileID: 680238590}
+  sr_friend: {fileID: 1101414858}
+  animator_friend: {fileID: 1101414860}
+  sr_friendsHand: {fileID: 722385692}
+  animator_friendsHand: {fileID: 722385691}
+  sr_candyOnTheGround: {fileID: 1618314044}
 --- !u!114 &722385695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,8 +1550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af888b708a444ccaaa1a10c20a9a2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraserBtn: {fileID: 80467306}
-  door: {fileID: 2018113405}
+  animator_eraserBtn: {fileID: 80467311}
+  animator_door: {fileID: 2018113408}
 --- !u!1 &825042324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,11 +1930,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe7b9d9ea8884c01837c88a9e34506a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  friend: {fileID: 1101414857}
-  friendsHand: {fileID: 722385690}
-  candyOnTheGround: {fileID: 1618314043}
-  door: {fileID: 2018113405}
+  animator_player: {fileID: 680238590}
+  sr_friend: {fileID: 1101414858}
+  animator_friend: {fileID: 1101414860}
+  sr_friendsHand: {fileID: 722385692}
+  animator_friendsHand: {fileID: 722385691}
+  sr_candyOnTheGround: {fileID: 1618314044}
 --- !u!1 &1144143630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,8 +2139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af888b708a444ccaaa1a10c20a9a2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraserBtn: {fileID: 80467306}
-  door: {fileID: 0}
+  animator_eraserBtn: {fileID: 80467311}
+  animator_door: {fileID: 2018113408}
 --- !u!1 &1304555875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,7 +3190,7 @@ GameObject:
   - component: {fileID: 1796505250}
   - component: {fileID: 1796505249}
   m_Layer: 0
-  m_Name: Collider_TeacherStop
+  m_Name: Collider_StopTeacher
   m_TagString: Stop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4603,8 +4603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9813ea735ee154c9d8a055f11363b0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  friend: {fileID: 1101414857}
+  animator_player: {fileID: 680238590}
+  animator_friend: {fileID: 1101414860}
   teacher: {fileID: 699318596}
 --- !u!1001 &2406440567917162757
 PrefabInstance:

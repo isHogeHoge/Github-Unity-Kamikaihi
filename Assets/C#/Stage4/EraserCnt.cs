@@ -6,26 +6,26 @@ using UnityEngine.UI;
 
 public class EraserCnt : MonoBehaviour
 {
-    [SerializeField] GameObject eraserBtn;         
-    [SerializeField] GameObject eraserOnGround;
-    [SerializeField] GameObject smoke1;           
-    [SerializeField] GameObject smoke2;           
+    [SerializeField] Image img_eraserBtn;         
+    [SerializeField] SpriteRenderer sr_eraserOnGround;
+    [SerializeField] SpriteRenderer sr_smoke1;           
+    [SerializeField] SpriteRenderer sr_smoke2;           
 
     // ------ Animation ------
     // 黒板消し落下後
     private void ActiveSmoke()
     {
         // 煙を表示
-        smoke1.GetComponent<SpriteRenderer>().enabled = true;
-        smoke2.GetComponent<SpriteRenderer>().enabled = true;
+        sr_smoke1.enabled = true;
+        sr_smoke2.enabled = true;
 
     }
     // 黒板消しが転がった後
     private void ActiveEraserOnTheGround()
     {
         // 黒板消しを裏返った状態に変更
-        eraserBtn.GetComponent<Image>().enabled = false;
-        eraserOnGround.GetComponent<SpriteRenderer>().enabled = true;
+        img_eraserBtn.enabled = false;
+        sr_eraserOnGround.enabled = true;
 
     }
     // -----------------------

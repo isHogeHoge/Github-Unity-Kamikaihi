@@ -35,11 +35,12 @@ public class Collider_LoupeItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // ルーペ使用
-        if (col.GetComponent<Image>().sprite == loupeItemSpr)
+        if (img_item.sprite == loupeItemSpr)
         {
             // アイテム消費処理
-            col.GetComponent<Image>().sprite = null; 
+            img_item.sprite = null; 
             im.UsedItem();
 
             // 吹き出しの画像をシュークリーム&ルーペに変更

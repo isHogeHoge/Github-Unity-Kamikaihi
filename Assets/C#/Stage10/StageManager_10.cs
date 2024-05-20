@@ -6,32 +6,40 @@ using UnityEngine.UI;
 
 public class StageManager_10 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject parentOfBall;
-    [SerializeField] GameObject ball;
     [SerializeField] GameObject mob;
+    [SerializeField] GameObject ball;
+    [SerializeField] Image img_ball;
+    [SerializeField] Animator animator_ball;
+    [SerializeField] Animator animator_player;
+    [SerializeField] GameObject parentOfBall;
+
+    private StageManager sm;
+    private void Start()
+    {
+        sm = this.GetComponent<StageManager>();
+    }
 
     // ---------- Button ------------
     // Enemy
     public void ClickEnemyBtn(string someone) // クリックしたEnemy
     {
         // ゲーム操作をできないようにする
-        this.gameObject.GetComponent<StageManager>().CantGameControl(); 
+        sm.CantGameControl(); 
 
         // Playerがボールを投げるアニメーション再生
-        player.GetComponent<Animator>().Play("PlayerThrow");
+        animator_player.GetComponent<Animator>().Play("PlayerThrow");
 
         // (ボールを投げるモーション終了時)クリックしたEnemyの方にボールアニメーション再生
         switch (someone)
         {
             case "LEnemy":
-                ball.GetComponent<Animator>().SetBool("AtLEnemy", true);
+                animator_ball.SetBool("AtLEnemy", true);
                 break;
             case "MEnemy":
-                ball.GetComponent<Animator>().SetBool("AtMEnemy", true);
+                animator_ball.SetBool("AtMEnemy", true);
                 break;
             case "REnemy":
-                ball.GetComponent<Animator>().SetBool("AtREnemy", true);
+                animator_ball.SetBool("AtREnemy", true);
                 break;
             default:
                 Debug.Log("無効な文字列です");
@@ -42,15 +50,15 @@ public class StageManager_10 : MonoBehaviour
     public void ClickPlayerBtn()
     {
         // ゲーム操作をできないようにする
-        this.gameObject.GetComponent<StageManager>().CantGameControl();
+        sm.CantGameControl();
 
         // ボールがPlayerの手前に映るようにLayerを変更
         ball.transform.SetParent(parentOfBall.transform);
 
         // Playerがボールを落とすアニメーション再生(ゲームオーバー)
-        player.GetComponent<Animator>().Play("PlayerDropABall");
-        ball.GetComponent<Image>().enabled = true;
-        ball.GetComponent<Animator>().Play("BallFall");
+        animator_player.GetComponent<Animator>().Play("PlayerDropABall");
+        img_ball.enabled = true;
+        animator_ball.Play("BallFall");
         
     }
     // --------------------------------

@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2161a59779e4ab3a7349d16a821312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GreenGrassBtn: {fileID: 19620990}
+  Img_greenGrassBtn: {fileID: 19620993}
 --- !u!1001 &215986991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   centaurs: {fileID: 14188502}
   femaleCentaur: {fileID: 1473117632}
   enemy: {fileID: 1643957908}
-  player: {fileID: 1330335464}
+  animator_player: {fileID: 1330335466}
   fadePanel: {fileID: 1542391078}
 --- !u!1 &695909668
 GameObject:
@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2161a59779e4ab3a7349d16a821312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GreenGrassBtn: {fileID: 0}
+  Img_greenGrassBtn: {fileID: 19620993}
 --- !u!1 &1542391078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 693935289955122499, guid: 368337554d49a45889a5ea0a6c4067ac, type: 3}
@@ -2946,9 +2946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65c0b505dc9a4f309d6461934496a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GreenGrassL: {fileID: 164615305}
-  GreenGrassR: {fileID: 1513696398}
-  player: {fileID: 1330335464}
+  animator_GreenGrassL: {fileID: 164615307}
+  animator_GreenGrassR: {fileID: 1513696402}
+  img_player: {fileID: 1330335467}
   stageManager: {fileID: 614732092}
   itemManager: {fileID: 57130970}
   clickCancelPnl: {fileID: 449672085}

@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
 public class EnemyController_6 : MonoBehaviour
 {
-    [SerializeField] GameObject GreenGrassL;
-    [SerializeField] GameObject GreenGrassR;
-    [SerializeField] GameObject player;          
+    [SerializeField] Animator animator_GreenGrassL;
+    [SerializeField] Animator animator_GreenGrassR;
+    [SerializeField] Image img_player;          
     [SerializeField] GameObject stageManager;    
     [SerializeField] GameObject itemManager;     
     [SerializeField] GameObject clickCancelPnl;  
@@ -19,8 +18,8 @@ public class EnemyController_6 : MonoBehaviour
 
     private StageManager sm;                 
     private ItemManager im;                  
-    private Animator animator;               // 自身のアニメーター
-    private RectTransform rect;              // 自身のRectTransform
+    private Animator animator_enemy;               // 自身のアニメーター
+    private RectTransform rect_enemy;              // 自身のRectTransform
     private Vector2 startPos;                // スタート座標
     private const float moveSpeed = 500f;     // 自身の移動スピード
     private const float deltaPos = 40f;      // 自身の座標変化分
@@ -35,10 +34,10 @@ public class EnemyController_6 : MonoBehaviour
     {
         sm = stageManager.GetComponent<StageManager>();
         im = itemManager.GetComponent<ItemManager>();
-        animator = this.GetComponent<Animator>();
-        rect = this.GetComponent<RectTransform>();
+        animator_enemy = this.GetComponent<Animator>();
+        rect_enemy = this.GetComponent<RectTransform>();
 
-        startPos = rect.anchoredPosition;
+        startPos = rect_enemy.anchoredPosition;
     }
 
     private void FixedUpdate()
@@ -47,11 +46,11 @@ public class EnemyController_6 : MonoBehaviour
         if (snatched)
         {
             // スタート地点まで移動
-            this.rect.anchoredPosition = Vector3.MoveTowards(this.rect.anchoredPosition, startPos, moveSpeed * Time.deltaTime);
+            rect_enemy.anchoredPosition = Vector3.MoveTowards(rect_enemy.anchoredPosition, startPos, moveSpeed * Time.deltaTime);
             // サイズ(width,height)を徐々に小さくしていく
-            this.rect.sizeDelta = new Vector2(this.rect.sizeDelta.x - deltaSizeX, this.rect.sizeDelta.y - deltaSizeY);
+            rect_enemy.sizeDelta = new Vector2(rect_enemy.sizeDelta.x - deltaSizeX, rect_enemy.sizeDelta.y - deltaSizeY);
             // スタート地点を超えたら、移動を終える →　ゲームオーバー処理
-            if(this.rect.anchoredPosition.y >= startPos.y || this.rect.anchoredPosition.x >= startPos.x)
+            if(rect_enemy.anchoredPosition.y >= startPos.y || rect_enemy.anchoredPosition.x >= startPos.x)
             {
                 sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
                 snatched = false;
@@ -69,21 +68,22 @@ public class EnemyController_6 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 花輪アイテム使用
-        if (col.GetComponent<Image>().sprite == garlandSpr)
+        if (img_item.sprite == garlandSpr)
         {
             // アイテム消費処理
-            col.GetComponent<Image>().sprite = null; 
+            img_item.sprite = null; 
             im.UsedItem();                           
             // 自身に花輪が乗るフラグをONにし、移動アニメーションの再生
             garlandExists = true;
             MoveForward();
         }
         // イチゴアイテム使用
-        else if (col.GetComponent<Image>().sprite == strawberrySpr)
+        else if (img_item.sprite == strawberrySpr)
         {
             // アイテム消費処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             im.UsedItem();                           
             // 自身にイチゴが乗るフラグをONにし、移動アニメーションの再生
             strawberryExists = true;
@@ -105,20 +105,20 @@ public class EnemyController_6 : MonoBehaviour
         // (使用されたアイテムに応じて)移動アニメーション再生
         if(!garlandExists && !strawberryExists) // 花輪×、イチゴ×
         {
-            animator.Play("EnemyMove1");
+            animator_enemy.Play("EnemyMove1");
         }
         else if(!garlandExists && strawberryExists)    // 花輪×、イチゴ⚪︎
         {
-            animator.Play("EnemyMove2");
+            animator_enemy.Play("EnemyMove2");
         }
         else if(garlandExists && !strawberryExists)    // 花輪⚪︎、イチゴ×
         {
-            animator.Play("EnemyMove3");
+            animator_enemy.Play("EnemyMove3");
         }
         // 花輪⚪︎,イチゴ⚪︎なら、ゲームクリア処理
         else
         {
-            animator.Play("EnemyMove4");
+            animator_enemy.Play("EnemyMove4");
             CanAppearFemaleCentaur();
         }
 
@@ -132,41 +132,41 @@ public class EnemyController_6 : MonoBehaviour
     private void ChangePosition()
     {
         // 自身の座標変更
-        float posX = this.GetComponent<RectTransform>().anchoredPosition.x;
-        float posY = this.GetComponent<RectTransform>().anchoredPosition.y;
-        rect.anchoredPosition = new Vector2(posX - deltaPos, posY - (deltaPos * 2));
+        float posX = rect_enemy.anchoredPosition.x;
+        float posY = rect_enemy.anchoredPosition.y;
+        rect_enemy.anchoredPosition = new Vector2(posX - deltaPos, posY - (deltaPos * 2));
     }
     // (前進時)自身の幅&高さ変更
     private void ChangeSize()
     {
         // 自身の幅と高さ変更
-        float width = this.GetComponent<RectTransform>().sizeDelta.x;
-        float height = this.GetComponent<RectTransform>().sizeDelta.y;
-        rect.sizeDelta = new Vector2(width + (deltaSizeX * 10f), height + (deltaSizeY * 10f));
+        float width = rect_enemy.sizeDelta.x;
+        float height = rect_enemy.sizeDelta.y;
+        rect_enemy.sizeDelta = new Vector2(width + (deltaSizeX * 10f), height + (deltaSizeY * 10f));
     }
 
 
     // Playerを連れ去る処理
     private void SnatchAPlayer()
     {
-        player.GetComponent<Image>().enabled = false;
+        img_player.enabled = false;
 
         // (使用されたアイテムに応じて)Playerを連れ去るアニメーション再生
         if (garlandExists == false && strawberryExists == false) // 花輪×、イチゴ×
         {
-            animator.Play("EnemySnatch1");
+            animator_enemy.Play("EnemySnatch1");
         }
         else if (garlandExists == false && strawberryExists)  // 花輪×、イチゴ⚪︎
         {
-            animator.Play("EnemySnatch2");
+            animator_enemy.Play("EnemySnatch2");
         }
         else if (garlandExists && strawberryExists == false)  // 花輪⚪︎、イチゴ×
         {
-            animator.Play("EnemySnatch3");
+            animator_enemy.Play("EnemySnatch3");
         }
         else                                                // 花輪⚪︎、イチゴ⚪︎
         {
-            animator.Play("EnemySnatch4");
+            animator_enemy.Play("EnemySnatch4");
         }
         snatched = true;
 
@@ -177,8 +177,8 @@ public class EnemyController_6 : MonoBehaviour
     {
         clickCancelPnl.SetActive(true);
         // GreeenGrassが揺れ続けるアニメーション再生
-        GreenGrassL.GetComponent<Animator>().Play("GreenGrassLKeepShaking");
-        GreenGrassR.GetComponent<Animator>().Play("GreenGrassRKeepShaking");
+        animator_GreenGrassL.Play("GreenGrassLKeepShaking");
+        animator_GreenGrassR.Play("GreenGrassRKeepShaking");
         // 女ケンタウロス出現ボタンを押したら、ゲームクリア
         FemaleCentaurBtn.SetActive(true);
 

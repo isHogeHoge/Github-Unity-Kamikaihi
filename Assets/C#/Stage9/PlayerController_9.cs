@@ -11,8 +11,8 @@ public class PlayerController_9 : MonoBehaviour
     [SerializeField] GameObject over3VP;
     [SerializeField] GameObject over4VP;
     // ----------------------------
-    [SerializeField] GameObject rope2;
-    [SerializeField] GameObject knot; 　// ロープの結び目
+    [SerializeField] Image img_rope2;
+    [SerializeField] Image img_knot; 　// ロープの結び目
     [SerializeField] GameObject GameEndVideo;
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
@@ -37,11 +37,12 @@ public class PlayerController_9 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 蛇アイテム使用
-        if (col.GetComponent<Image>().sprite == snakeItemSpr)
+        if (img_item.sprite == snakeItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             im.UsedItem();
 
             // ゲーム操作を禁止
@@ -49,11 +50,11 @@ public class PlayerController_9 : MonoBehaviour
 
             // Playerがロープと繋がっているなら
             // ロープの切れ目を結んでいるかいないかで再生するビデオを選択
-            if (rope2.GetComponent<Image>().enabled)
+            if (img_rope2.enabled)
             {
                 GameObject videoPlayer = null;
                 // 結び目⚪︎
-                if (knot.GetComponent<Image>().enabled)
+                if (img_knot.enabled)
                 {
                     videoPlayer = over4VP;
                 }
@@ -75,10 +76,10 @@ public class PlayerController_9 : MonoBehaviour
             }
         }
         // ロープアイテム使用
-        else if (col.GetComponent<Image>().sprite == ropeItemSpr)
+        else if (img_item.sprite == ropeItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             im.UsedItem();
 
             // ゲーム操作を禁止
