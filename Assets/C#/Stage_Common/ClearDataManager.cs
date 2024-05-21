@@ -82,7 +82,7 @@ public class ClearDataManager : MonoBehaviour
 
     
     // (クリア済みなら)ステージ選択ボタンの画像を変更
-    internal async void ChangeStageSelectBtnImg()
+    internal async void ChangeStagesBtnImg()
     {
         Load();
         for(var i = 0; i < loadDatas.dataLists.Count; i++)
@@ -101,7 +101,7 @@ public class ClearDataManager : MonoBehaviour
 
     //ステージ1~30クリア済みチェック
     // (最終ステージを抜いた)全ステージクリアならtrueを返す
-    internal bool isClear_StageFrom1To30()
+    internal bool isClear_AllStage()
     {
         Load();
         for (var i = 0; i < loadDatas.dataLists.Count - 1; i++) // ステージ31(最終ステージ)は対象外なので-1

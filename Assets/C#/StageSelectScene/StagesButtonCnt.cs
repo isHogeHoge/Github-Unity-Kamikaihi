@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageSelectScene_DataManager : MonoBehaviour
+public class StagesButtonCnt : MonoBehaviour
 {
     private StageDataManager sdm;              
     private ClearDataManager cdm;                      
@@ -16,7 +16,7 @@ public class StageSelectScene_DataManager : MonoBehaviour
 
         // ステージ(クリア済み)遷移ボタンの画像を変更
         cdm = this.GetComponent<ClearDataManager>();
-        cdm.ChangeStageSelectBtnImg();
+        cdm.ChangeStagesBtnImg();
     }
 
     private void Update()
@@ -28,7 +28,11 @@ public class StageSelectScene_DataManager : MonoBehaviour
         }
 
         // ステージの解放状況に応じて、ステージ遷移ボタンをアクティブor非アクティブにする
-        sdm.isActiveStageTransitionBtn();
+        if (sdm.canActiveStage())
+        {
+            sdm.ActiveOrInActiveStagesBtn();
+        }
+        
     }
 
 }

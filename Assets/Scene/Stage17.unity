@@ -1595,8 +1595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720662c57a614910b8d1a4516d1eee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friend1: {fileID: 2003710687}
-  helmet: {fileID: 0}
+  animator_friend1: {fileID: 2003710691}
+  img_helmet: {fileID: 0}
   stageManager: {fileID: 1992910598}
   itemManager: {fileID: 1602852310}
   watermelonSpr: {fileID: 21300000, guid: 631783b843ccf4bb5ac501dfa858e622, type: 3}
@@ -2836,7 +2836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18db83407f43444fd9595d708cbaf61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutWatermelon: {fileID: 2147215549}
+  img_cutWatermelon: {fileID: 2147215551}
   clearImg: {fileID: 1924549763}
   fadePanel: {fileID: 71533301}
   stageManager: {fileID: 1992910598}
@@ -3215,8 +3215,8 @@ MonoBehaviour:
   helmet: {fileID: 0}
   player: {fileID: 1141703059}
   watermelonOnTheGround: {fileID: 1881896596}
-  hitEffect1: {fileID: 1692199599}
-  hitEffect2: {fileID: 710611511}
+  img_hitEffect1: {fileID: 1692199601}
+  animator_hitEffect2: {fileID: 710611515}
   fadePanel: {fileID: 71533301}
   stageManager: {fileID: 1992910598}
   itemManager: {fileID: 1602852310}

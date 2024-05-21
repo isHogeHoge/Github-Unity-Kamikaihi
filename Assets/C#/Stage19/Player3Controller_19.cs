@@ -16,11 +16,12 @@ public class Player3Controller_19 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 箸アイテム使用
-        if (col.GetComponent<Image>().sprite == chopsticksSpr)
+        if (img_item.sprite == chopsticksSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null; 
+            img_item.sprite = null; 
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // Playerが箸を持つ→料理するアニメーション再生

@@ -362,12 +362,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &322319734
 GameObject:
@@ -754,12 +756,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &409884431
 GameObject:
@@ -791,6 +795,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monk: {fileID: 1185424195}
+  sr_sb_down: {fileID: 1549017472}
+  animator_sb_down: {fileID: 1549017474}
+  animator_sb_up: {fileID: 1687068178}
 --- !u!4 &409884433
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,12 +1091,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &559557427
 GameObject:
@@ -1408,12 +1417,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &801510613
 GameObject:
@@ -2319,10 +2330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf82848d3f3e428dbe789955bc48be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  catBtn: {fileID: 801510615}
   trio: {fileID: 1359008733}
   monk: {fileID: 1185424195}
-  cat: {fileID: 2025454770}
-  catBtn: {fileID: 801510613}
+  sr_cat: {fileID: 2025454771}
   TriosSBCnt: {fileID: 372430595}
   MonksSBCnt: {fileID: 409884431}
 --- !u!1 &1185424195
@@ -2448,9 +2459,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trio: {fileID: 1359008733}
-  player: {fileID: 987117502}
-  friend1: {fileID: 107441479}
-  friend2: {fileID: 559557427}
+  animator_player: {fileID: 987117505}
+  animator_friend1: {fileID: 107441482}
+  animator_friend2: {fileID: 559557430}
+  sr_sb_down: {fileID: 1549017472}
+  animator_sb_down: {fileID: 1549017474}
+  animator_sb_up: {fileID: 1687068178}
   stageManager: {fileID: 1163528914}
 --- !u!114 &1185424201
 MonoBehaviour:
@@ -2896,12 +2910,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 1687068176}
+  animator_monksSB_up: {fileID: 1687068178}
   stageManager: {fileID: 1163528914}
 --- !u!1 &1567328308 stripped
 GameObject:
@@ -3153,12 +3169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &1695045626 stripped
 GameObject:
@@ -3997,12 +4015,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1 &2114998042
 GameObject:
@@ -4123,12 +4143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187b0e1fb8f64f608ac8cfecd1ec642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btn_TriosSB: {fileID: 647749592}
   trio: {fileID: 1359008733}
   player: {fileID: 987117502}
   friend1: {fileID: 107441479}
   friend2: {fileID: 559557427}
   monk: {fileID: 1185424195}
-  btn_TriosSB: {fileID: 647749592}
+  sr_monksSB_up: {fileID: 0}
+  animator_monksSB_up: {fileID: 0}
   stageManager: {fileID: 1163528914}
 --- !u!1001 &60401939671393390
 PrefabInstance:

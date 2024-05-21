@@ -5,20 +5,23 @@ using UnityEngine;
 public class MonkController : MonoBehaviour
 {
     [SerializeField] GameObject trio;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject friend1;
-    [SerializeField] GameObject friend2;
+    [SerializeField] Animator animator_player;
+    [SerializeField] Animator animator_friend1;
+    [SerializeField] Animator animator_friend2;
+    [SerializeField] SpriteRenderer sr_sb_down;
+    [SerializeField] Animator animator_sb_down;
+    [SerializeField] Animator animator_sb_up;
     [SerializeField] GameObject stageManager;
-
-    private Animator animator;
+    
     private StageManager_18 sm_18;
+    private Animator animator_monk;
     internal bool isMoving = true;
     internal Vector3 targetPos; // 移動先ポジション
     internal float moveSpeed = 0.5f;  // 自身の移動スピード
 
     void Start()
     {
-        animator = this.GetComponent<Animator>();
+        animator_monk = this.GetComponent<Animator>();
         sm_18 = stageManager.GetComponent<StageManager_18>();
 
         // 移動先の位置に、現在の位置を代入
@@ -42,13 +45,13 @@ public class MonkController : MonoBehaviour
             if (this.transform.position.x > targetPos.x)
             {
                 this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                animator.Play("MonkWalkL");
+                animator_monk.Play("MonkWalkL");
             }
             // (targetPosまでの)変位がプラスなら、右を向く
             else if (this.transform.position.x < targetPos.x)
             {
                 this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                animator.Play("MonkWalkR");
+                animator_monk.Play("MonkWalkR");
             }
         }
 
@@ -57,25 +60,25 @@ public class MonkController : MonoBehaviour
         {
             isMoving = false;
             // アニメーションの座標変更を反映する
-            animator.applyRootMotion = false;
+            animator_monk.applyRootMotion = false;
 
             // 僧侶のX座標がplayerと等しいなら
-            if (this.transform.position.x == player.transform.position.x)
+            if (this.transform.position.x == animator_player.transform.position.x)
             {
                 // 僧侶がplayer→friend2→friend1の順番に頭を叩くアニメーション再生
-                animator.Play("MonkHitPlayer~");
+                animator_monk.Play("MonkHitPlayer~");
             }
             // friend1と等しいなら
-            else if(this.transform.position.x == friend1.transform.position.x)
+            else if(this.transform.position.x == animator_friend1.transform.position.x)
             {
                 // 僧侶がfriend1→player→friend2の順番に頭を叩くアニメーション再生
-                animator.Play("MonkHitFriend1~");
+                animator_monk.Play("MonkHitFriend1~");
             }
             // friend2と等しいなら
             else
             {
                 // 僧侶がfriend2→player→friend1の順番に頭を叩くアニメーション再生
-                animator.Play("MonkHitFriend2~");
+                animator_monk.Play("MonkHitFriend2~");
             }
 
         }
@@ -86,20 +89,16 @@ public class MonkController : MonoBehaviour
     // 自身の吹き出しアニメーション再生
     private void PlaySpeechBubbleAnima()
     {
-        // 吹き出しのAnimatorを取得
-        Animator animator_Down = this.transform.GetChild(0).GetComponent<Animator>();
-        Animator animator_Up = this.transform.GetChild(1).GetComponent<Animator>();
-
         // 初期アニメーションに移行しないようにする
-        animator_Down.SetBool("isStart", false);
-        animator_Up.SetBool("isStart", false);
+        animator_sb_down.SetBool("isStart", false);
+        animator_sb_up.SetBool("isStart", false);
 
         // 吹き出し(下)のアニメーション再生
-        animator_Down.Play("Monk'sSB_Down",0,0);
-        this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        animator_sb_down.Play("Monk'sSB_Down",0,0);
+        sr_sb_down.enabled = true;
         // 吹き出し(上下)アニメーションのスピードを変更
-        animator_Down.SetFloat("Speed", 0.8f);
-        animator_Up.SetFloat("Speed", 0.7f);
+        animator_sb_down.SetFloat("Speed", 0.8f);
+        animator_sb_up.SetFloat("Speed", 0.7f);
     }
 
     // "MonkOver"アニメーション開始時
@@ -117,43 +116,43 @@ public class MonkController : MonoBehaviour
     // アニメーションのスピードを変える
     private void ChangeSpeed(float changedSpeed)
     {
-        animator.SetFloat("Speed", changedSpeed);
+        animator_monk.SetFloat("Speed", changedSpeed);
     }
     // Playerを最初に叩く
     private void HitPlayer_First()
     {
-        player.GetComponent<Animator>().Play("PlayerIsHit1");
-        friend1.GetComponent<Animator>().Play("Friend1MakeFunOf");
-        friend2.GetComponent<Animator>().Play("Friend2MakeFunOf");
+        animator_player.Play("PlayerIsHit1");
+        animator_friend1.Play("Friend1MakeFunOf");
+        animator_friend2.Play("Friend2MakeFunOf");
     }
     // Playerを2番目以降に叩く
     private void HitPlayer_Next()
     {
-        player.GetComponent<Animator>().Play("PlayerIsHit2");
+        animator_player.Play("PlayerIsHit2");
     }
     // Friend1を最初に叩く
     private void HitFriend1_First()
     {
-        friend1.GetComponent<Animator>().Play("Friend1IsHit1");
-        player.GetComponent<Animator>().Play("PlayerMakeFunOfFriend1");
-        friend2.GetComponent<Animator>().Play("Friend2MakeFunOf");
+        animator_friend1.Play("Friend1IsHit1");
+        animator_player.Play("PlayerMakeFunOfFriend1");
+        animator_friend2.Play("Friend2MakeFunOf");
     }
     // Friend1を2番目以降に叩く
     private void HitFriend1_Next()
     {
-        friend1.GetComponent<Animator>().Play("Friend1IsHit2");
+        animator_friend1.Play("Friend1IsHit2");
     }
     // Friend2を最初に叩く
     private void HitFriend2_First()
     {
-        friend2.GetComponent<Animator>().Play("Friend2IsHit1");
-        player.GetComponent<Animator>().Play("PlayerMakeFunOfFriend2");
-        friend1.GetComponent<Animator>().Play("Friend1MakeFunOf");
+        animator_friend2.Play("Friend2IsHit1");
+        animator_player.Play("PlayerMakeFunOfFriend2");
+        animator_friend1.Play("Friend1MakeFunOf");
     }
     // Friend2を2番目以降に叩く
     private void HitFriend2_Next()
     {
-        friend2.GetComponent<Animator>().Play("Friend2IsHit2");
+        animator_friend2.Play("Friend2IsHit2");
     }
     // ----------------------------------
 }

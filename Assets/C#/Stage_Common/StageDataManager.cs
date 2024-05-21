@@ -35,6 +35,7 @@ public class StageDataManager : MonoBehaviour
     private string filePath_isReleased;   // 保存・読み込み先のパス(StageDataList)
     private string filePath_releasedCount;  // 保存・読み込み先のパス(ReleasedCountData)
     private string json;       // json形式に変換用変数
+    private int count_ActiveStage = 0;
 
     private void Awake()
     {
@@ -135,7 +136,7 @@ public class StageDataManager : MonoBehaviour
 
         // ステージ31(ファイナルステージ)は、全ステージクリアで解放
         // 解放済みステージ数(releasedCount)ではなく、各ステージのクリア状況(ClearDataList)を参照
-        if (cdm.isClear_StageFrom1To30())
+        if (cdm.isClear_AllStage())
         {
             loadDatas.dataLists[30].isReleased = true;
         }
@@ -150,12 +151,22 @@ public class StageDataManager : MonoBehaviour
         }
         ReWrite(loadDatas);
     }
-
-    // ステージの解放状況に応じて、遷移ボタンをアクティブor非アクティブにする
-    internal void isActiveStageTransitionBtn()
+    // アクティブにできるステージがあるならtrueを返す
+    // 解放済みステージ数が全てアクティブならfalseを返す
+    internal bool canActiveStage()
     {
-        // StageDataを読み込み
-        Load(filePath_isReleased); 
+        if (count_ActiveStage == loadData.releasedCount)
+        {
+            return false;
+        }
+        return true;
+    }
+    // ステージの解放状況に応じて、遷移ボタンをアクティブor非アクティブにする
+    internal void ActiveOrInActiveStagesBtn()
+    {
+        Load(filePath_isReleased);
+        Load(filePath_releasedCount);
+        count_ActiveStage = 0;
         foreach (var i in loadDatas.dataLists)
         {
             // ステージnに遷移するボタンを取得 
@@ -165,7 +176,8 @@ public class StageDataManager : MonoBehaviour
             if (i.isReleased)
             {
                 stageBtn.interactable = true;                              
-                stageBtn.transition = Selectable.Transition.Animation;     
+                stageBtn.transition = Selectable.Transition.Animation;
+                count_ActiveStage++;
             }
             //  ステージnが解放済みでないなら、ステージnに遷移するボタンを使用不可 & カラーを灰色に
             else
@@ -178,7 +190,7 @@ public class StageDataManager : MonoBehaviour
                 colorBlock.colorMultiplier = 1.0f;                         
                 stageBtn.colors = colorBlock;                                    
             }
-        }
+        }        
     }
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

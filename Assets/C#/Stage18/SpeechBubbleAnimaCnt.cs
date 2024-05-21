@@ -5,21 +5,30 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SpeechBubbleAnimaCnt : MonoBehaviour
 {
+    [SerializeField] GameObject btn_TriosSB; // player,friend1,friend2の吹き出し消去ボタン
     [SerializeField] GameObject trio;  // player,friend1,friend2の親オブジェクト
     [SerializeField] GameObject player;
     [SerializeField] GameObject friend1;
     [SerializeField] GameObject friend2;
     [SerializeField] GameObject monk;
-    [SerializeField] GameObject btn_TriosSB; // player,friend1,friend2の吹き出し消去ボタン
+    [SerializeField] SpriteRenderer sr_monksSB_up;
+    [SerializeField] Animator animator_monksSB_up;
     [SerializeField] GameObject stageManager;
 
-
+    private StageManager_18 sm_18;
+    private MonkController monkCnt;
+    private SpriteRenderer sr_speechBubble;
+    private void Start()
+    {
+        sm_18 = stageManager.GetComponent<StageManager_18>();
+        monkCnt = monk.GetComponent<MonkController>();
+        sr_speechBubble = this.GetComponent<SpriteRenderer>();
+    }
     // ---- player,friend1,friend2の吹き出し ----
-    // 吹き出し(下)アニメーション開始時、
+    // 吹き出し(下)アニメーション開始時
     // "isStart"フラグを初期状態にリセットし、タップされるまで吹き出しが表示されるようにする
     private void ResetIsStartFlg()
     {
-        Debug.Log("ok");
         for(var i = 0; i < this.transform.parent.childCount; i++)
         {
             this.transform.parent.GetChild(i).GetComponent<Animator>().SetBool("isStart", false);
@@ -58,10 +67,10 @@ public class SpeechBubbleAnimaCnt : MonoBehaviour
         // 自身と同じタグの吹き出し消去ボタンをアクティブに
         for(var i = 0; i < btn_TriosSB.transform.childCount; i++)
         {
-            GameObject sb1Btn = btn_TriosSB.transform.GetChild(i).gameObject;
-            if (this.transform.parent.tag == sb1Btn.tag)
+            GameObject sbBtn = btn_TriosSB.transform.GetChild(i).gameObject;
+            if (this.transform.parent.tag == sbBtn.tag)
             {
-                sb1Btn.GetComponent<Image>().enabled = true;
+                sbBtn.GetComponent<Image>().enabled = true;
             }
 
         }
@@ -69,19 +78,19 @@ public class SpeechBubbleAnimaCnt : MonoBehaviour
     // 吹き出し(上)が一定時間表示されたら、Monkを出現元のX座標まで移動させる(ゲームオーバー)
     private void MonkMoveToThisParentPosX()
     {
-        if (this.transform.GetComponent<SpriteRenderer>().enabled)
+        if (sr_speechBubble.enabled)
         {
             // ゲーム操作を禁止に
-            stageManager.GetComponent<StageManager_18>().gameState = GameState.gameOver;
+            sm_18.gameState = GameState.gameOver;
             stageManager.GetComponent<StageManager>().CantGameControl();
             // 吹き出しの出現を停止
-            stageManager.GetComponent<StageManager_18>().InActiveSpeechBubble();
+            sm_18.InActiveSpeechBubble();
 
             // Monkを吹き出し出現元(Player,Friend1,Friend2)のX座標まで移動させる
             Transform parent = this.transform.parent;
-            monk.GetComponent<MonkController>().targetPos = new Vector3(parent.position.x, monk.transform.position.y, 0);
+            monkCnt.targetPos = new Vector3(parent.position.x, monk.transform.position.y, 0);
             // Monkの移動速度の変更
-            monk.GetComponent<MonkController>().moveSpeed = 5f;
+            monkCnt.moveSpeed = 5f;
             
 
         }
@@ -93,15 +102,15 @@ public class SpeechBubbleAnimaCnt : MonoBehaviour
     // 吹き出し(上)のアニメーション再生
     private void ActiveMonksSB_Up()
     {
-        monk.transform.GetChild(1).GetComponent<Animator>().Play("Monk'sSB_Up",0,0);
-        monk.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+        animator_monksSB_up.Play("Monk'sSB_Up",0,0);
+        sr_monksSB_up.enabled = true;
     }
 
     // 吹き出し(上)出現後
     // ゲームクリア時以外なら、吹き出しを初期状態に
     private void isInActiveMonksSB()
     {
-        if (stageManager.GetComponent<StageManager_18>().gameState == GameState.gameClear)
+        if (sm_18.gameState == GameState.gameClear)
         {
             return;
         }

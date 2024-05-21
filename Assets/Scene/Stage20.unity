@@ -464,14 +464,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab5edee62ded49e1924a682402640e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingFlour: {fileID: 1570627559}
-  usingMilkCarton: {fileID: 356753302}
-  usingSpoon: {fileID: 1266703704}
-  usingChiliSauce_Boll: {fileID: 1318520328}
-  usingCutButter: {fileID: 966952140}
-  usingEgg: {fileID: 969923747}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
+  animator_usingFlour: {fileID: 1570627562}
+  animator_usingMilkCarton: {fileID: 356753305}
+  animator_usingSpoon: {fileID: 1266703707}
+  animator_usingChiliSauce_Boll: {fileID: 1318520331}
+  animator_usingCutButter: {fileID: 966952143}
+  animator_usingEgg: {fileID: 969923750}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
   itemManager: {fileID: 974114280}
   flourSpr: {fileID: 21300000, guid: 3e779646e2d9b47f1bac6ed7f1dc1d72, type: 3}
   milkSpr: {fileID: 21300000, guid: 9c191602eba9345f082c04a47b755bf7, type: 3}
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ad661f9b5e46b48042accf0fbcaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingChiliSauce: {fileID: 1673423447}
+  animator_usingChiliSauce: {fileID: 1673423450}
   itemManager: {fileID: 974114280}
   chiliSauceSpr: {fileID: 21300000, guid: ab3463445308443c5b58750a52d9216d, type: 3}
   chocolatePenSpr: {fileID: 0}
@@ -1379,41 +1379,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
---- !u!1 &248071615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100316033417852, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+--- !u!114 &248071615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100316033417854, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100316581792769, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100316581792771, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100316874342275, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100316874342277, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100315768720497, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100315768720499, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071619 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100315910122697, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100315910122699, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100317186112767, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100317186112753, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &248071621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773100317377643938, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &248071621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773100317377643940, guid: 95570d700297f4e728f79f69c5361f59, type: 3}
   m_PrefabInstance: {fileID: 248071614}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &250377969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1587,33 +1629,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 264264113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
+  m_Script: {fileID: 11500000, guid: ad9a19aad9ea5491e8981810037dcc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
-  finishedDough: {fileID: 0}
-  cookieCutter: {fileID: 657434039}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 0}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
-  redDough_InBollSpr: {fileID: 0}
-  redDough_OnBoradSpr: {fileID: 0}
-  rCookieDoughSpr: {fileID: 0}
+  animator_cookieCutter: {fileID: 0}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  cookieDoughBtn: {fileID: 147769128}
+  bakedCookieBtn: {fileID: 1862007797}
+  plateOnTable: {fileID: 1744395471}
 --- !u!1 &274541835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,27 +1879,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 1670541994}
-  usedMilk: {fileID: 59057607}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 356753305}
+  animator_usingMilk: {fileID: 1670541997}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 100541943}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
-  whisk: {fileID: 1592441640}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -2447,21 +2466,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
---- !u!1 &614296657 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 512089118590009930, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
+--- !u!114 &614296657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 512089118590009932, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
   m_PrefabInstance: {fileID: 614296656}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &614296658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 512089119280043276, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614296658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 512089119280043278, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
   m_PrefabInstance: {fileID: 614296656}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &614296660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 512089119307674739, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614296660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 512089119307674741, guid: 425f9a8cee5c845179b0fe97d36d7019, type: 3}
   m_PrefabInstance: {fileID: 614296656}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614732092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1906817111337588352, guid: b4e5241eed2064a68a7bd421d0dd0c7d, type: 3}
@@ -2542,6 +2579,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071615}
+    - target: {fileID: 7395248645442175867, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248645592131094, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2585,10 +2626,14 @@ PrefabInstance:
     - target: {fileID: 7395248645592131094, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 666777894}
+      objectReference: {fileID: 666777897}
+    - target: {fileID: 7395248645592131094, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248645592131094, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.UI.Image, UnityEngine.UI
       objectReference: {fileID: 0}
     - target: {fileID: 7395248645900295871, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2606,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071618}
+    - target: {fileID: 7395248645900295871, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248646034784010, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2714,6 +2763,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071617}
+    - target: {fileID: 7395248646529091050, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248646778007770, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2730,6 +2783,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071620}
+    - target: {fileID: 7395248646778007770, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248646797564046, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2746,6 +2803,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071616}
+    - target: {fileID: 7395248646797564046, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 7395248647053230741, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2762,6 +2823,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 248071619}
+    - target: {fileID: 7395248647053230741, guid: 6d93cc23ae4174f979fb673b1f1b7dc3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3164,33 +3229,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 657434039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
+  m_Script: {fileID: 11500000, guid: ad9a19aad9ea5491e8981810037dcc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
-  finishedDough: {fileID: 0}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
+  animator_cookieCutter: {fileID: 657434042}
+  sr_dough_OnBoard: {fileID: 1352844457}
   cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
-  redDough_InBollSpr: {fileID: 0}
-  redDough_OnBoradSpr: {fileID: 0}
-  rCookieDoughSpr: {fileID: 0}
+  bakedCookieBtn: {fileID: 1862007797}
+  plateOnTable: {fileID: 1744395471}
 --- !u!1 &666777894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,33 +3651,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 683104664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
+  m_Script: {fileID: 11500000, guid: ad9a19aad9ea5491e8981810037dcc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
-  finishedDough: {fileID: 0}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 0}
-  cookieDoughBtn: {fileID: 0}
+  animator_cookieCutter: {fileID: 0}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  cookieDoughBtn: {fileID: 147769128}
   bakedCookieBtn: {fileID: 1862007797}
   plateOnTable: {fileID: 1744395471}
-  stageManager: {fileID: 0}
-  redDough_InBollSpr: {fileID: 0}
-  redDough_OnBoradSpr: {fileID: 0}
-  rCookieDoughSpr: {fileID: 0}
 --- !u!1 &704366807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,18 +4352,22 @@ PrefabInstance:
     - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1432496397}
+      objectReference: {fileID: 1432496399}
     - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2010637293}
+      objectReference: {fileID: 2010637297}
     - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1432496397}
     - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.UI.Image, UnityEngine.UI
       objectReference: {fileID: 0}
     - target: {fileID: 116080006699373211, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4358,6 +4389,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 614296657}
+    - target: {fileID: 116080006791477275, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 116080007064009433, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4374,6 +4409,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 614296658}
+    - target: {fileID: 116080007064009433, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 116080007447630877, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
@@ -4409,10 +4448,14 @@ PrefabInstance:
     - target: {fileID: 116080007447630877, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2113085033}
+      objectReference: {fileID: 2113085037}
+    - target: {fileID: 116080007447630877, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Image, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 116080007447630877, guid: 6d66b92119a8745fd9ae4d2c1674e8df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.UI.Image, UnityEngine.UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5485,27 +5528,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 126894162}
-  usedButter: {fileID: 448500704}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 126894163}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 100541943}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
-  whisk: {fileID: 1592441640}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -5628,27 +5667,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 2049129437}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 100541943}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
-  whisk: {fileID: 1592441640}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -5764,7 +5799,7 @@ GameObject:
   - component: {fileID: 1026960189}
   - component: {fileID: 1026960188}
   m_Layer: 0
-  m_Name: UsingChiliSauce_Table
+  m_Name: UsingChiliSauce_Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5797,27 +5832,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 1164413464}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 0}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 0}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 0}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 0}
+  img_usedEgg: {fileID: 0}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 0}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 0}
+  sr_yellowDough_InBoll: {fileID: 0}
+  sr_redDough_InBoll: {fileID: 0}
+  animator_whisk: {fileID: 0}
+  sr_dough_OnBoard: {fileID: 0}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -6441,27 +6472,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 1944998482}
-  usedSuger: {fileID: 645505241}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 1944998483}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 100541943}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
-  whisk: {fileID: 1592441640}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -6584,27 +6611,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 1164413464}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 0}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -7703,27 +7726,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 1995217864}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 356753305}
+  animator_usingMilk: {fileID: 1670541997}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 100541943}
-  yellowDough_InBoll: {fileID: 1744347584}
-  redDough_InBoll: {fileID: 809789728}
-  whisk: {fileID: 1592441640}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 147769128}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -8242,27 +8261,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 356753302}
-  usingMilk: {fileID: 1670541994}
-  usedMilk: {fileID: 59057607}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 0}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 356753305}
+  animator_usingMilk: {fileID: 1670541997}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 0}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -8385,27 +8400,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730572e08d5e249d98e8d5b1ba6f833d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedFlour: {fileID: 0}
-  usingMilkCarton: {fileID: 0}
-  usingMilk: {fileID: 0}
-  usedMilk: {fileID: 0}
-  usingSuger: {fileID: 0}
-  usedSuger: {fileID: 0}
-  usedChiliSauce: {fileID: 1164413464}
-  usingButter: {fileID: 0}
-  usedButter: {fileID: 0}
-  usedEgg: {fileID: 0}
+  img_usedFlour: {fileID: 1995217866}
+  animator_usingMilkCarton: {fileID: 0}
+  animator_usingMilk: {fileID: 0}
+  img_usedMilk: {fileID: 59057609}
+  sr_usingSuger: {fileID: 0}
+  img_usedSuger: {fileID: 645505243}
+  img_usedChiliSauce: {fileID: 1164413466}
+  sr_usingButter: {fileID: 0}
+  img_usedButter: {fileID: 448500706}
+  img_usedEgg: {fileID: 2049129439}
   finishedDough: {fileID: 264264113}
-  cookieCutter: {fileID: 0}
-  boll: {fileID: 0}
-  yellowDough_InBoll: {fileID: 0}
-  redDough_InBoll: {fileID: 0}
-  whisk: {fileID: 0}
-  dough_OnBoard: {fileID: 1352844456}
-  cookieDoughBtn: {fileID: 0}
-  bakedCookieBtn: {fileID: 0}
-  plateOnTable: {fileID: 0}
-  stageManager: {fileID: 0}
+  boxCol_boll: {fileID: 100541946}
+  sr_yellowDough_InBoll: {fileID: 1744347585}
+  sr_redDough_InBoll: {fileID: 809789729}
+  animator_whisk: {fileID: 1592441641}
+  sr_dough_OnBoard: {fileID: 1352844457}
+  img_cookieDoughBtn: {fileID: 147769132}
   redDough_InBollSpr: {fileID: 21300000, guid: a2b67d6add3b549d5bf020f124f9ea5b, type: 3}
   redDough_OnBoradSpr: {fileID: 21300000, guid: 3aef074b66f904bb6a58f7b07dda31ab, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -9707,9 +9718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62aad35c93cb41ebb2970e95dcd4df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brotherBtn: {fileID: 715506591}
-  chocolatePenBtn: {fileID: 1902733548}
-  chocolatePen: {fileID: 923318939}
+  chocolatePenBtn: {fileID: 1902733551}
+  brotherBtn: {fileID: 715506593}
+  sr_chocolatePen: {fileID: 923318940}
   itemManager: {fileID: 974114280}
   candySpr: {fileID: 21300000, guid: 5df498d1f65b04b4b9cee0e70b9bdae1, type: 3}
 --- !u!50 &1782213398
@@ -9901,7 +9912,7 @@ GameObject:
   - component: {fileID: 1812061366}
   - component: {fileID: 1812061365}
   m_Layer: 0
-  m_Name: BollFront
+  m_Name: Boll_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10269,7 +10280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ad661f9b5e46b48042accf0fbcaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usingChiliSauce: {fileID: 1026960186}
+  animator_usingChiliSauce: {fileID: 1026960189}
   itemManager: {fileID: 974114280}
   chiliSauceSpr: {fileID: 21300000, guid: ab3463445308443c5b58750a52d9216d, type: 3}
   chocolatePenSpr: {fileID: 21300000, guid: da53736d1ab074c4ea27b4ea962a185b, type: 3}

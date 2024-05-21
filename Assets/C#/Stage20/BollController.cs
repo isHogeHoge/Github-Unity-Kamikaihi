@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BollController : MonoBehaviour
 {
-    [SerializeField] GameObject usingFlour;   
-    [SerializeField] GameObject usingMilkCarton; 
-    [SerializeField] GameObject usingSpoon;       
-    [SerializeField] GameObject usingChiliSauce_Boll; 
-    [SerializeField] GameObject usingCutButter;      
-    [SerializeField] GameObject usingEgg;  
-    [SerializeField] GameObject yellowDough_InBoll;
-    [SerializeField] GameObject redDough_InBoll;
+    [SerializeField] Animator animator_usingFlour;   
+    [SerializeField] Animator animator_usingMilkCarton; 
+    [SerializeField] Animator animator_usingSpoon;       
+    [SerializeField] Animator animator_usingChiliSauce_Boll; 
+    [SerializeField] Animator animator_usingCutButter;      
+    [SerializeField] Animator animator_usingEgg;  
+    [SerializeField] SpriteRenderer sr_yellowDough_InBoll;
+    [SerializeField] SpriteRenderer sr_redDough_InBoll;
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite flourSpr;    
@@ -32,76 +32,77 @@ public class BollController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 小麦粉(flour)アイテム
-        if (col.GetComponent<Image>().sprite == flourSpr)
+        if (img_item.sprite == flourSpr)
         {
             // 小麦粉をボウルに入れる
-            IngredientsIN(col, usingFlour);
+            IngredientsIN(img_item, animator_usingFlour);
 
             // 事前にチリソースアイテムを使用していたら
             if (usedChiliSauce)
             {
                 // ボウルの中に赤い生地を表示
-                redDough_InBoll.GetComponent<SpriteRenderer>().enabled = true;
+                sr_redDough_InBoll.enabled = true;
             }
             // チリソースアイテムを使用していなかったら
             else
             {
                 // ボウルの中に黄色い生地を表示
-                yellowDough_InBoll.GetComponent<SpriteRenderer>().enabled = true;
+                sr_yellowDough_InBoll.enabled = true;
             }
 
         }
         // 牛乳(milk)アイテム
-        else if(col.GetComponent<Image>().sprite == milkSpr)
+        else if(img_item.sprite == milkSpr)
         {
             // 牛乳をボウルに入れる
-            IngredientsIN(col, usingMilkCarton);
+            IngredientsIN(img_item, animator_usingMilkCarton);
         }
         // 砂糖(suger)アイテム
-        else if (col.GetComponent<Image>().sprite == sugerSpr)
+        else if (img_item.sprite == sugerSpr)
         {
             // 砂糖をボウルに入れる
-            IngredientsIN(col, usingSpoon);
+            IngredientsIN(img_item, animator_usingSpoon);
         }
         // チリソース(chiliSauce)アイテム
-        else if(col.GetComponent<Image>().sprite == chiliSauceSpr)
+        else if(img_item.sprite == chiliSauceSpr)
         {
             usedChiliSauce = true;
             // チリソースをボウルに入れる
-            IngredientsIN(col, usingChiliSauce_Boll);
+            IngredientsIN(img_item, animator_usingChiliSauce_Boll);
 
             // ボウルの中にすでに黄色い生地が表示されていたら
-            if (yellowDough_InBoll.GetComponent<SpriteRenderer>().enabled)
+            if (sr_yellowDough_InBoll.enabled)
             {
                 // 生地を赤にする
-                yellowDough_InBoll.GetComponent<SpriteRenderer>().enabled = false;
-                redDough_InBoll.GetComponent<SpriteRenderer>().enabled = true;
+                sr_yellowDough_InBoll.enabled = false;
+                sr_redDough_InBoll.enabled = true;
             }
         }
         // バター(butter)アイテム
-        else if(col.GetComponent<Image>().sprite == butterSpr)
+        else if(img_item.sprite == butterSpr)
         {
             // バターをボウルに入れる
-            IngredientsIN(col, usingCutButter);
+            IngredientsIN(img_item, animator_usingCutButter);
         }
         // 卵(egg)アイテム
-        else if(col.GetComponent<Image>().sprite == eggSpr)
+        else if(img_item.sprite == eggSpr)
         {
             // 卵をボウルに入れる
-            IngredientsIN(col, usingEgg);
+            IngredientsIN(img_item, animator_usingEgg);
         }
     }
 
     // 材料(flour,milk,butter,suger,egg,chiliSauce)をボウルに入れる処理
-    private void IngredientsIN(Collider2D col,GameObject ingredient)
+    private void IngredientsIN(Image img_item,Animator animator_ingredient)
     {
         // アイテム使用処理
-        col.GetComponent<Image>().sprite = null;
+        img_item.sprite = null;
         itemManager.GetComponent<ItemManager>().UsedItem();
 
         // 材料をボールに入れるアニメーションを再生
-        ingredient.GetComponent<Animator>().enabled = true;
+        animator_ingredient.enabled = true;
                 
     }
 }

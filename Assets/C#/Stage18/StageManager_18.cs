@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StageManager_18 : MonoBehaviour
 {
+    [SerializeField] Button catBtn; // cat出現ボタン
     [SerializeField] GameObject trio; //player,friend1,friend2の親オブジェクト
     [SerializeField] GameObject monk;
-    [SerializeField] GameObject cat;
-    [SerializeField] GameObject catBtn; // cat出現ボタン
+    [SerializeField] SpriteRenderer sr_cat;
     [SerializeField] GameObject TriosSBCnt; // TriosSBCntクラスがアタッチされているオブジェクト
     [SerializeField] GameObject MonksSBCnt; // MonksSBCntクラスがアタッチされているオブジェクト
-    
+
+    private StageManager sm;
     private float passedTimes = 0;       // 吹き出し出現停止からの経過時間
     private bool isCountUp = false;       // 経過時間測定フラグ
     internal GameState gameState = GameState.playing;
@@ -25,7 +26,8 @@ public class StageManager_18 : MonoBehaviour
     private async void Start()
     {
         // オープニング動画の再生を待つ
-        await this.GetComponent<StageManager>().WaitForOpeningVideo(this.GetCancellationTokenOnDestroy());
+        sm = this.GetComponent<StageManager>();
+        await sm.WaitForOpeningVideo(this.GetCancellationTokenOnDestroy());
 
         // 15,25,40秒後に(trioの)吹き出しの出現を3秒間ストップ
         Invoke(nameof(StopAppearing_TriosSB), 15f);
@@ -76,8 +78,8 @@ public class StageManager_18 : MonoBehaviour
         {
             return;
         }
-        cat.GetComponent<SpriteRenderer>().enabled = true;
-        catBtn.GetComponent<Button>().enabled = true;
+        sr_cat.enabled = true;
+        catBtn.enabled = true;
     }
 
     // タイムオーバーメソッド
@@ -88,7 +90,7 @@ public class StageManager_18 : MonoBehaviour
             return;
         }
         // ゲーム操作をできないようにする
-        this.GetComponent<StageManager>().CantGameControl();
+        sm.CantGameControl();
         // 吹き出しの出現を停止
         InActiveSpeechBubble();
 
@@ -133,7 +135,7 @@ public class StageManager_18 : MonoBehaviour
     {
         // ゲーム操作をできないようにする
         gameState = GameState.gameClear;
-        this.GetComponent<StageManager>().CantGameControl();
+        sm.CantGameControl();
         // 吹き出しの出現を停止
         InActiveSpeechBubble();
 

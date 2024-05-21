@@ -11,8 +11,15 @@ public class Player1Controller_19 : MonoBehaviour
     [SerializeField] Sprite smartPhoneSpr;
     [SerializeField] Sprite apronSpr;
 
+    private ItemManager im;
+    private Animator animator_player1;
     internal bool called = false;         // スマートフォン使用フラグ
     internal bool isWearingApron = false;    // エプロン着用フラグ
+    private void Start()
+    {
+        im = itemManager.GetComponent<ItemManager>();
+        animator_player1 = this.GetComponent<Animator>();
+    }
 
     // 接触判定(Item)
     private void OnTriggerExit2D(Collider2D col)
@@ -23,29 +30,30 @@ public class Player1Controller_19 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // スマートフォンアイテム使用
-        if (col.GetComponent<Image>().sprite == smartPhoneSpr)
+        if (img_item.sprite == smartPhoneSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
-            itemManager.GetComponent<ItemManager>().UsedItem(); 
+            img_item.sprite = null;
+            im.UsedItem(); 
 
             clickCancelPnl.SetActive(true);
 
             // Brotherにスマートフォンを渡すアニメーション再生
-            this.GetComponent<Animator>().Play("PlayerPass");
+            animator_player1.Play("PlayerPass");
             called = true;
 
         }
         // エプロンアイテム使用
-        else if (col.GetComponent<Image>().sprite == apronSpr)
+        else if (img_item.sprite == apronSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
-            itemManager.GetComponent<ItemManager>().UsedItem();
+            img_item.sprite = null;
+            im.UsedItem();
 
             // Playerにエプロン着用させる
-            this.GetComponent<Animator>().Play("PlayerInAApronHope");
+            animator_player1.Play("PlayerInAApronHope");
             isWearingApron = true;
 
         }

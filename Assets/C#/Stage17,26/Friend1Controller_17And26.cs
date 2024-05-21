@@ -8,14 +8,26 @@ public class Friend1Controller_17And26 : MonoBehaviour
 {
     [SerializeField] GameObject helmet;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject watermelonOnTheGround; // WatermelonOnTheGround
-    [SerializeField] GameObject hitEffect1;
-    [SerializeField] GameObject hitEffect2;
+    [SerializeField] GameObject watermelonOnTheGround;
+    [SerializeField] Image img_hitEffect1;
+    [SerializeField] Animator animator_hitEffect2;
     [SerializeField] GameObject fadePanel;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite clabSpr;
+
+    private StageManager sm;
+    private FadeInAndOut fadeCnt;
+    private Animator animator_friend1;
+    private Image watermelonOnThePlayer;
+    private void Start()
+    {
+        sm = stageManager.GetComponent<StageManager>();
+        fadeCnt = fadePanel.GetComponent<FadeInAndOut>();
+        animator_friend1 = this.GetComponent<Animator>();
+        watermelonOnThePlayer = player.transform.GetChild(0).GetComponent<Image>();
+    }
 
     // 接触判定(Item)
     private void OnTriggerExit2D(Collider2D col)
@@ -26,27 +38,28 @@ public class Friend1Controller_17And26 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // カニアイテム使用
-        if (col.GetComponent<Image>().sprite == clabSpr)
+        if (img_item.sprite == clabSpr)
         {
             // アイテム消費処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // ゲーム操作を禁止に
-            stageManager.GetComponent<StageManager>().CantGameControl();
+            sm.CantGameControl();
 
             // Friend1に左隣にスイカがあったら
             if (watermelonOnTheGround.GetComponent<Image>().enabled)
             {
                 // カニに挟まれる→左に倒れるアニメーション再生
-                this.GetComponent<Animator>().Play("Friend1IsNippedL");
+                animator_friend1.Play("Friend1IsNippedL");
             }
             // Friend1に左隣にスイカがなければ
             else
             {
                 // カニに挟まれる→右に倒れるアニメーション再生
-                this.GetComponent<Animator>().Play("Friend1IsNippedR");
+                animator_friend1.Play("Friend1IsNippedR");
             }
         }
     }
@@ -60,36 +73,36 @@ public class Friend1Controller_17And26 : MonoBehaviour
     private async UniTask PlayGameOverAnima(int num, CancellationToken ct)
     {
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(ct);
+        await fadeCnt.FadeIn(ct);
 
         // ゲームオーバーアニメーション再生
-        this.GetComponent<Animator>().Play("Friend1Apologize");
+        animator_friend1.Play("Friend1Apologize");
         player.GetComponent<Animator>().Play($"PlayerOver{num}");
 
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(ct);
+        await fadeCnt.FadeOut(ct);
     }
 
     // "Friend1Swing3"アニメーション開始時
     private void ActiveHitEffect2()
     {
         // Playerの頭上にHitEffectを表示
-        hitEffect2.GetComponent<Animator>().enabled = true;
+        animator_hitEffect2.enabled = true;
     }
     // 木刀を振った後
     private void GameEnd()
     {
         // Playerの頭の上にスイカオブジェクトが表示されていたら
-        if (player.transform.GetChild(0).GetComponent<Image>().enabled)
+        if (watermelonOnThePlayer.enabled)
         {
-            player.transform.GetChild(0).GetComponent<Image>().enabled = false;
+            watermelonOnThePlayer.enabled = false;
             // ゲームオーバーアニメーションを再生("PlayerOver1")
             PlayGameOverAnima(1, this.GetCancellationTokenOnDestroy()).Forget();
         }
         // Playerがヘルメットをかぶっていたら、そのままステージクリア
-        else if (helmet != null && helmet.GetComponent<Image>().enabled)
+        else if (helmet && helmet.GetComponent<Image>().enabled)
         {
-            stageManager.GetComponent<StageManager>().GameClear(26, this.GetCancellationTokenOnDestroy()).Forget();
+            sm.GameClear(26, this.GetCancellationTokenOnDestroy()).Forget();
         }
         // どちらも表示されていなかったら
         else
@@ -97,8 +110,6 @@ public class Friend1Controller_17And26 : MonoBehaviour
             // ゲームオーバーアニメーションを再生("PlayerOver3")
             PlayGameOverAnima(3, this.GetCancellationTokenOnDestroy()).Forget();
         }
-
-
     }
 
     // 右に倒れるアニメーション終了時
@@ -112,12 +123,12 @@ public class Friend1Controller_17And26 : MonoBehaviour
     private void ActiveHitEffect1()
     {
         // スイカと木刀がぶつかった位置にHitEffectを表示
-        hitEffect1.GetComponent<Image>().enabled = true;
+        img_hitEffect1.enabled = true;
     }
     // 左に倒れた後、ぶつかったスイカが割れる
     private void CutWatermelon()
     {
-        hitEffect1.GetComponent<Image>().enabled = false;
+        img_hitEffect1.enabled = false;
         // ぶつかったスイカが揺れるアニメーション再生
         watermelonOnTheGround.GetComponent<Animator>().Play("WatermelonShake");
 

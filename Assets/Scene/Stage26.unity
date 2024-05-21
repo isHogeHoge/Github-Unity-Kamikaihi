@@ -2561,7 +2561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18db83407f43444fd9595d708cbaf61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutWatermelon: {fileID: 0}
+  img_cutWatermelon: {fileID: 0}
   clearImg: {fileID: 0}
   fadePanel: {fileID: 71533301}
   stageManager: {fileID: 1992910598}
@@ -2577,8 +2577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720662c57a614910b8d1a4516d1eee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friend1: {fileID: 2003710687}
-  helmet: {fileID: 742752577}
+  animator_friend1: {fileID: 2003710691}
+  img_helmet: {fileID: 742752579}
   stageManager: {fileID: 1992910598}
   itemManager: {fileID: 1602852310}
   watermelonSpr: {fileID: 21300000, guid: 631783b843ccf4bb5ac501dfa858e622, type: 3}
@@ -3432,9 +3432,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3589825
     y: 0
-    width: 1
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18db83407f43444fd9595d708cbaf61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutWatermelon: {fileID: 0}
+  img_cutWatermelon: {fileID: 0}
   clearImg: {fileID: 0}
   fadePanel: {fileID: 71533301}
   stageManager: {fileID: 1992910598}
@@ -4542,8 +4542,8 @@ MonoBehaviour:
   helmet: {fileID: 742752577}
   player: {fileID: 1141703059}
   watermelonOnTheGround: {fileID: 0}
-  hitEffect1: {fileID: 0}
-  hitEffect2: {fileID: 710611511}
+  img_hitEffect1: {fileID: 710611513}
+  animator_hitEffect2: {fileID: 710611515}
   fadePanel: {fileID: 71533301}
   stageManager: {fileID: 1992910598}
   itemManager: {fileID: 1602852310}

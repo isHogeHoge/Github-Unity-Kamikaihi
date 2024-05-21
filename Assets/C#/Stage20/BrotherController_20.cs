@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BrotherController_20 : MonoBehaviour
 {
-    [SerializeField] GameObject brotherBtn;
-    [SerializeField] GameObject chocolatePenBtn; // チョコペンアイテムボタン
-    [SerializeField] GameObject chocolatePen;    // チョコペンアイテム画像
+    [SerializeField] Button chocolatePenBtn; // チョコペンアイテムボタン
+    [SerializeField] Button brotherBtn;
+    [SerializeField] SpriteRenderer sr_chocolatePen;    // チョコペンアイテム画像
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite candySpr;
@@ -19,21 +19,22 @@ public class BrotherController_20 : MonoBehaviour
         {
             return;
         }
-        
+
+        Image img_item = col.GetComponent<Image>();
         // キャンディーアイテム使用
-        if (col.GetComponent<Image>().sprite == candySpr)
+        if (img_item.sprite == candySpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // キャンディー取得アニメーションを再生
-            brotherBtn.GetComponent<Button>().enabled = false;
+            brotherBtn.enabled = false;
             this.GetComponent<Animator>().Play("BrotherGetCandy");
 
             // チョコペンアイテム出現
-            chocolatePen.GetComponent<SpriteRenderer>().enabled = true;
-            chocolatePenBtn.GetComponent<Button>().enabled = true;
+            sr_chocolatePen.enabled = true;
+            chocolatePenBtn.enabled = true;
 
         }
     }

@@ -6,24 +6,26 @@ using UnityEngine.UI;
 using System;
 public class PlayerAnimaCnt_19 : MonoBehaviour
 {
-    [SerializeField] GameObject pot;     // 鍋
-    [SerializeField] GameObject dish;    // 料理
-    [SerializeField] GameObject brother;
-    [SerializeField] GameObject peekingBrother;
+    [SerializeField] Image img_chopsticksBtn;
+    [SerializeField] GameObject fadePanel;     // フェードイン&アウトパネル
+    [SerializeField] Animator animator_pot;
+    [SerializeField] SpriteRenderer sr_dish;
+    [SerializeField] SpriteRenderer sr_brother;
+    [SerializeField] SpriteRenderer sr_peekingBrother;
     [SerializeField] GameObject player1; // player移動前
     [SerializeField] GameObject player3; // player移動後
     [SerializeField] GameObject mother;
     [SerializeField] GameObject motherAndPlayer;
-    [SerializeField] GameObject clearImg;  // クリア後に表示される画像
-    [SerializeField] GameObject chopsticksBtn;
-    [SerializeField] GameObject fadePanel;     // フェードイン&アウトパネル
+    [SerializeField] SpriteRenderer sr_clearImg;  // クリア後に表示される画像
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite dish2;           // 完成した天ぷら料理の画像
 
     private Player1Controller_19 player1Cnt;
+    private FadeInAndOut fadeCnt;
     private void Start()
     {
         player1Cnt = player1.GetComponent<Player1Controller_19>();
+        fadeCnt = fadePanel.GetComponent<FadeInAndOut>();
     }
 
     // +++++ Player1 +++++
@@ -31,7 +33,7 @@ public class PlayerAnimaCnt_19 : MonoBehaviour
     private void BrotherGetASmartphone()
     {
         // Brotherがスマホを受け取る
-        brother.GetComponent<Animator>().Play("BrotherTurn");
+        sr_brother.GetComponent<Animator>().Play("BrotherTurn");
     }
     // +++++++++++++++++++
 
@@ -43,23 +45,24 @@ public class PlayerAnimaCnt_19 : MonoBehaviour
         this.GetComponent<SpriteRenderer>().enabled = false;
         player3.GetComponent<SpriteRenderer>().enabled = true;
 
+        Animator animator_player3 = player3.GetComponent<Animator>();
         // Playerがエプロンを着用していたら
         if (player1Cnt.isWearingApron)
         {
             // 天ぷらを食べるアニメーション再生(ゲームクリア)
-            player3.GetComponent<Animator>().Play("PlayerEat");
+            animator_player3.Play("PlayerEat");
         }
         // Playerが電話をかけていたら
         else if (player1Cnt.called)
         {
             // Playerに油が跳ねるアニメーション再生(ゲームオーバー)
-            pot.GetComponent<Animator>().Play("PotOverflow");
-            player3.GetComponent<Animator>().Play("PlayerOver");
+            animator_pot.Play("PotOverflow");
+            animator_player3.Play("PlayerOver");
         }
         else
         {
             // 料理に手を伸ばすアニメーション再生(ゲームオーバー)
-            player3.GetComponent<Animator>().Play("PlayerReachFor");
+            animator_player3.Play("PlayerReachFor");
         }
     }
     // +++++++++++++++++++
@@ -86,7 +89,7 @@ public class PlayerAnimaCnt_19 : MonoBehaviour
     // 箸アイテムを取得不可に
     private void InActiveChopsticksBtn()
     {
-        chopsticksBtn.GetComponent<Image>().enabled = false;
+        img_chopsticksBtn.enabled = false;
     }
 
     // 箸取得後
@@ -94,18 +97,18 @@ public class PlayerAnimaCnt_19 : MonoBehaviour
     private async void StartCooking()
     {
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeIn(this.GetCancellationTokenOnDestroy());
 
         // Brotherを切り替える
-        brother.GetComponent<SpriteRenderer>().enabled = false;
-        peekingBrother.GetComponent<SpriteRenderer>().enabled = true;
+        sr_brother.enabled = false;
+        sr_peekingBrother.enabled = true;
         // 天ぷらの画像を変更
-        dish.GetComponent<SpriteRenderer>().sprite = dish2;
+        sr_dish.sprite = dish2;
         // playerが料理するアニメーション再生
         this.GetComponent<Animator>().Play("PlayerCook1");
 
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeOut(this.GetCancellationTokenOnDestroy());
     }
 
     // 天ぷらを皿に置くアニメーション開始時
@@ -118,11 +121,11 @@ public class PlayerAnimaCnt_19 : MonoBehaviour
     private async void FadeInAndOut_Clear()
     {
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeIn(this.GetCancellationTokenOnDestroy());
         // クリア後の画像を表示
-        clearImg.GetComponent<SpriteRenderer>().enabled = true;
+        sr_clearImg.enabled = true;
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(this.GetCancellationTokenOnDestroy());
+        await fadeCnt.FadeOut(this.GetCancellationTokenOnDestroy());
 
         // ゲームクリア処理
         await UniTask.Delay(TimeSpan.FromSeconds(2f), cancellationToken: this.GetCancellationTokenOnDestroy());

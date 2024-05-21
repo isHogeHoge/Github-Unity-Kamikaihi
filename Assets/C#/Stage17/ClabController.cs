@@ -5,14 +5,14 @@ using UnityEngine;
 public class ClabController : MonoBehaviour
 {
     [SerializeField] Vector2 targetPos; // 目的地点
-    private Vector2 startPos;   // 移動開始地点
-    private RectTransform rect;
+    private Vector2 startPos;
+    private RectTransform rect_clab;
 
     void Start()
     {
-        rect = this.GetComponent<RectTransform>();
+        rect_clab = this.GetComponent<RectTransform>();
         // 移動開始地点の設定
-        startPos = this.rect.anchoredPosition;
+        startPos = rect_clab.anchoredPosition;
     }
 
     void Update()
@@ -24,12 +24,12 @@ public class ClabController : MonoBehaviour
         }
 
         const float speed = 250f;
-        this.rect.anchoredPosition = Vector3.MoveTowards(this.rect.anchoredPosition, targetPos, speed * Time.deltaTime);        
+        rect_clab.anchoredPosition = Vector3.MoveTowards(rect_clab.anchoredPosition, targetPos, speed * Time.deltaTime);        
         // 目的地点に到着した時
-        if(this.rect.anchoredPosition == targetPos)
+        if(rect_clab.anchoredPosition == targetPos)
         {
             // 初期位置までワープ
-            this.rect.anchoredPosition = startPos;
+            rect_clab.anchoredPosition = startPos;
         }
     }
 }

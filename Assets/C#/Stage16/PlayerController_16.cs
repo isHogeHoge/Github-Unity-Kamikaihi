@@ -7,13 +7,20 @@ using System.Threading;
 using System;
 public class PlayerController_16 : MonoBehaviour
 {
-    [SerializeField] GameObject centaur1;
-    [SerializeField] GameObject player2;   // Player_PlayingTheGame
-    [SerializeField] GameObject rButton;
+    [SerializeField] Animator animator_centaur1;
+    [SerializeField] Image img_player2;   // Player_PlayingTheGame
     [SerializeField] GameObject fadePanel;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
-    [SerializeField] Sprite scissorsSpr;  
+    [SerializeField] Sprite scissorsSpr;
+
+    private StageManager sm;
+    private FadeInAndOut fadeCnt;
+    private void Start()
+    {
+        sm = stageManager.GetComponent<StageManager>();
+        fadeCnt = fadePanel.GetComponent<FadeInAndOut>();
+    }
 
     // 接触判定(Item)
     private async void OnTriggerExit2D(Collider2D col)
@@ -24,18 +31,19 @@ public class PlayerController_16 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // ハサミアイテム使用
-        if (col.GetComponent<Image>().sprite == scissorsSpr)
+        if (img_item.sprite == scissorsSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 場面切り替え(フェードイン&アウト)
             await FadeInAndOut(this.GetCancellationTokenOnDestroy());
 
             // ゲームクリア処理
-            await stageManager.GetComponent<StageManager>().GameClear(16, this.GetCancellationTokenOnDestroy());
+            await sm.GameClear(16, this.GetCancellationTokenOnDestroy());
         }
 
 
@@ -45,18 +53,18 @@ public class PlayerController_16 : MonoBehaviour
     private async UniTask FadeInAndOut(CancellationToken ct)
     {
         // ゲーム操作をできないようにする
-        stageManager.GetComponent<StageManager>().CantGameControl();
+        sm.CantGameControl();
 
         // -------- 場面切り替え処理 ----------
         // フェードイン
-        await fadePanel.GetComponent<FadeInAndOut>().FadeIn(ct);
+        await fadeCnt.FadeIn(ct);
 
         // 画面左側にスクロール
         stageManager.GetComponent<StageScrollCnt>().ScrollStagePnl("LEFT");
-        player2.GetComponent<Image>().enabled = true;
+        img_player2.enabled = true;
 
         // フェードアウト
-        await fadePanel.GetComponent<FadeInAndOut>().FadeOut(ct);
+        await fadeCnt.FadeOut(ct);
         // ---------------------------------
     }
 
@@ -65,7 +73,7 @@ public class PlayerController_16 : MonoBehaviour
     private void PlayCentaur1TryToOpenAnima()
     {
         // Centaur1がポテチを開けるアニメーション再生
-        centaur1.GetComponent<Animator>().Play("Centaur1TryToOpen");
+        animator_centaur1.Play("Centaur1TryToOpen");
     }
     // ---------------------------
 }

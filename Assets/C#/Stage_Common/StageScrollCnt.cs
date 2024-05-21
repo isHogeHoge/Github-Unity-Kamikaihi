@@ -87,11 +87,6 @@ public class StageScrollCnt : MonoBehaviour
                 }
 
                 // スクロール前clickCancelPnlが非アクティブなら、画面タップ可能に
-                /*
-                 * このスクリプトが複数のstagePanelにアタッチされている & スクロール前のclickCancelPnlが非アクティブ(false)の時
-                 * ScrollStagePnlメソッドの実行にズレがあるため、isActive_CancelPnlが1つのスクリプト以外trueになってしまう
-                 * そこでisActive_CancelPnlがfalesのスクリプトが1つでもあれば、スクロール前のclickCancelPnlの状態(false)を正しく反映できるようにしている
-                 */
                 if (!isActive_CancelPnl)
                 {
                     clickCancelPnl.SetActive(false);

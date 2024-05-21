@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerController_17And26 : MonoBehaviour
 {
-    [SerializeField] GameObject friend1;
-    [SerializeField] GameObject helmet;
+    [SerializeField] Animator animator_friend1;
+    [SerializeField] Image img_helmet;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
     // アイテム画像
@@ -35,7 +35,7 @@ public class PlayerController_17And26 : MonoBehaviour
         {
             // Playerの頭の上にスイカを表示 & Friend1に叩かれる
             this.transform.GetChild(0).GetComponent<Image>().enabled = true;
-            friend1.GetComponent<Animator>().Play("Friend1Swing1");
+            animator_friend1.Play("Friend1Swing1");
 
         }
         // カニアイテム使用
@@ -48,8 +48,8 @@ public class PlayerController_17And26 : MonoBehaviour
         else if(itemSpr == helmetSpr)
         {
             // ヘルメット装着 & Friend1に叩かれる
-            helmet.GetComponent<Image>().enabled = true;
-            friend1.GetComponent<Animator>().Play("Friend1Swing1");
+            img_helmet.enabled = true;
+            animator_friend1.Play("Friend1Swing1");
         }
 
     }

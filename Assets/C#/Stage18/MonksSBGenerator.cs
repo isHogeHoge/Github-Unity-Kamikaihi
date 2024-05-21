@@ -5,17 +5,11 @@ using UnityEngine;
 public class MonksSBGenerator : MonoBehaviour
 {
     [SerializeField] GameObject monk;
+    [SerializeField] SpriteRenderer sr_sb_down;
+    [SerializeField] Animator animator_sb_down;
+    [SerializeField] Animator animator_sb_up;
     private float passedTimes = 0f; // 経過時間(吹き出し出現で0にリセット)
 
-    private Animator animator_Down; // 吹き出し(下)のAnimator
-    private Animator animator_Up;   // 吹き出し(上)のAnimator
-    private SpriteRenderer sr_Down; // 吹き出し(下)のSpriteRenderer
-    private void Start()
-    {
-        animator_Down = monk.transform.GetChild(0).GetComponent<Animator>();
-        animator_Up = monk.transform.GetChild(1).GetComponent<Animator>();
-        sr_Down = monk.transform.GetChild(0).GetComponent<SpriteRenderer>();
-    }
     void Update()
     {
         // ポーズ中ならUpdateを抜ける
@@ -29,12 +23,12 @@ public class MonksSBGenerator : MonoBehaviour
         if(passedTimes >= 10f)
         {
             // "isStart"フラグを初期状態にリセットし、タップされるまで吹き出しが表示されるようにする
-            animator_Down.SetBool("isStart", false);
-            animator_Up.SetBool("isStart", false);
+            animator_sb_down.SetBool("isStart", false);
+            animator_sb_up.SetBool("isStart", false);
 
             // 僧侶の吹き出し(下)アニメーションを再生
-            animator_Down.Play("Monk'sSB_Down",0,0);
-            sr_Down.enabled = true;
+            animator_sb_down.Play("Monk'sSB_Down",0,0);
+            sr_sb_down.enabled = true;
 
             passedTimes = 0f;
         }

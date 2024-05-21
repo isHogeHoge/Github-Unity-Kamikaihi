@@ -512,17 +512,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed267edb31c36438b8974ec45023b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pot: {fileID: 1785356516}
-  dish: {fileID: 1940349802}
-  brother: {fileID: 1571385629}
-  peekingBrother: {fileID: 256080853}
+  img_chopsticksBtn: {fileID: 522121404}
+  fadePanel: {fileID: 1117133136}
+  animator_pot: {fileID: 1785356519}
+  sr_dish: {fileID: 1940349803}
+  sr_brother: {fileID: 1571385630}
+  sr_peekingBrother: {fileID: 256080854}
   player1: {fileID: 858730939}
   player3: {fileID: 183584213}
   mother: {fileID: 307602747}
   motherAndPlayer: {fileID: 266960844}
-  clearImg: {fileID: 638820913}
-  chopsticksBtn: {fileID: 522121400}
-  fadePanel: {fileID: 1117133136}
+  sr_clearImg: {fileID: 638820914}
   stageManager: {fileID: 1906817111797123005}
   dish2: {fileID: 21300000, guid: 133dce98d37874515820e9df5820dedb, type: 3}
 --- !u!114 &183584223
@@ -946,16 +946,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce0926821eb340409d11681a4a7800d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brother: {fileID: 1571385629}
-  radioWaveEffect: {fileID: 858831805}
-  sb_phone: {fileID: 1750302124}
-  player1: {fileID: 858730939}
-  apron: {fileID: 584175979}
-  chopsticks: {fileID: 1734777383}
-  chopsticksBtn: {fileID: 522121400}
-  apronBtn: {fileID: 1427052364}
+  chopsticksBtn: {fileID: 522121403}
+  apronBtn: {fileID: 1427052367}
   clickCancelPnl: {fileID: 1920752758}
-  stageManager: {fileID: 0}
+  sr_apron: {fileID: 584175980}
+  sr_chopsticks: {fileID: 1734777384}
+  animator_brother: {fileID: 1571385632}
+  sr_radioWaveEffect: {fileID: 858831806}
+  sr_sb_phone: {fileID: 1750302126}
+  animator_player1: {fileID: 858730944}
+  stageManager: {fileID: 1906817111797123005}
 --- !u!1 &322319734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,17 +1622,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed267edb31c36438b8974ec45023b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pot: {fileID: 1785356516}
-  dish: {fileID: 1940349802}
-  brother: {fileID: 1571385629}
-  peekingBrother: {fileID: 256080853}
+  img_chopsticksBtn: {fileID: 522121404}
+  fadePanel: {fileID: 1117133136}
+  animator_pot: {fileID: 1785356519}
+  sr_dish: {fileID: 1940349803}
+  sr_brother: {fileID: 1571385630}
+  sr_peekingBrother: {fileID: 256080854}
   player1: {fileID: 858730939}
   player3: {fileID: 183584213}
   mother: {fileID: 307602747}
   motherAndPlayer: {fileID: 266960844}
-  clearImg: {fileID: 638820913}
-  chopsticksBtn: {fileID: 0}
-  fadePanel: {fileID: 1117133136}
+  sr_clearImg: {fileID: 638820914}
   stageManager: {fileID: 1906817111797123005}
   dish2: {fileID: 21300000, guid: 133dce98d37874515820e9df5820dedb, type: 3}
 --- !u!1 &746813640
@@ -2019,17 +2019,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed267edb31c36438b8974ec45023b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pot: {fileID: 1785356516}
-  dish: {fileID: 1940349802}
-  brother: {fileID: 1571385629}
-  peekingBrother: {fileID: 256080853}
+  img_chopsticksBtn: {fileID: 522121404}
+  fadePanel: {fileID: 1117133136}
+  animator_pot: {fileID: 1785356519}
+  sr_dish: {fileID: 1940349803}
+  sr_brother: {fileID: 1571385630}
+  sr_peekingBrother: {fileID: 256080854}
   player1: {fileID: 858730939}
   player3: {fileID: 183584213}
   mother: {fileID: 307602747}
   motherAndPlayer: {fileID: 266960844}
-  clearImg: {fileID: 638820913}
-  chopsticksBtn: {fileID: 0}
-  fadePanel: {fileID: 1117133136}
+  sr_clearImg: {fileID: 638820914}
   stageManager: {fileID: 1906817111797123005}
   dish2: {fileID: 21300000, guid: 133dce98d37874515820e9df5820dedb, type: 3}
 --- !u!1 &858831805
@@ -3228,9 +3228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aed02c9280c64a968805aee10ae03ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radioWaveEffect: {fileID: 858831805}
-  sb_phone: {fileID: 1750302124}
-  mother: {fileID: 307602747}
+  sr_radioWaveEffect: {fileID: 858831806}
+  sr_sb_phone: {fileID: 1750302126}
+  animator_mother: {fileID: 307602750}
 --- !u!1 &1585355564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5036,7 +5036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 858730939}
-  player2: {fileID: 660166010}
+  animator_player2: {fileID: 660166013}
 --- !u!1001 &2406440567917162757
 PrefabInstance:
   m_ObjectHideFlags: 0

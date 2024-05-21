@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class CentaursController : MonoBehaviour
 {
-    [SerializeField] GameObject brother1;
-    [SerializeField] GameObject brother1Btn;
+    [SerializeField] Animator animator_brother1;
+    [SerializeField] Image img_brother1Btn;
     [SerializeField] GameObject centaurs;
-    [SerializeField] GameObject centaur2;
+    [SerializeField] Image img_centaur2;
     [SerializeField] GameObject centaur2Shadow;
-    [SerializeField] GameObject btn_OpenTheWindow;
-    [SerializeField] GameObject btn_OpenTheCurtain;
+    [SerializeField] Image img_OpenTheWindowBtn;
+    [SerializeField] Image img_OpenTheCurtainBtn;
     [SerializeField] GameObject garland;
     [SerializeField] GameObject strawberry;
     [SerializeField] GameObject centaur1Btn;
@@ -22,7 +22,7 @@ public class CentaursController : MonoBehaviour
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite garlandSpr;    
-    [SerializeField] Sprite strawberrySpr; 
+    [SerializeField] Sprite strawberrySpr;
 
     internal bool canGetOut = false;    // Centaurs退出可能フラグ
 
@@ -35,8 +35,9 @@ public class CentaursController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 花輪アイテム使用
-        if (col.GetComponent<Image>().sprite == garlandSpr)
+        if (img_item.sprite == garlandSpr)
         {
             // 飾りアイテム使用処理
             ActiveAccessory(col, garland);
@@ -49,7 +50,7 @@ public class CentaursController : MonoBehaviour
             }
         }
         // イチゴアイテム使用
-        else if (col.GetComponent<Image>().sprite == strawberrySpr)
+        else if (img_item.sprite == strawberrySpr)
         {
             // 飾りアイテム使用処理
             ActiveAccessory(col, strawberry);
@@ -81,13 +82,13 @@ public class CentaursController : MonoBehaviour
 
         // Centaur2とその影を表示
         centaur2Shadow.SetActive(true);
-        centaur2.GetComponent<Image>().enabled = true;
+        img_centaur2.enabled = true;
 
         // Centaurs退出可能に
         canGetOut = true;
 
         // カーテンと窓が両方空いていたら、そのままCentaursを退出させる
-        if (!btn_OpenTheCurtain.GetComponent<Image>().enabled && !btn_OpenTheWindow.GetComponent<Image>().enabled)
+        if (!img_OpenTheCurtainBtn.enabled && !img_OpenTheWindowBtn.enabled)
         {
             CentaursGetOut(this.GetCancellationTokenOnDestroy()).Forget();
         }
@@ -111,14 +112,14 @@ public class CentaursController : MonoBehaviour
         this.gameObject.SetActive(false);
         // Centaur2関連のオブジェクトを非アクティブに
         centaur2Shadow.SetActive(false);
-        centaur2.GetComponent<Image>().enabled = false;
+        img_centaur2.enabled = false;
 
         // Centaursが退出するアニメーション再生
         centaurs.SetActive(true);
 
         // brotherをクリック & 出現可能に
-        brother1.GetComponent<Animator>().Play("BrotherCanAppear");
-        brother1Btn.GetComponent<Image>().enabled = true;
+        animator_brother1.Play("BrotherCanAppear");
+        img_brother1Btn.enabled = true;
 
         canGetOut = false;
     }

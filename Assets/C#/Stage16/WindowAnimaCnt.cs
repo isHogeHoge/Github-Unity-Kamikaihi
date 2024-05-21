@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class WindowAnimaCnt : MonoBehaviour
 {
-    [SerializeField] GameObject btn_OpenTheWindow;
+    [SerializeField] Image img_OpenTheWindowBtn;
 
     // 窓を開けるアニメーション終了時
     private void CanCloseTheWindow()
     {
-        btn_OpenTheWindow.GetComponent<Image>().enabled = false;
+        img_OpenTheWindowBtn.enabled = false;
     }
     // 窓を閉めるアニメーション終了時
     private void CanOpenTheWindow()
     {
-        btn_OpenTheWindow.GetComponent<Image>().enabled = true;
+        img_OpenTheWindowBtn.enabled = true;
     }
 }

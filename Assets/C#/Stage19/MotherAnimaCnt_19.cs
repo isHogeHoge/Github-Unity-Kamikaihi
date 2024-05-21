@@ -8,27 +8,27 @@ using System;
 
 public class MotherAnimaCnt_19 : MonoBehaviour
 {
-    [SerializeField] GameObject brother;
-    [SerializeField] GameObject radioWaveEffect; // 電波エフェクト
-    [SerializeField] GameObject sb_phone; // 電話の吹き出し
-    [SerializeField] GameObject player1; // player移動前
-    [SerializeField] GameObject apron;
-    [SerializeField] GameObject chopsticks;
-    [SerializeField] GameObject chopsticksBtn; // 箸アイテムボタン
-    [SerializeField] GameObject apronBtn;      // エプロンアイテムボタン
+    [SerializeField] Button chopsticksBtn; // 箸アイテムボタン
+    [SerializeField] Button apronBtn;      // エプロンアイテムボタン
     [SerializeField] GameObject clickCancelPnl;
+    [SerializeField] SpriteRenderer sr_apron;
+    [SerializeField] SpriteRenderer sr_chopsticks;
+    [SerializeField] Animator animator_brother;
+    [SerializeField] SpriteRenderer sr_radioWaveEffect; // 電波エフェクト
+    [SerializeField] SpriteRenderer sr_sb_phone; // 電話の吹き出し
+    [SerializeField] Animator animator_player1; // player移動前
     [SerializeField] GameObject stageManager;
 
     // 電話を取りに行くアニメーション開始時
     private void ActiveApronAndChopsticksItem()
     {
         // エプロンアイテム出現
-        apron.GetComponent<SpriteRenderer>().enabled = true;
-        apronBtn.GetComponent<Button>().enabled = true;
+        sr_apron.enabled = true;
+        apronBtn.enabled = true;
 
         // 箸アイテム出現
-        chopsticks.GetComponent<SpriteRenderer>().enabled = true;
-        chopsticksBtn.GetComponent<Button>().enabled = true;
+        sr_chopsticks.enabled = true;
+        chopsticksBtn.enabled = true;
     }
     // 電話を取り終えた後
     private void EndRinging()
@@ -36,12 +36,12 @@ public class MotherAnimaCnt_19 : MonoBehaviour
         clickCancelPnl.SetActive(false);
 
         // 電話エフェクトを非表示
-        radioWaveEffect.GetComponent<SpriteRenderer>().enabled = false;
-        sb_phone.GetComponent<SpriteRenderer>().enabled = false;
+        sr_radioWaveEffect.enabled = false;
+        sr_sb_phone.enabled = false;
 
         // Player1とBrotherのアニメーションを初期のものに
-        player1.GetComponent<Animator>().Play("Player1Start");
-        brother.GetComponent<Animator>().Play("BrotherStart");
+        animator_player1.Play("Player1Start");
+        animator_brother.Play("BrotherStart");
     }
 
 }

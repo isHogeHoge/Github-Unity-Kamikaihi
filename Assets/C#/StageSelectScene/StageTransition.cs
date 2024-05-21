@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StageTransitionBtnCnt : MonoBehaviour
+public class StageTransition : MonoBehaviour
 {
     [SerializeField] GameObject audioPlayerSE; 
     [SerializeField] AudioClip clickSound1; // ステージ移行ボタンを1回クリックした時のSE

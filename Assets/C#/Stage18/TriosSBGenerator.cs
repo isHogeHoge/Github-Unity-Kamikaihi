@@ -18,7 +18,7 @@ public class TriosSBGenerator : MonoBehaviour
     [SerializeField] Sprite omeletRice;
     [SerializeField] Sprite sodaPop;
 
-    private MonkController mc;
+    private MonkController monkCnt;
     private List<Sprite> sprites;        // 吹き出し内画像のリスト
     private float deltaTime = 2.5f;  　　// 吹き出しの出現間隔(次の吹き出し出現までに要する時間)
     private float passedTimes = 0f;      // 経過時間(吹き出し出現で0にリセット)
@@ -26,7 +26,7 @@ public class TriosSBGenerator : MonoBehaviour
 
     void Start()
     {
-        mc = monk.GetComponent<MonkController>();
+        monkCnt = monk.GetComponent<MonkController>();
         sprites = new List<Sprite> { book, controller, girlFriend, omeletRice, sodaPop };
     }
 
@@ -76,7 +76,7 @@ public class TriosSBGenerator : MonoBehaviour
             // --------------------------
 
             // 僧侶をランダムに選ばれた人物のX座標まで移動
-            mc.targetPos = new Vector3(someone.transform.position.x, monk.transform.position.y, 0);
+            monkCnt.targetPos = new Vector3(someone.transform.position.x, monk.transform.position.y, 0);
 
             passedTimes = 0f;
         }

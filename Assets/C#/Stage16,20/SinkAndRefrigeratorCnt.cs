@@ -7,14 +7,14 @@ public class SinkAndRefrigeratorCnt : MonoBehaviour
 {
     // シンクor冷蔵庫の扉をクリックした時
     // ドアを開閉させる
-    public void ClickDoorBtn(GameObject img_OpenDoor)
+    public void ClickDoorBtn(Image img_OpenDoor)
     {
-        img_OpenDoor.GetComponent<Image>().enabled = !img_OpenDoor.GetComponent<Image>().enabled;
+        img_OpenDoor.enabled = !img_OpenDoor.enabled;
     }
     // (引数で指定した)アイテムボタンのアクティブ・非アクティブを切り替える
-    public void SwitchActiveAndInActive_ItemBtn(GameObject itemBtn)
+    public void SwitchActiveAndInActive_ItemBtn(Image img_itemBtn)
     {
-        itemBtn.GetComponent<Image>().enabled = !itemBtn.GetComponent<Image>().enabled;
+        img_itemBtn.enabled = !img_itemBtn.enabled;
 
     }
 }
