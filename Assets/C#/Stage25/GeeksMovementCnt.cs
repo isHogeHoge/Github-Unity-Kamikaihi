@@ -16,10 +16,10 @@ public class GeeksMovementCnt : MonoBehaviour
     [SerializeField] GameObject stagePanel;
 
     private StageScrollCnt scrollCnt;
-    private Animator animator_Geek;
-    private Animator animator_GeekInTopRightRoom;
     private SpriteRenderer sr_Geek;
+    private Animator animator_Geek;
     private SpriteRenderer sr_GeekInTopRightRoom;
+    private Animator animator_GeekInTopRightRoom;
     private List<Vector3> targetPos = new List<Vector3>(); // geek移動先ポジション(判定用)
     private List<Vector3> targetPos_R = new List<Vector3>(); // geek移動先ポジション(右側ページ)
     private List<Vector3> targetPos_L = new List<Vector3>(); // geek移動先ポジション(左側ページ)

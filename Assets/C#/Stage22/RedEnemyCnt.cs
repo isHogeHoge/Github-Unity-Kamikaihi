@@ -7,20 +7,22 @@ using UnityEngine;
 public class RedEnemyCnt : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject blueEnemy_Goal; // ゴール時の敵(青)
-    [SerializeField] GameObject redEnemy_Goal; // ゴール時の敵(赤)
+    [SerializeField] Animator animator_blueEnemy_Goal;
+    [SerializeField] GameObject redEnemy_Goal;
     [SerializeField] GameObject stageManager;
 
-    private SpriteRenderer sr_RedCircle; // 足元のサークルのSpriteRenderer
     private EnemyController_22 ec_22;
-    private Animator animator;
+    private PlayerController_22 pc_22;
+    private SpriteRenderer sr_redCircle;
+    private Animator animator_redEnemy;
     private Vector3 playerPos;
 
     private void Start()
     {
-        sr_RedCircle = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         ec_22 = this.GetComponent<EnemyController_22>();
-        animator = this.GetComponent<Animator>();
+        pc_22 = player.GetComponent<PlayerController_22>();
+        sr_redCircle = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        animator_redEnemy = this.GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -36,10 +38,10 @@ public class RedEnemyCnt : MonoBehaviour
         // Playerとの距離が一定以下なら、追跡開始
         if (Vector2.Distance(playerPos, this.transform.position) <= 2.5f)
         {
-            animator.Play("EnemyMove_Up");
+            animator_redEnemy.Play("EnemyMove_Up");
             ec_22.enabled = true;
             // 足元のサークルを表示
-            sr_RedCircle.enabled = true;
+            sr_redCircle.enabled = true;
 
         }
     }
@@ -50,7 +52,7 @@ public class RedEnemyCnt : MonoBehaviour
         if (col.transform.CompareTag("RedGoal"))
         {
             // 同時にPlayerと接触していたら、ゲームオーバー優先
-            if (player.GetComponent<PlayerController_22>().isOver)
+            if (pc_22.isHitEnemy)
             {
                 return;
             }
@@ -61,14 +63,14 @@ public class RedEnemyCnt : MonoBehaviour
 
 
             // Playerの移動停止
-            player.GetComponent<PlayerController_22>().stopMoving = true;
+            pc_22.stopMoving = true;
             player.GetComponent<Animator>().Play("PlayerStop");
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
 
             // 敵(赤・青)が吹き飛ぶアニメーション再生
             redEnemy_Goal.GetComponent<Animator>().enabled = true;
-            blueEnemy_Goal.GetComponent<Animator>().enabled = true;
+            animator_blueEnemy_Goal.enabled = true;
 
         }
 

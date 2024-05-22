@@ -19,12 +19,12 @@ public class PlateOnTableCnt : MonoBehaviour
             return;
         }
 
-        Sprite sprite = col.GetComponent<Image>().sprite;
+        Image img_item = col.GetComponent<Image>();
         //「焼き上がったクッキー(チョコペン使用×)」アイテム使用
-        if (sprite == yellowCookie1Spr || sprite == redCookie1Spr)
+        if (img_item.sprite == yellowCookie1Spr || img_item.sprite == redCookie1Spr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // クッキーアイテムを取得できるように

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GatyasCapsulesAnimaCnt : MonoBehaviour
 {
-    [SerializeField] GameObject clerk;
+    [SerializeField] Animator animator_clerk;
 
     // アニメーション終了後
     private void PlayClerkIsSurprisedAnima()
     {
         // Clerkが驚くアニメーション再生
-        clerk.GetComponent<Animator>().Play("ClerkIsSurprised");
+        animator_clerk.Play("ClerkIsSurprised");
     }
 
 }

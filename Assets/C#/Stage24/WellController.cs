@@ -6,16 +6,15 @@ using System;
 using Cysharp.Threading.Tasks;
 public class WellController : MonoBehaviour
 {
-    [SerializeField] GameObject maskBtn;  // カッパマスク取得ボタン
-    [SerializeField] GameObject surprisedFriend2; // 蜘蛛に驚いているFriend2
-    [SerializeField] GameObject faintingFriend2;  // 気絶しているFriend2
-    [SerializeField] GameObject mask;             // カッパマスク
+    [SerializeField] Button maskBtn;  // カッパマスク取得ボタン
+    [SerializeField] GameObject friend2;
+    [SerializeField] SpriteRenderer sr_surprisedFriend2;
+    [SerializeField] SpriteRenderer sr_faintingFriend2;
+    [SerializeField] SpriteRenderer sr_mask;        // カッパマスク
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
     // アイテム画像
     [SerializeField] Sprite spiderSpr;
-
-    internal bool isScaredByFriend2 = true;    // Friend2に驚かされるフラグ
 
     // 接触判定(Item)
     private async void OnTriggerExit2D(Collider2D col)
@@ -26,27 +25,25 @@ public class WellController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 蜘蛛アイテム使用
-        if (col.GetComponent<Image>().sprite == spiderSpr)
+        if (img_item.sprite == spiderSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             //  --- Friend2が蜘蛛に驚く&気絶する → カッパマスクアイテム出現 ---
-            surprisedFriend2.GetComponent<SpriteRenderer>().enabled = true;
+            friend2.SetActive(false);
+            sr_surprisedFriend2.enabled = true;
 
             await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
-            surprisedFriend2.GetComponent<SpriteRenderer>().enabled = false;
-            faintingFriend2.GetComponent<SpriteRenderer>().enabled = true;
-            mask.GetComponent<SpriteRenderer>().enabled = true;
-            maskBtn.GetComponent<Button>().enabled = true;
+            sr_surprisedFriend2.enabled = false;
+            sr_faintingFriend2.enabled = true;
+            sr_mask.enabled = true;
+            maskBtn.enabled = true;
             // ----------------------------------------------------------
-
-            // Friend2に驚かされるフラグOFF
-            isScaredByFriend2 = false;
-
 
         }
     }

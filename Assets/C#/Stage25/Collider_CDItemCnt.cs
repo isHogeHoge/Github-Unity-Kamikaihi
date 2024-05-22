@@ -18,11 +18,12 @@ public class Collider_CDItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // CDアイテム使用
-        if (col.GetComponent<Image>().sprite == cdItemSpr)
+        if (img_item.sprite == cdItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 音楽を鳴らす(アニメーション)

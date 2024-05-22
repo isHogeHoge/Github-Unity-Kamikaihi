@@ -5,38 +5,44 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyAnimaCnt_21 : MonoBehaviour
 {
-    [SerializeField] GameObject smallEnemybtn; // SmallEnemyを風呂に落とすボタン
-    [SerializeField] GameObject goBtn;     
-    [SerializeField] GameObject goBackBtn; 
-    [SerializeField] GameObject treasureBtn;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject casket;
-    [SerializeField] GameObject signBoard; // お湯風呂トラップの看板
+    [SerializeField] Button smallEnemybtn; // SmallEnemyを風呂に落とすボタン
+    [SerializeField] Button treasureBtn;
+    [SerializeField] Image img_goBtn;     
+    [SerializeField] Image img_goBackBtn; 
+    [SerializeField] Animator animator_player;
+    [SerializeField] SpriteRenderer sr_casket;
+    [SerializeField] SpriteRenderer sr_signBoard; // お湯風呂トラップの看板
     [SerializeField] GameObject rock;
     [SerializeField] GameObject clickCancelPnl;
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite openedCasket2Spr; // 棺桶(空)の画像
 
+    private StageManager sm;
     private bool wasPlayed = false;  // "SmallEnemyFellDown"アニメーションが再生済みか
+
+    private void Start()
+    {
+        sm = stageManager.GetComponent<StageManager>();
+    }
 
     // +++++++ SmallEnemy +++++++
     // 小さいアヌビス出現時
     private void ChangeCasketSpr()
     {
         // 棺桶を空の画像に
-        casket.GetComponent<SpriteRenderer>().sprite = openedCasket2Spr;
+        sr_casket.sprite = openedCasket2Spr;
     }
 
     // 橋になるアニメーション開始時
-    private void CanDorpSmallEnemy()
+    private void Enable_DorpSmallEnemy()
     {
-        // トラップがお湯風呂だったら、SmallEnemyを落とせるように
-        if (signBoard.GetComponent<SpriteRenderer>().enabled)
+        // トラップがお湯風呂なら、SmallEnemyを落とせるように
+        if (sr_signBoard.enabled)
         {
-            smallEnemybtn.GetComponent<Button>().enabled = true;
+            smallEnemybtn.enabled = true;
         }
     }
-    private void CanClickGoBtn()
+    private void Enable_ClickGoBtn()
     {
         // 初回の再生のみ以下の処理を行う
         if (wasPlayed)
@@ -44,8 +50,8 @@ public class EnemyAnimaCnt_21 : MonoBehaviour
             return;
         }
         // Playerのアニメーションを初期状態 & 進行可能に
-        player.GetComponent<Animator>().Play("PlayerStop1");
-        goBtn.GetComponent<Image>().enabled = true;
+        animator_player.Play("PlayerStop1");
+        img_goBtn.enabled = true;
     }
     // 橋になるアニメーション終了時
     private void GetwasPlayedFlgTure()
@@ -62,10 +68,10 @@ public class EnemyAnimaCnt_21 : MonoBehaviour
     {
         // playerを襲うアニメーション再生
         this.GetComponent<Animator>().Play("SmallEnemyAttack");
-        player.GetComponent<Animator>().Play("PlayerIsAttacked");
+        animator_player.Play("PlayerIsAttacked");
 
         // ゲームオーバー処理
-        stageManager.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
+        sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
     }
     // ++++++++++++++++++++++++++++++++
 
@@ -74,9 +80,9 @@ public class EnemyAnimaCnt_21 : MonoBehaviour
     private void isGameOver()
     {
         // Playerが宝を取得していなかったら、ゲームオーバー
-        if (treasureBtn.GetComponent<Button>().enabled)
+        if (treasureBtn.enabled)
         {
-            stageManager.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
+            sm.GameOver(this.GetCancellationTokenOnDestroy()).Forget();
         }
     }
 
@@ -85,7 +91,7 @@ public class EnemyAnimaCnt_21 : MonoBehaviour
     {
         // ゲーム操作を可能に
         clickCancelPnl.SetActive(false);
-        goBackBtn.GetComponent<Image>().enabled = true;
+        img_goBackBtn.enabled = true;
     }
     // 岩から逃げるアニメーション終了時
     private void RestartMovementOfRock()

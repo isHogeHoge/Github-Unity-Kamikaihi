@@ -948,9 +948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ea0a98316be40bba7e7123376de8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackBtn3: {fileID: 427890771}
+  img_crackBtn3: {fileID: 427890774}
   player_Over: {fileID: 30971107}
-  fallingTreasure: {fileID: 1588654604}
+  sr_fallingTreasure: {fileID: 1588654605}
   stageManager: {fileID: 928290509}
 --- !u!1 &274541835
 GameObject:
@@ -997,11 +997,11 @@ Transform:
   - {fileID: 736221417}
   - {fileID: 1823282072}
   - {fileID: 1659289026}
+  - {fileID: 1053606250}
+  - {fileID: 2059842361}
   - {fileID: 1173614579}
   - {fileID: 1588654606}
   - {fileID: 2120772665}
-  - {fileID: 1053606250}
-  - {fileID: 2059842361}
   - {fileID: 926294121}
   - {fileID: 562242699}
   - {fileID: 685348236}
@@ -2763,13 +2763,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7856f26bb1847e585474c238e75605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallEnemybtn: {fileID: 534780211}
-  goBtn: {fileID: 969071780}
-  goBackBtn: {fileID: 406475304}
-  treasureBtn: {fileID: 1846723322}
-  player: {fileID: 1297615366}
-  casket: {fileID: 1619260390}
-  signBoard: {fileID: 238775973}
+  smallEnemybtn: {fileID: 534780213}
+  treasureBtn: {fileID: 1846723324}
+  img_goBtn: {fileID: 969071783}
+  img_goBackBtn: {fileID: 406475307}
+  animator_player: {fileID: 1297615369}
+  sr_casket: {fileID: 1619260391}
+  sr_signBoard: {fileID: 238775974}
   rock: {fileID: 268441235}
   clickCancelPnl: {fileID: 2016529958}
   stageManager: {fileID: 928290509}
@@ -2792,13 +2792,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallEnemyBtn: {fileID: 534780211}
-  safetyZoneBtn: {fileID: 508978346}
-  treasureBtn: {fileID: 1846723322}
-  goBtn: {fileID: 969071780}
+  safetyZoneBtn: {fileID: 508978348}
+  treasureBtn: {fileID: 1846723324}
+  img_goBtn: {fileID: 969071783}
   player: {fileID: 1297615366}
-  smallEnemy: {fileID: 1555964461}
-  safetyZone: {fileID: 2059842359}
-  fallingTreasure: {fileID: 1588654604}
+  animator_smallEnemy: {fileID: 1555964464}
+  sr_safetyZone: {fileID: 2059842360}
+  sr_fallingTreasure: {fileID: 1588654605}
   rock: {fileID: 268441235}
   safetyZoneSpr: {fileID: 21300000, guid: 28114f279d100468887f426d11f7c6e7, type: 3}
   playerInTheSafetyZone1: {fileID: 21300000, guid: 6029a265c90d34f758bf9f0f96c11aa2, type: 3}
@@ -3937,16 +3937,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallEnemyBtn: {fileID: 534780211}
+  treasureBtn: {fileID: 1846723324}
   goBtn: {fileID: 969071780}
-  treasureBtn: {fileID: 1846723322}
+  clickCancelPnl: {fileID: 2016529958}
   smallEnemy: {fileID: 1555964461}
-  collapsingSmallEnemy: {fileID: 1218740234}
+  sr_collapsingSmallEnemy: {fileID: 1218740236}
+  sr_fallingTreasure: {fileID: 1588654605}
   bigEnemy: {fileID: 926294119}
-  holeInTheWall: {fileID: 685348234}
-  fallingTreasure: {fileID: 1588654604}
+  sr_holeInTheWall: {fileID: 685348235}
   stagePanel_UI: {fileID: 992939907}
   stagePanel: {fileID: 274541835}
-  clickCancelPnl: {fileID: 2016529958}
   stageManager: {fileID: 928290509}
   holeInTheWallSpr: {fileID: 21300000, guid: 4c4dc571406694ba682489d16320e589, type: 3}
 --- !u!1 &1349260071
@@ -4691,13 +4691,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7856f26bb1847e585474c238e75605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallEnemybtn: {fileID: 534780211}
-  goBtn: {fileID: 969071780}
-  goBackBtn: {fileID: 0}
-  treasureBtn: {fileID: 0}
-  player: {fileID: 1297615366}
-  casket: {fileID: 1619260390}
-  signBoard: {fileID: 238775973}
+  smallEnemybtn: {fileID: 534780213}
+  treasureBtn: {fileID: 1846723324}
+  img_goBtn: {fileID: 969071783}
+  img_goBackBtn: {fileID: 406475307}
+  animator_player: {fileID: 1297615369}
+  sr_casket: {fileID: 1619260391}
+  sr_signBoard: {fileID: 238775974}
   rock: {fileID: 0}
   clickCancelPnl: {fileID: 0}
   stageManager: {fileID: 928290509}
@@ -5783,8 +5783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c594ba474970346bd8a8e8d75e69d188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotBath: {fileID: 1477536688}
-  signBoard: {fileID: 238775973}
+  animator_hotBath: {fileID: 1477536691}
+  sr_signBoard: {fileID: 238775974}
 --- !u!1 &1922463714
 GameObject:
   m_ObjectHideFlags: 0

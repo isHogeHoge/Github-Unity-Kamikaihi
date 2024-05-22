@@ -8,9 +8,9 @@ using System.Threading;
 
 public class FirePlaceController : MonoBehaviour
 {
-    [SerializeField] GameObject cookieBtn;     
-    [SerializeField] GameObject plateWithTheDough;
-    [SerializeField] GameObject plateInTheFirePlace;
+    [SerializeField] Image img_bakedCookieBtn;     
+    [SerializeField] SpriteRenderer sr_plateWithTheDough;
+    [SerializeField] Animator animator_plateInTheFirePlace;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite yCookieDoughSpr;  // 黄色のクッキー(生地)画像
     [SerializeField] Sprite rCookieDoughSpr;  // 赤色のクッキー(生地)画像
@@ -29,39 +29,39 @@ public class FirePlaceController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         //「黄色のクッキー(生地)」アイテム使用
-        if (col.GetComponent<Image>().sprite == yCookieDoughSpr)
+        if (img_item.sprite == yCookieDoughSpr)
         {
             // クッキー(黄色)を焼く
-            BakeCookie(col, plateWithYDoughSpr, yellowCookieSpr, this.GetCancellationTokenOnDestroy()).Forget();
+            BakeCookie(img_item, plateWithYDoughSpr, yellowCookieSpr, this.GetCancellationTokenOnDestroy()).Forget();
         }
         //「赤色のクッキー(生地)」アイテム使用
-        else if (col.GetComponent<Image>().sprite == rCookieDoughSpr)
+        else if (img_item.sprite == rCookieDoughSpr)
         {
             // クッキー(赤色)を焼く
-            BakeCookie(col, plateWithRDoughSpr, redCookieSpr, this.GetCancellationTokenOnDestroy()).Forget();
+            BakeCookie(img_item, plateWithRDoughSpr, redCookieSpr, this.GetCancellationTokenOnDestroy()).Forget();
         }
     }
 
     // クッキーを焼く処理
-    private async UniTask BakeCookie(Collider2D col, Sprite plateSpr, Sprite cookieSpr, CancellationToken ct)
+    private async UniTask BakeCookie(Image img_item, Sprite plateSpr, Sprite cookieSpr, CancellationToken ct)
     {
         // アイテム使用処理
-        col.GetComponent<Image>().sprite = null;
+        img_item.sprite = null;
         itemManager.GetComponent<ItemManager>().UsedItem();
 
         // クッキー(生地)が乗っているプレートを表示
-        plateWithTheDough.GetComponent<SpriteRenderer>().sprite = plateSpr;
-        plateWithTheDough.GetComponent<SpriteRenderer>().enabled = true;
+        sr_plateWithTheDough.sprite = plateSpr;
+        sr_plateWithTheDough.enabled = true;
         // 焼き上がったクッキーの画像を設定
-        cookieBtn.GetComponent<Image>().sprite = cookieSpr;
+        img_bakedCookieBtn.sprite = cookieSpr;
 
-        // 1秒待つ
         await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: ct);
 
         // クッキーを焼くアニメーション再生
-        plateWithTheDough.GetComponent<SpriteRenderer>().enabled = false;
-        plateInTheFirePlace.GetComponent<Animator>().enabled = true;
+        sr_plateWithTheDough.enabled = false;
+        animator_plateInTheFirePlace.enabled = true;
     }
 
 }

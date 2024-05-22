@@ -7,31 +7,25 @@ using UnityEngine;
 public class PlayerController_22 : MonoBehaviour
 {
     [SerializeField] GameObject topBorder;
+    [SerializeField] GameObject blueEnemy; 
+    [SerializeField] GameObject redEnemy;
     [SerializeField] GameObject stageManager;
-    [SerializeField] GameObject blueEnemy;  // 敵(青)
-    [SerializeField] GameObject redEnemy; // 敵(赤)
 
     private CancelClickOutOfScreen cancelClickCnt;
-    private Animator animator;   
-    private Rigidbody2D rbody2d; 
-    private Vector3 leftBottom;  // 画面左下座標
-    private Vector3 rightTop;　 // 画面右下座標
-    private Vector3 targetPos; // 移動先座標
+    private Animator animator_player;   
+    private Rigidbody2D rbody_player; 
+    private Vector3 targetPos; 
     private const float speed = 2f;  // 移動スピード
     private bool canPlayMoveAnima = false; // 移動アニメーション再生可能フラグ
     internal bool stopMoving = false; // 移動停止フラグ
-    internal bool isOver = false;  // 敵との接触フラグ(ゲームオーバーフラグ)
+    internal bool isHitEnemy = false;  // 敵との接触フラグ
     
 
     void Start()
     {
         cancelClickCnt = stageManager.GetComponent<CancelClickOutOfScreen>();
-        animator = this.GetComponent<Animator>();
-        rbody2d = this.GetComponent<Rigidbody2D>();
-
-        // 画面の右上と左下の座標を取得
-        leftBottom = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        animator_player = this.GetComponent<Animator>();
+        rbody_player = this.GetComponent<Rigidbody2D>();
 
         // Playerの現在位置を最初の移動先座標に設定
         targetPos = this.transform.position;
@@ -67,13 +61,6 @@ public class PlayerController_22 : MonoBehaviour
                     return;
                 }
             }
-
-            // 画面外のクリックを無効に
-            if((targetPos.y < leftBottom.y || targetPos.y > rightTop.y) || (targetPos.x < leftBottom.x || targetPos.x > rightTop.x))
-            {
-                targetPos = this.transform.position;
-                return;
-            }
             // ++++++++++++++++++++++++++++++++++++++++
 
             // 移動アニメーション再生に移る
@@ -94,12 +81,12 @@ public class PlayerController_22 : MonoBehaviour
                 // 左
                 if (targetPos.x < playerPos.x)
                 {
-                    animator.Play("PlayerMove_Left");
+                    animator_player.Play("PlayerMove_Left");
                 }
                 // 右
                 else if (targetPos.x > playerPos.x)
                 {
-                    animator.Play("PlayerMove_Right");
+                    animator_player.Play("PlayerMove_Right");
                 }
             }
             // --- 上方向移動 ---
@@ -108,17 +95,17 @@ public class PlayerController_22 : MonoBehaviour
                 // 上
                 if (Mathf.Abs(targetPos.x - playerPos.x) <= 0.5f)
                 {
-                    animator.Play("PlayerMove_Up");
+                    animator_player.Play("PlayerMove_Up");
                 }
                 // 左上
                 else if (targetPos.x < playerPos.x)
                 {
-                    animator.Play("PlayerMove_TopLeft");
+                    animator_player.Play("PlayerMove_TopLeft");
                 }
                 // 右上
                 else if (targetPos.x > playerPos.x)
                 {
-                    animator.Play("PlayerMove_TopRight");
+                    animator_player.Play("PlayerMove_TopRight");
                 }
             }
             // --- 下方向移動 ---
@@ -127,17 +114,17 @@ public class PlayerController_22 : MonoBehaviour
                 // 下
                 if (Mathf.Abs(targetPos.x - playerPos.x) <= 0.5f)
                 {
-                    animator.Play("PlayerMove_Down");
+                    animator_player.Play("PlayerMove_Down");
                 }
                 // 左下
                 else if (targetPos.x < playerPos.x)
                 {
-                    animator.Play("PlayerMove_BottomLeft");
+                    animator_player.Play("PlayerMove_BottomLeft");
                 }
                 // 右下
                 else if (targetPos.x > playerPos.x)
                 {
-                    animator.Play("PlayerMove_BottomRight");
+                    animator_player.Play("PlayerMove_BottomRight");
                 }
             }
             
@@ -158,7 +145,7 @@ public class PlayerController_22 : MonoBehaviour
         }
 
         // 移動先座標まで一定のスピードで移動
-        rbody2d.MovePosition(Vector3.MoveTowards(this.transform.position, targetPos, speed * Time.deltaTime));
+        rbody_player.MovePosition(Vector3.MoveTowards(this.transform.position, targetPos, speed * Time.deltaTime));
 
     }
 
@@ -173,14 +160,14 @@ public class PlayerController_22 : MonoBehaviour
         // 敵と接触した時
         if (col.gameObject.CompareTag("Enemy"))
         {
-            isOver = true;
+            isHitEnemy = true;
             stopMoving = true;
             targetPos = this.transform.position;
-            animator.Play("PlayerOver");
+            animator_player.Play("PlayerOver");
 
             // 敵と反発しないようにする
             col.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            rbody2d.bodyType = RigidbodyType2D.Kinematic;
+            rbody_player.bodyType = RigidbodyType2D.Kinematic;
 
             // ゲームオーバー処理
             stageManager.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();

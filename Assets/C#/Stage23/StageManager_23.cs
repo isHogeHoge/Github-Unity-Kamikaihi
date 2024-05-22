@@ -5,31 +5,37 @@ using UnityEngine;
 public class StageManager_23 : MonoBehaviour
 {
     [SerializeField] GameObject clickCancelPnl;
-    [SerializeField] GameObject gatyaL;
-    [SerializeField] GameObject gatyaR;
-    [SerializeField] GameObject posterL;
-    [SerializeField] GameObject posterR;
+    [SerializeField] BoxCollider2D boxCol_gatyaL;
+    [SerializeField] BoxCollider2D boxCol_gatyaR;
+    [SerializeField] SpriteRenderer sr_posterL;
+    [SerializeField] SpriteRenderer sr_posterR;
     [SerializeField] GameObject itemManager;
 
+    private ItemManager im;
     private bool isEnabled_GatyaLCol = false; // GatyaLにアタッチされているコライダーのアクティブ状態
     private bool isEnabled_GatyaRCol = false; // GatyaRにアタッチされているコライダーのアクティブ状態
-    // コインをクリックした時
-    public void ClickCoinBtn(GameObject coin) // coin1~3
+    private void Start()
+    {
+        im = itemManager.GetComponent<ItemManager>();
+    }
+    // --------- Button ----------
+    // コイン
+    public void ClickCoinBtn(SpriteRenderer sr_coin) // coin1~3
     {
         // アイテム所持数がMax(5)ならメソッドを抜ける
-        if (itemManager.GetComponent<ItemManager>().isFull)
+        if (im.isFull)
         {
             return;
         }
 
         // コインの画像を非表示に
-        coin.GetComponent<SpriteRenderer>().enabled = false;
+        sr_coin.enabled = false;
     }
-    // 「故障中」ポスターをクリックした時
+    // 「故障中」ポスター
     public void ClickPosterBtn(string poster)
     {
         // アイテム所持数がMax(5)ならメソッドを抜ける
-        if (itemManager.GetComponent<ItemManager>().isFull)
+        if (im.isFull)
         {
             return;
         }
@@ -38,36 +44,37 @@ public class StageManager_23 : MonoBehaviour
         switch (poster)
         {
             case "PosterL":
-                posterL.GetComponent<SpriteRenderer>().enabled = false;
-                gatyaL.GetComponent<BoxCollider2D>().enabled = true;
+                sr_posterL.enabled = false;
+                boxCol_gatyaL.enabled = true;
                 break;
             case "PosterR":
-                posterR.GetComponent<SpriteRenderer>().enabled = false;
-                gatyaR.GetComponent<BoxCollider2D>().enabled = true;
+                sr_posterR.enabled = false;
+                boxCol_gatyaR.enabled = true;
                 break;
             default:
                 Debug.Log($"{poster}は無効な文字列です");
                     break;
         }
     }
+    // ----------------------------
 
     // ゲーム操作をできないようにする
     internal void CantGameControl()
     {
         // ガチャにアタッチされているコライダーの状態を保存
-        isEnabled_GatyaLCol = gatyaL.GetComponent<BoxCollider2D>().enabled;
-        isEnabled_GatyaRCol = gatyaR.GetComponent<BoxCollider2D>().enabled;
+        isEnabled_GatyaLCol = boxCol_gatyaL.enabled;
+        isEnabled_GatyaRCol = boxCol_gatyaR.enabled;
 
         clickCancelPnl.SetActive(true);
-        gatyaL.GetComponent<BoxCollider2D>().enabled = false;
-        gatyaR.GetComponent<BoxCollider2D>().enabled = false;
+        boxCol_gatyaL.enabled = false;
+        boxCol_gatyaR.enabled = false;
     }
     // ゲーム操作を可能にする
     internal void CanGameControl()
     {
         clickCancelPnl.SetActive(false);
         // コライダーの状態をゲーム操作禁止前に戻す
-        gatyaL.GetComponent<BoxCollider2D>().enabled = isEnabled_GatyaLCol;
-        gatyaR.GetComponent<BoxCollider2D>().enabled = isEnabled_GatyaRCol;
+        boxCol_gatyaL.enabled = isEnabled_GatyaLCol;
+        boxCol_gatyaR.enabled = isEnabled_GatyaRCol;
     }
 }

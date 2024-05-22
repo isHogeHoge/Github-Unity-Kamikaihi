@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class GeekBtnController : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] GameObject cdPlayerBtn;
+    [SerializeField] Image img_cdPlayerBtn;
     [SerializeField] GameObject geek;
     [SerializeField] GameObject geekInTopRightRoom;
     [SerializeField] GameObject itemManager;
@@ -19,7 +19,6 @@ public class GeekBtnController : MonoBehaviour, IPointerClickHandler
         geekInTopRightRoom.SetActive(false);
         itemManager.GetComponent<ItemManager>().ClickItemBtn(geekItemSpr);
 
-        // CDPlayerをクリック可能に
-        cdPlayerBtn.GetComponent<Image>().enabled = true;
+        img_cdPlayerBtn.enabled = true;
     }
 }

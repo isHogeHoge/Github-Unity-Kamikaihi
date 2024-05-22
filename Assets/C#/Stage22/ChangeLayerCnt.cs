@@ -5,17 +5,17 @@ using UnityEngine;
 // Player,Red(Blue)Enemyにアタッチ
 public class ChangeLayerCnt : MonoBehaviour
 {
-    [SerializeField] GameObject blueEnemy_Goal; // 敵(青)ゴール後
     [SerializeField] GameObject player;
+    [SerializeField] GameObject blueEnemy_Goal; // 敵(青)ゴール後
 
-    private SpriteRenderer sr; // 自身のSpriteRenderer
-    private SpriteRenderer sr_player; // PlayerのSpriteRenderer
+    private SpriteRenderer sr_this;
+    private SpriteRenderer sr_player;
     private ChangeLayerCnt clc_player; // PlayerのChangeLayerCnt
-    internal bool isEntering = false; // 障害物と接触中はtrue
+    private bool isHitObstacle = false;
 
     private void Start()
     {
-        sr = this.GetComponent<SpriteRenderer>();
+        sr_this = this.GetComponent<SpriteRenderer>();
         sr_player = player.GetComponent<SpriteRenderer>();
         clc_player = player.GetComponent<ChangeLayerCnt>();
     }
@@ -28,17 +28,17 @@ public class ChangeLayerCnt : MonoBehaviour
         }
         // Red(Blue)EnemyをPlayerの手前or奥に表示させる
         // (Player&Enemyが)両者とも障害物と接触しているorいないなら、レイヤーを変更する
-        if (!clc_player.isEntering && !isEntering || clc_player.isEntering && isEntering)
+        if (!clc_player.isHitObstacle && !isHitObstacle || clc_player.isHitObstacle && isHitObstacle)
         {
             // Playerより下側にいるなら、手前に表示
             if (this.transform.position.y < player.transform.position.y)
             {
-                sr.sortingOrder = sr_player.sortingOrder + 1;
+                sr_this.sortingOrder = sr_player.sortingOrder + 1;
             }
             // 上側にいるなら、奥に表示
             else
             {
-                sr.sortingOrder = sr_player.sortingOrder - 1;
+                sr_this.sortingOrder = sr_player.sortingOrder - 1;
             }
         }
     }
@@ -60,7 +60,7 @@ public class ChangeLayerCnt : MonoBehaviour
         {
             return;
         }
-        isEntering = true;
+        isHitObstacle = true;
 
     }
     /// <summary>
@@ -71,10 +71,10 @@ public class ChangeLayerCnt : MonoBehaviour
     private void ChangeLayer(GameObject col,int deltaSortingOrder)
     {
         // 自身が接触したオブジェクトより手前に表示されているなら
-        if (sr.sortingOrder >= col.GetComponent<SpriteRenderer>().sortingOrder)
+        if (sr_this.sortingOrder >= col.GetComponent<SpriteRenderer>().sortingOrder)
         {
             // 自身のレイヤーを下げ、奥に表示されるようにする
-            sr.sortingOrder -= deltaSortingOrder;
+            sr_this.sortingOrder -= deltaSortingOrder;
         }
         
     }
@@ -84,12 +84,12 @@ public class ChangeLayerCnt : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Obstacle") || col.gameObject.CompareTag("Goal"))
         {
-            isEntering = false;
+            isHitObstacle = false;
             // Playerのみレイヤーをデフォルト(6)に戻す
             // isObstacleがfalseなら、Red(Blue)EnemyのレイヤーはPlayerのレイヤー±1される(Updateメソッド内処理)
             if (this.gameObject == player)
             {
-                sr.sortingOrder = 6;
+                sr_this.sortingOrder = 6;
             }
             
         }

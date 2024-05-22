@@ -15,6 +15,12 @@ public class Collider_AccessoriesCnt : MonoBehaviour
     [SerializeField] Sprite garlandSpr;  // 花輪アイテム画像
     [SerializeField] Sprite strawberrySpr; // イチゴアイテム画像
 
+    private Animator animator_this;
+    private void Start()
+    {
+        animator_this = this.GetComponent<Animator>();
+    }
+
     // 接触判定
     private void OnTriggerExit2D(Collider2D col)
     {
@@ -24,21 +30,22 @@ public class Collider_AccessoriesCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 花輪アイテム使用
-        if (col.GetComponent<Image>().sprite == garlandSpr)
+        if (img_item.sprite == garlandSpr)
         {
             // 飾りアイテム使用処理
-            ActiveAccessory(col, garland);
+            ActiveAccessory(img_item, garland);
 
             // すでにイチゴアイテムが使用されていたら
             if (strawberry.GetComponent<SpriteRenderer>().enabled)
             {
-                // 自身がCentaurなら、フェードアウト
+                // Centaurなら、フェードアウト
                 if(this.transform.gameObject == centaur)
                 {
-                    this.GetComponent<Animator>().enabled = true;
+                    animator_this.enabled = true;
                 }
-                // 自身がBrotherなら、Centaurに追いかけられる
+                // Brotherなら、Centaurに追いかけられる
                 else if(this.transform.gameObject == brother)
                 {
                     Chased();
@@ -47,20 +54,20 @@ public class Collider_AccessoriesCnt : MonoBehaviour
 
         }
         // イチゴアイテム使用
-        else if (col.GetComponent<Image>().sprite == strawberrySpr)
+        else if (img_item.sprite == strawberrySpr)
         {
             // 飾りアイテム使用処理
-            ActiveAccessory(col, strawberry);
+            ActiveAccessory(img_item, strawberry);
 
             // すでに花輪アイテムが使用されていたら
             if (garland.GetComponent<SpriteRenderer>().enabled)
             {
-                // 自身がCentaurなら、フェードアウト
+                // Centaurなら、フェードアウト
                 if (this.transform.gameObject == centaur)
                 {
-                    this.GetComponent<Animator>().enabled = true;
+                    animator_this.enabled = true;
                 }
-                // 自身がBrotherなら、Centaurに追いかけられる
+                // Brotherなら、Centaurに追いかけられる
                 else if (this.transform.gameObject == brother)
                 {
                     Chased();
@@ -69,10 +76,10 @@ public class Collider_AccessoriesCnt : MonoBehaviour
         }
     }
     // 飾り(花輪・イチゴ)アイテム使用処理
-    private void ActiveAccessory(Collider2D col,GameObject obj) // 接触したアイテム,表示する飾り
+    private void ActiveAccessory(Image img_item,GameObject obj) // 接触したアイテム,表示する飾り
     {
         // アイテム使用処理
-        col.GetComponent<Image>().sprite = null;
+        img_item.sprite = null;
         itemManager.GetComponent<ItemManager>().UsedItem();
 
         // 自身に飾りアイテムを被せる
@@ -83,7 +90,7 @@ public class Collider_AccessoriesCnt : MonoBehaviour
     private void Chased()
     {
         // Centaurに追いかけられるアニメーション再生
-        this.GetComponent<Animator>().SetBool("ChasedFlag", true);
+        animator_this.SetBool("ChasedFlag", true);
         // Centaur移動開始
         centaur.SetActive(false);
         chasingCentaur.SetActive(true);

@@ -22,11 +22,12 @@ public class PlayerController_24 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // カッパマスクアイテム使用
-        if (col.GetComponent<Image>().sprite == maskItemSpr)
+        if (img_item.sprite == maskItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // カッパマスク着用フラグON

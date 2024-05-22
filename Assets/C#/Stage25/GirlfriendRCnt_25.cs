@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class GirlfriendRCnt_25 : MonoBehaviour,IPointerClickHandler
 {
-    [SerializeField] GameObject speechBubble;  // 自身の吹き出し
+    [SerializeField] GameObject speechBubble;
     [SerializeField] GameObject itemManager;
     // --- アイテム画像 ---
     [SerializeField] Sprite chocolateItemSpr;  // チョコレートアイテムの画像
@@ -24,17 +24,19 @@ public class GirlfriendRCnt_25 : MonoBehaviour,IPointerClickHandler
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // チョコレートアイテム使用
-        if (col.GetComponent<Image>().sprite == chocolateItemSpr)
+        if (img_item.sprite == chocolateItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // チョコレートケーキを作るアニメーション開始
             this.GetComponent<Animator>().Play("GirlfriendIsCooking");
-            speechBubble.GetComponent<SpriteRenderer>().enabled = false;
-            speechBubble.GetComponent<SpriteRenderer>().sprite = newSpeechBubbleSpr;
+            SpriteRenderer sr_speechBubble = speechBubble.GetComponent<SpriteRenderer>();
+            sr_speechBubble.enabled = false;
+            sr_speechBubble.sprite = newSpeechBubbleSpr;
 
             usedChocolateItem = true;
         }

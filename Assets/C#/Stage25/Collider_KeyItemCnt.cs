@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Collider_KeyItemCnt : MonoBehaviour
 {
-    [SerializeField] GameObject doorBtn;  // CDPlayer部屋のドア開扉ボタン
-    [SerializeField] GameObject collider_CDItem; // CDアイテム接触用コライダー 
+    [SerializeField] Button btn_openCDPlayersDoor;
+    [SerializeField] GameObject collider_CDItem;
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite keyItemSpr;
@@ -18,15 +18,16 @@ public class Collider_KeyItemCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 鍵アイテム使用
-        if (col.GetComponent<Image>().sprite == keyItemSpr)
+        if (img_item.sprite == keyItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // CDPlayer部屋のドアを開扉できるようにする
-            doorBtn.GetComponent<Button>().enabled = true;
+            btn_openCDPlayersDoor.enabled = true;
 
             // CDアイテムを使用できるようにする
             collider_CDItem.SetActive(true);

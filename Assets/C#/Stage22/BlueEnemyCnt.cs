@@ -23,7 +23,6 @@ public class BlueEnemyCnt : MonoBehaviour
             blueEnemy_Goal.SetActive(true);
 
         }
-
     }
 
     // 出現アニメーション終了時、実際にPlayerを追随する敵(青)を出現

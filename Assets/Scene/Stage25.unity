@@ -916,16 +916,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
+  img_cdPlayerBtn: {fileID: 0}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
-  Btn_OpenGeeksDoor: {fileID: 1214395409}
-  Btn_CloseGeeksDoor: {fileID: 958689811}
+  Btn_OpenGeeksDoor: {fileID: 1214395410}
+  Btn_CloseGeeksDoor: {fileID: 958689813}
   Btn_OpenCDPlayersDoor: {fileID: 0}
   player: {fileID: 0}
   cake: {fileID: 0}
   musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
+  geek: {fileID: 297162633}
   speechBubble: {fileID: 0}
   stageManager: {fileID: 0}
   cake1Spr: {fileID: 0}
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182fe1a55ba28404cb50fca499e9b3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 1368269782}
+  img_cdPlayerBtn: {fileID: 1368269784}
   geek: {fileID: 297162633}
   geekInTopRightRoom: {fileID: 1881906451}
   itemManager: {fileID: 6804129038510842530}
@@ -1739,16 +1739,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
-  Btn_OpenGirlfriendsDoor: {fileID: 1483174561}
-  Btn_OpenBoyfriendsDoor: {fileID: 590878938}
+  img_cdPlayerBtn: {fileID: 0}
+  Btn_OpenGirlfriendsDoor: {fileID: 1483174562}
+  Btn_OpenBoyfriendsDoor: {fileID: 590878939}
   Btn_OpenGeeksDoor: {fileID: 0}
   Btn_CloseGeeksDoor: {fileID: 0}
   Btn_OpenCDPlayersDoor: {fileID: 0}
   player: {fileID: 0}
   cake: {fileID: 0}
   musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
+  geek: {fileID: 297162633}
   speechBubble: {fileID: 1794042204}
   stageManager: {fileID: 0}
   cake1Spr: {fileID: 0}
@@ -2495,7 +2495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c518a21bbe1554cd2b69cec07c1e7e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorBtn: {fileID: 1554119001}
+  btn_openCDPlayersDoor: {fileID: 1554119002}
   collider_CDItem: {fileID: 1816390949}
   itemManager: {fileID: 6804129038510842530}
   keyItemSpr: {fileID: 21300000, guid: 2b2b5323aafa14919a73b514e51c8a9a, type: 3}
@@ -2510,7 +2510,6 @@ GameObject:
   - component: {fileID: 642030616}
   - component: {fileID: 642030617}
   - component: {fileID: 642030618}
-  - component: {fileID: 642030619}
   - component: {fileID: 642030620}
   m_Layer: 0
   m_Name: Player
@@ -2607,31 +2606,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &642030619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642030615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
-  Btn_OpenGirlfriendsDoor: {fileID: 0}
-  Btn_OpenBoyfriendsDoor: {fileID: 0}
-  Btn_OpenGeeksDoor: {fileID: 0}
-  Btn_CloseGeeksDoor: {fileID: 0}
-  Btn_OpenCDPlayersDoor: {fileID: 0}
-  player: {fileID: 0}
-  cake: {fileID: 0}
-  musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
-  speechBubble: {fileID: 0}
-  stageManager: {fileID: 1906817111797123005}
-  cake1Spr: {fileID: 0}
 --- !u!114 &642030620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,7 +4152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
+  img_cdPlayerBtn: {fileID: 0}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
   Btn_OpenGeeksDoor: {fileID: 0}
@@ -4187,8 +4161,8 @@ MonoBehaviour:
   player: {fileID: 642030615}
   cake: {fileID: 0}
   musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
-  speechBubble: {fileID: 0}
+  geek: {fileID: 297162633}
+  speechBubble: {fileID: 1906817111797123005}
   stageManager: {fileID: 1906817111797123005}
   cake1Spr: {fileID: 0}
 --- !u!114 &1139575643
@@ -5449,16 +5423,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
+  img_cdPlayerBtn: {fileID: 0}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
   Btn_OpenGeeksDoor: {fileID: 0}
   Btn_CloseGeeksDoor: {fileID: 0}
   Btn_OpenCDPlayersDoor: {fileID: 0}
   player: {fileID: 642030615}
-  cake: {fileID: 0}
+  cake: {fileID: 1396592875}
   musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
+  geek: {fileID: 297162633}
   speechBubble: {fileID: 0}
   stageManager: {fileID: 0}
   cake1Spr: {fileID: 21300000, guid: 6ef3ee11553d149489b914d9c8f0355c, type: 3}
@@ -5782,7 +5756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
+  img_cdPlayerBtn: {fileID: 0}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
   Btn_OpenGeeksDoor: {fileID: 0}
@@ -5791,9 +5765,9 @@ MonoBehaviour:
   player: {fileID: 0}
   cake: {fileID: 1396592875}
   musicalNotes: {fileID: 0}
-  geek: {fileID: 0}
-  speechBubble: {fileID: 0}
-  stageManager: {fileID: 1906817111797123005}
+  geek: {fileID: 297162633}
+  speechBubble: {fileID: 1906817111797123005}
+  stageManager: {fileID: 0}
   cake1Spr: {fileID: 0}
 --- !u!114 &1476739112
 MonoBehaviour:
@@ -6663,7 +6637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 0}
+  img_cdPlayerBtn: {fileID: 0}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
   Btn_OpenGeeksDoor: {fileID: 0}
@@ -6810,8 +6784,8 @@ Transform:
   - {fileID: 629833537}
   - {fileID: 1062478406}
   - {fileID: 1476739108}
-  - {fileID: 1396592876}
   - {fileID: 2075276871}
+  - {fileID: 1396592876}
   - {fileID: 1817266438}
   m_Father: {fileID: 1325313416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8022,7 +7996,7 @@ MonoBehaviour:
   geek: {fileID: 1062478405}
   girlfriend: {fileID: 1476739107}
   boyfriend: {fileID: 2075276870}
-  cake: {fileID: 1396592875}
+  sr_cake: {fileID: 1396592878}
   itemManager: {fileID: 6804129038510842530}
   grandmaItemSpr: {fileID: 21300000, guid: 8b2e8d48014f54e21acd47f01179a778, type: 3}
   geekItemSpr: {fileID: 21300000, guid: d9fc89eeae5214c3cbb0093005698784, type: 3}
@@ -8165,18 +8139,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d0b15a89a4747aa8aff4444f00bcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 1368269782}
+  img_cdPlayerBtn: {fileID: 1368269784}
   Btn_OpenGirlfriendsDoor: {fileID: 0}
   Btn_OpenBoyfriendsDoor: {fileID: 0}
   Btn_OpenGeeksDoor: {fileID: 0}
   Btn_CloseGeeksDoor: {fileID: 0}
-  Btn_OpenCDPlayersDoor: {fileID: 1554119001}
+  Btn_OpenCDPlayersDoor: {fileID: 1554119002}
   player: {fileID: 0}
   cake: {fileID: 0}
   musicalNotes: {fileID: 1565962189}
   geek: {fileID: 297162633}
   speechBubble: {fileID: 0}
-  stageManager: {fileID: 0}
+  stageManager: {fileID: 1906817111797123005}
   cake1Spr: {fileID: 0}
 --- !u!212 &1881906454
 SpriteRenderer:
@@ -8308,7 +8282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182fe1a55ba28404cb50fca499e9b3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdPlayerBtn: {fileID: 1368269782}
+  img_cdPlayerBtn: {fileID: 1368269784}
   geek: {fileID: 297162633}
   geekInTopRightRoom: {fileID: 1881906451}
   itemManager: {fileID: 6804129038510842530}
@@ -9519,14 +9493,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb39852cffd1405ea5c84fda91856e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1139575638}
-  player: {fileID: 642030615}
-  grandma: {fileID: 629833536}
+  animator_player: {fileID: 642030618}
+  animator_enemy: {fileID: 1139575641}
+  grandmaL: {fileID: 629833536}
   geekL: {fileID: 1062478405}
   geekR: {fileID: 297162633}
   girlfriendL: {fileID: 1476739107}
   girlfriendR: {fileID: 482705674}
-  boyfriend: {fileID: 2075276870}
+  boyfriendL: {fileID: 2075276870}
   musicalNotes: {fileID: 1565962189}
   stagePanel_UI: {fileID: 293043910}
   stagePanel: {fileID: 1325313415}

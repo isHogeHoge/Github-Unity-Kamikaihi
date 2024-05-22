@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FriendsAnimaCnt_24 : MonoBehaviour
 {
+    [SerializeField] BoxCollider2D boxCol_well;
     [SerializeField] GameObject player;
     [SerializeField] GameObject stageManager;
 
@@ -33,6 +34,14 @@ public class FriendsAnimaCnt_24 : MonoBehaviour
     {
         // Playerの移動再開
         stageManager.GetComponent<PlayersMovementCnt_24>().PlayerMove();
+    }
+    // +++++++++++++++++
+
+    // ++++ Friend2 ++++
+    // 出現後、Friend2へのアイテム使用禁止に
+    private void InActiveBoxCol_Well()
+    {
+        boxCol_well.enabled = false;
     }
     // +++++++++++++++++
 }

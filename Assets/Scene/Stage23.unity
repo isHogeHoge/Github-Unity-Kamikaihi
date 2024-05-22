@@ -531,8 +531,8 @@ MonoBehaviour:
         m_MethodName: ClickCoinBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 879721502}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 879721503}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -667,7 +667,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16371161, y: -0.18417549}
+  m_Offset: {x: -0.28362662, y: -0.18417549}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -678,7 +678,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91814387, y: 1.2864952}
+  m_Size: {x: 0.8965498, y: 1.2864952}
   m_EdgeRadius: 0
 --- !u!50 &207958551
 Rigidbody2D:
@@ -720,8 +720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posterLBtn: {fileID: 1386610820}
-  posterL: {fileID: 630756220}
-  player: {fileID: 1799255440}
+  animator_player: {fileID: 1799255443}
+  sr_posterL: {fileID: 630756221}
   itemManager: {fileID: 2005078610}
   coinItemSpr: {fileID: 21300000, guid: 2f2d171830d1143ad9b5df4400f11658, type: 3}
 --- !u!1 &217024867
@@ -844,8 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e597d616a0f84ac586ece7fe93be679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin1Btn: {fileID: 956174530}
-  player: {fileID: 1799255440}
+  coin1Btn: {fileID: 956174532}
+  animator_player: {fileID: 1799255443}
 --- !u!114 &217024872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eec1522fd6b449f3a627706ea95bac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clerk: {fileID: 217024867}
+  animator_clerk: {fileID: 217024870}
 --- !u!1001 &669405194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,8 +1695,8 @@ MonoBehaviour:
         m_MethodName: ClickCoinBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 958892627}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 958892628}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2476,8 +2476,8 @@ MonoBehaviour:
         m_MethodName: ClickCoinBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1778357734}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1778357735}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2741,7 +2741,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8938133, y: -0.16371155}
+  m_Offset: {x: 0.976509, y: -0.16371155}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2752,7 +2752,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8230883, y: 1.3274231}
+  m_Size: {x: 0.90362453, y: 1.3274231}
   m_EdgeRadius: 0
 --- !u!50 &1001335460
 Rigidbody2D:
@@ -2794,11 +2794,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posterRBtn: {fileID: 1376456397}
-  posterR: {fileID: 905440864}
   player: {fileID: 1799255440}
-  strap: {fileID: 11495402}
-  figure: {fileID: 222686771}
-  gatyaCapsule: {fileID: 1218176716}
+  sr_strap: {fileID: 11495403}
+  sr_figure: {fileID: 222686772}
+  boxCol_gatyaL: {fileID: 207958550}
+  sr_gatyaCapsule: {fileID: 1218176717}
+  sr_posterL: {fileID: 630756221}
+  sr_posterR: {fileID: 905440865}
   itemManager: {fileID: 2005078610}
   coinItemSpr: {fileID: 21300000, guid: 2f2d171830d1143ad9b5df4400f11658, type: 3}
   strap_Crab: {fileID: 21300000, guid: b35b67e0b78eb41c986d57a78cd2a42d, type: 3}
@@ -4153,10 +4155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickCancelPnl: {fileID: 1920752758}
-  gatyaL: {fileID: 207958547}
-  gatyaR: {fileID: 1001335456}
-  posterL: {fileID: 630756220}
-  posterR: {fileID: 905440864}
+  boxCol_gatyaL: {fileID: 207958550}
+  boxCol_gatyaR: {fileID: 1001335459}
+  sr_posterL: {fileID: 630756221}
+  sr_posterR: {fileID: 905440865}
   itemManager: {fileID: 2005078610}
 --- !u!1 &1594729276 stripped
 GameObject:
@@ -4237,9 +4239,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3827792
+    x: 0.3589825
     y: 0
-    width: 0.23444156
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -4643,16 +4645,16 @@ MonoBehaviour:
   clickCancelPnl: {fileID: 1920752758}
   itemInventory: {fileID: 1005951136}
   speechBubble: {fileID: 1181101127}
-  strap: {fileID: 11495402}
-  figure: {fileID: 222686771}
-  clerk: {fileID: 217024867}
-  gatyaL: {fileID: 207958547}
-  gatyaR: {fileID: 1001335456}
-  glassL: {fileID: 606099599}
-  glassR: {fileID: 1050419924}
-  gatyaHandleL: {fileID: 1486143305}
-  gatyaHandleR: {fileID: 781207817}
-  gatyaCapsuleR: {fileID: 1218176716}
+  sr_strap: {fileID: 11495403}
+  sr_figure: {fileID: 222686772}
+  animator_clerk: {fileID: 217024870}
+  animator_gatyaL: {fileID: 207958548}
+  animator_gatyaR: {fileID: 1001335458}
+  sr_glassL: {fileID: 606099600}
+  sr_glassR: {fileID: 1050419925}
+  animator_gatyaHandleL: {fileID: 1486143308}
+  animator_gatyaHandleR: {fileID: 781207820}
+  sr_gatyaCapsuleR: {fileID: 1218176717}
   gatyaCapsules: {fileID: 664540150}
   stageManager: {fileID: 1570158123}
   glassLSpr1: {fileID: 21300000, guid: c604d13abe38a43c495494feae2e5c94, type: 3}
@@ -5047,90 +5049,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7911, y: -1.4914, z: 0}
   m_LocalScale: {x: 0.37, y: 0.41, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2003762678
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003762680}
-  - component: {fileID: 2003762679}
-  m_Layer: 0
-  m_Name: GatyaCapsuleL
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &2003762679
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003762678}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0f1b9044516a94df7a4a98da501eddf9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.78, y: 0.8}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &2003762680
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003762678}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2829, y: -0.6658, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6600,7 +6518,6 @@ SceneRoots:
   - {fileID: 1001335457}
   - {fileID: 696260418}
   - {fileID: 1993671118}
-  - {fileID: 2003762680}
   - {fileID: 1218176718}
   - {fileID: 630756222}
   - {fileID: 905440866}

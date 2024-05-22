@@ -10,16 +10,16 @@ public class PlayerController_23 : MonoBehaviour
     [SerializeField] GameObject clickCancelPnl;
     [SerializeField] GameObject itemInventory; // アイテム欄
     [SerializeField] GameObject speechBubble; // Playerの吹き出し
-    [SerializeField] GameObject strap;
-    [SerializeField] GameObject figure;
-    [SerializeField] GameObject clerk;
-    [SerializeField] GameObject gatyaL; 
-    [SerializeField] GameObject gatyaR; 
-    [SerializeField] GameObject glassL; // ガチャ機のガラス(左)
-    [SerializeField] GameObject glassR; // ガチャ機のガラス(右)
-    [SerializeField] GameObject gatyaHandleL;
-    [SerializeField] GameObject gatyaHandleR;
-    [SerializeField] GameObject gatyaCapsuleR;
+    [SerializeField] SpriteRenderer sr_strap;
+    [SerializeField] SpriteRenderer sr_figure;
+    [SerializeField] Animator animator_clerk;
+    [SerializeField] Animator animator_gatyaL; 
+    [SerializeField] Animator animator_gatyaR; 
+    [SerializeField] SpriteRenderer sr_glassL; // ガチャ機のガラス(左)
+    [SerializeField] SpriteRenderer sr_glassR; // ガチャ機のガラス(右)
+    [SerializeField] Animator animator_gatyaHandleL;
+    [SerializeField] Animator animator_gatyaHandleR;
+    [SerializeField] SpriteRenderer sr_gatyaCapsuleR;
     [SerializeField] GameObject gatyaCapsules; // ガチャ(左)から溢れ出るガチャカプセル
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite glassLSpr1; // ガチャ(左)を1回揺らした時のガラス画像
@@ -30,9 +30,16 @@ public class PlayerController_23 : MonoBehaviour
     [SerializeField] Sprite glassRSpr3; // ガチャ(右)を3回揺らした時のガラス画像
     [SerializeField] Sprite coinItemSpr; // 100円アイテム画像
 
+    private StageManager_23 sm_23;
+    private Animator animator_player;
     private int count_PushGatyaR = 0; // 右のガチャを揺らした回数
     private int count_PushGatyaL = 0; // 左のガチャを揺らした回数
     internal bool canGetAGoldMan = false; // ゴールドマン取得可能フラグ
+    private void Start()
+    {
+        sm_23 = stageManager.GetComponent<StageManager_23>();
+        animator_player = this.GetComponent<Animator>();
+    }
 
     // ---------- Animation -----------
     // "PlayerStop"アニメーション開始時
@@ -53,11 +60,11 @@ public class PlayerController_23 : MonoBehaviour
         {
             // 右
             case "GatyaR":
-                gatyaR.GetComponent<Animator>().Play("GatyaIsPushed");
+                animator_gatyaR.Play("GatyaIsPushed");
                 break;
             // 左
             case "GatyaL":
-                gatyaL.GetComponent<Animator>().Play("GatyaIsPushed");
+                animator_gatyaL.Play("GatyaIsPushed");
                 break;
             default:
                 Debug.Log($"{gatya}は無効な文字列です");
@@ -67,11 +74,10 @@ public class PlayerController_23 : MonoBehaviour
     private void isPlayingClerkTurnRightAnima()
     {
         // ClerkがPlayerの方を向いているアニメーションが再生されていたら、ゲームオーバー
-        if (clerk.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "ClerkTurnRight")
+        if (animator_clerk.GetCurrentAnimatorClipInfo(0)[0].clip.name == "ClerkTurnRight")
         {
             CantGameControl();
-            // Clerkのアニメーション切り替え
-            clerk.GetComponent<Animator>().Play("ClerkIsSurprised");
+            animator_clerk.Play("ClerkIsSurprised");
         }
     }
 
@@ -83,13 +89,13 @@ public class PlayerController_23 : MonoBehaviour
         switch (count_PushGatyaL)
         {
             case 1:
-                glassL.GetComponent<SpriteRenderer>().sprite = glassLSpr1;
+                sr_glassL.sprite = glassLSpr1;
                 break;
             case 2:
-                glassL.GetComponent<SpriteRenderer>().sprite = glassLSpr2;
+                sr_glassL.sprite = glassLSpr2;
                 break;
             case 3:
-                glassL.GetComponent<SpriteRenderer>().sprite = glassLSpr3;
+                sr_glassL.sprite = glassLSpr3;
                 break;
         }
 
@@ -102,13 +108,13 @@ public class PlayerController_23 : MonoBehaviour
         switch (count_PushGatyaR)
         {
             case 1:
-                glassR.GetComponent<SpriteRenderer>().sprite = glassRSpr1;
+                sr_glassR.sprite = glassRSpr1;
                 break;
             case 2:
-                glassR.GetComponent<SpriteRenderer>().sprite = glassRSpr2;
+                sr_glassR.sprite = glassRSpr2;
                 break;
             case 3:
-                glassR.GetComponent<SpriteRenderer>().sprite = glassRSpr3;
+                sr_glassR.sprite = glassRSpr3;
                 break;
         }
     }
@@ -119,7 +125,7 @@ public class PlayerController_23 : MonoBehaviour
         {
             // ゴールドマン取得可能に
             canGetAGoldMan = true;
-            this.GetComponent<Animator>().SetBool("ClearFlag", true);
+            animator_player.SetBool("ClearFlag", true);
         }
     }
     
@@ -131,11 +137,11 @@ public class PlayerController_23 : MonoBehaviour
         {
             // 右
             case "GatyaR":
-                gatyaHandleR.GetComponent<Animator>().Play("GatyaHandleIsTurned");
+                animator_gatyaHandleR.Play("GatyaHandleIsTurned");
                 break;
             // 左
             case "GatyaL":
-                gatyaHandleL.GetComponent<Animator>().Play("GatyaHandleIsTurned");
+                animator_gatyaHandleL.Play("GatyaHandleIsTurned");
                 break;
             default:
                 Debug.Log($"{gatya}は無効な文字列です");
@@ -148,30 +154,30 @@ public class PlayerController_23 : MonoBehaviour
     private async void GetAStrapOrFigure()
     {
         // ハンドルの動きを停止
-        gatyaHandleR.GetComponent<Animator>().Play("GatyaHandleStart");
+        animator_gatyaHandleR.Play("GatyaHandleStart");
         // ガチャカプセルを表示
-        gatyaCapsuleR.GetComponent<SpriteRenderer>().enabled = true;
+        sr_gatyaCapsuleR.enabled = true;
 
         //  --- ストラップorフィギュア取得処理 ---
         await UniTask.Delay(TimeSpan.FromSeconds(1f),cancellationToken: this.GetCancellationTokenOnDestroy());
-        gatyaCapsuleR.GetComponent<SpriteRenderer>().enabled = false;
+        sr_gatyaCapsuleR.enabled = false;
 
         // GatyaRCntクラスで、100円を入れた回数に応じてストラップが出るかフィギュアが出るか設定している
         // 出る方には画像を設定、出ない方はSpriteをNullにしている
 
         // ストラップが出るなら
-        if (strap.GetComponent<SpriteRenderer>().sprite != null)
+        if (sr_strap.sprite != null)
         {
             // ストラップ取得
-            this.GetComponent<Animator>().Play("PlayerGetAStrap");
-            strap.GetComponent<SpriteRenderer>().enabled = true;
+            animator_player.Play("PlayerGetAStrap");
+            sr_strap.enabled = true;
         }
         // フィギュアが出るなら
         else
         {
             // フィギュア取得
-            this.GetComponent<Animator>().Play("PlayerGetAFigure");
-            figure.GetComponent<SpriteRenderer>().enabled = true;
+            animator_player.Play("PlayerGetAFigure");
+            sr_figure.enabled = true;
             // フィギュアがゴールドマン(当たり)ならそのままクリア処理
         }
         // ------------------------------------
@@ -180,10 +186,10 @@ public class PlayerController_23 : MonoBehaviour
     private async void PlayGatyaCapsulesAnima()
     {
         // ハンドルの動きを停止
-        gatyaHandleL.GetComponent<Animator>().Play("GatyaHandleStart");
+        animator_gatyaHandleL.Play("GatyaHandleStart");
 
         // ガチャカプセルが溢れ出るアニメーション再生
-        gatyaL.GetComponent<Animator>().Play("GatyaShake");
+        animator_gatyaL.Play("GatyaShake");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5f),cancellationToken: this.GetCancellationTokenOnDestroy());
         gatyaCapsules.GetComponent<SpriteRenderer>().enabled = true;
         gatyaCapsules.GetComponent<Animator>().enabled = true;
@@ -195,8 +201,8 @@ public class PlayerController_23 : MonoBehaviour
     private void InActiveStrapAndFigure()
     {
         // ストラップ・フィギュア非表示
-        strap.GetComponent<SpriteRenderer>().enabled = false;
-        figure.GetComponent<SpriteRenderer>().enabled = false;
+        sr_strap.enabled = false;
+        sr_figure.enabled = false;
     }
     private void isHaveAnyCoinItem()
     {
@@ -209,18 +215,18 @@ public class PlayerController_23 : MonoBehaviour
         // ---- 100円アイテム所持チェック ----
         for (var i = 0; i < itemInventory.transform.childCount; i++)
         {
-            GameObject item = itemInventory.transform.GetChild(i).gameObject;
+            Sprite itemSpr = itemInventory.transform.GetChild(i).GetComponent<Image>().sprite;
 
             // 100円アイテムを1枚でも持っていたら、ゲーム続行
-            if (item.GetComponent<Image>().sprite == coinItemSpr)
+            if (itemSpr == coinItemSpr)
             {
                 // ゲーム操作を可能に
-                stageManager.GetComponent<StageManager_23>().CanGameControl();
+                sm_23.CanGameControl();
                 return;
             }
         }
         // 100円アイテムを1枚も所持していなかったら、ゲームオーバー処理
-        this.GetComponent<Animator>().SetBool("OverFlag", true);
+        animator_player.SetBool("OverFlag", true);
         // --------------------------------
     }
 
@@ -230,14 +236,14 @@ public class PlayerController_23 : MonoBehaviour
         // 吹き出しを非表示に
         InActiveSpeechBubble();
         // ゲーム操作をできないようにする
-        stageManager.GetComponent<StageManager_23>().CantGameControl();
+        sm_23.CantGameControl();
     }
 
     // ガチャを揺らすアニメーション終了時
     private void CanGameControl()
     {
         // ゲーム操作を可能にする
-        stageManager.GetComponent<StageManager_23>().CanGameControl();
+        sm_23.CanGameControl();
     }
     // ---------------------------------------
 

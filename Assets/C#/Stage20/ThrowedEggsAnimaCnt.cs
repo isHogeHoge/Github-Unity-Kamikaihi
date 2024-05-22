@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ThrowedEggsAnimaCnt : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] Animator animator_enemy;
     [SerializeField] GameObject crackedEggs;
     [SerializeField] GameObject stageManager;
 
     // アニメーション終了時、その地点に割れた卵を表示
-    private void ActiveCrackedEgg(int num) // 何番目に投げられた卵か
+    private void ActiveCrackedEgg(int num)
     {
         GameObject crackedEgg = crackedEggs.transform.Find($"CrackedEgg{num}").gameObject;
         crackedEgg.GetComponent<SpriteRenderer>().enabled = true;
@@ -20,7 +20,7 @@ public class ThrowedEggsAnimaCnt : MonoBehaviour
     private void GameOver()
     {
         // Enemyのアニメーション切り替え
-        enemy.GetComponent<Animator>().SetBool("StopFlag", true);
+        animator_enemy.SetBool("StopFlag", true);
         // ゲームオーバー処理
         stageManager.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
     }

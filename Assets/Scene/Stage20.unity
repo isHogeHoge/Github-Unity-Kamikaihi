@@ -852,8 +852,8 @@ MonoBehaviour:
         m_MethodName: ClickCookieBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 147769128}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 147769132}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9a19aad9ea5491e8981810037dcc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator_cookieCutter: {fileID: 0}
+  animator_cookieCutter: {fileID: 657434042}
   sr_dough_OnBoard: {fileID: 1352844457}
   cookieDoughBtn: {fileID: 147769128}
   bakedCookieBtn: {fileID: 1862007797}
@@ -3026,10 +3026,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15305be7118e4d7aa050aa43ad2f0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
-  enemies: {fileID: 1702465389}
-  throwedEggs: {fileID: 945128204}
-  speechBubble: {fileID: 1711896411}
+  animator_player: {fileID: 680238591}
+  sr_speechBubble: {fileID: 1711896412}
+  animator_enemies: {fileID: 1702465392}
+  animator_throwedEggs: {fileID: 945128207}
   itemManager: {fileID: 974114280}
   stageManager: {fileID: 614732092}
   sb_Over1Spr: {fileID: 21300000, guid: a716f1b6a991c4824bd944c3deca8784, type: 3}
@@ -3878,8 +3878,8 @@ MonoBehaviour:
         m_MethodName: ClickBrotherBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1782213393}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1782213396}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Animator, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: BrotherDrink
@@ -4847,9 +4847,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dab078607ae34942babc3d2d1be4b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookieBtn: {fileID: 1862007797}
-  plateWithTheDough: {fileID: 1095268761}
-  plateInTheFirePlace: {fileID: 683104664}
+  img_bakedCookieBtn: {fileID: 1862007801}
+  sr_plateWithTheDough: {fileID: 1095268762}
+  animator_plateInTheFirePlace: {fileID: 683104667}
   itemManager: {fileID: 974114280}
   yCookieDoughSpr: {fileID: 21300000, guid: 8349a397107054d3ab2668af0671818e, type: 3}
   rCookieDoughSpr: {fileID: 21300000, guid: 43f64f901c4094189ac741df980ac64b, type: 3}
@@ -4989,25 +4989,13 @@ MonoBehaviour:
           m_StringArgument: LidOfPumpkin_Up
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 908303969}
+      - m_Target: {fileID: 897061644}
         m_TargetAssemblyTypeName: UnityEngine.UI.Graphic, UnityEngine.UI
         m_MethodName: set_raycastTarget
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5049,8 +5037,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 721.0001, y: 465.59998}
-  m_SizeDelta: {x: 210.4, y: 129.5}
+  m_AnchoredPosition: {x: 710, y: 472.99}
+  m_SizeDelta: {x: 181.5, y: 144.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &908303967
 BoxCollider2D:
@@ -5153,7 +5141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1127767010}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -5178,8 +5166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5187,7 +5175,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ab3463445308443c5b58750a52d9216d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -5406,7 +5394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f61a21620a34b609614801cdf72aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 627204700}
+  animator_enemy: {fileID: 627204703}
   crackedEggs: {fileID: 1533666893}
   stageManager: {fileID: 614732092}
 --- !u!1 &966952140
@@ -6155,81 +6143,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1236206802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1127767008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1127767009}
-  - component: {fileID: 1127767011}
-  - component: {fileID: 1127767010}
-  m_Layer: 5
-  m_Name: ChiliSauce
-  m_TagString: ItemBtn
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1127767009
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127767008}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1599764319}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 715, y: 473}
-  m_SizeDelta: {x: 144.6, y: 144.25}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1127767010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127767008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab3463445308443c5b58750a52d9216d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1127767011
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127767008}
-  m_CullTransparentMesh: 1
 --- !u!1 &1164413464
 GameObject:
   m_ObjectHideFlags: 0
@@ -7597,6 +7510,18 @@ MonoBehaviour:
           m_StringArgument: LidOfPumpkin_Down
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 897061644}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Graphic, UnityEngine.UI
+        m_MethodName: set_raycastTarget
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1567328308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4863670174728209904, guid: 6f81b549460e246168a1ca824f37352e, type: 3}
@@ -8071,10 +7996,9 @@ RectTransform:
   - {fileID: 2113085034}
   - {fileID: 666777899}
   - {fileID: 464966304}
-  - {fileID: 1127767009}
+  - {fileID: 908303966}
   - {fileID: 897061643}
   - {fileID: 1558461308}
-  - {fileID: 908303966}
   - {fileID: 59057608}
   - {fileID: 1164413465}
   - {fileID: 645505242}
@@ -8696,7 +8620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa7e862a08c145cebd8a6511a30ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 680238585}
+  sr_player: {fileID: 680238588}
 --- !u!1 &1711896411
 GameObject:
   m_ObjectHideFlags: 0
@@ -10196,8 +10120,8 @@ MonoBehaviour:
         m_MethodName: ClickCookieBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1862007797}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1862007801}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

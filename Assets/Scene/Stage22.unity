@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1099008932}
-  blueEnemy_Goal: {fileID: 501256262}
+  animator_blueEnemy_Goal: {fileID: 501256265}
   redEnemy_Goal: {fileID: 2140758866}
   stageManager: {fileID: 2083679781}
 --- !u!114 &400668903
@@ -1416,8 +1416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299dd09612d564448b7f39321d522d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueEnemy_Goal: {fileID: 501256262}
   player: {fileID: 1099008932}
+  blueEnemy_Goal: {fileID: 501256262}
 --- !u!1 &500625708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4723902890994592725, guid: a02a2aad13f8e46a0a6e55a8c05a5121, type: 3}
@@ -2171,8 +2171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299dd09612d564448b7f39321d522d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueEnemy_Goal: {fileID: 501256262}
   player: {fileID: 1099008932}
+  blueEnemy_Goal: {fileID: 501256262}
 --- !u!1 &784620521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,9 +2887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBorder: {fileID: 1641249080}
-  stageManager: {fileID: 2083679781}
   blueEnemy: {fileID: 784620521}
   redEnemy: {fileID: 400668894}
+  stageManager: {fileID: 2083679781}
 --- !u!61 &1099008939
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2992,8 +2992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299dd09612d564448b7f39321d522d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueEnemy_Goal: {fileID: 501256262}
   player: {fileID: 1099008932}
+  blueEnemy_Goal: {fileID: 501256262}
 --- !u!1 &1188399064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471dded3cc0224f76aaddbb1ccdf5ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1099008932}
+  animator_player: {fileID: 1099008935}
   stageManager: {fileID: 2083679781}
 --- !u!1001 &60401939671393390
 PrefabInstance:
@@ -5986,11 +5986,11 @@ SceneRoots:
   - {fileID: 42968487}
   - {fileID: 213903493}
   - {fileID: 1099008934}
-  - {fileID: 400668896}
   - {fileID: 661036536}
+  - {fileID: 400668896}
   - {fileID: 784620524}
-  - {fileID: 2140758868}
   - {fileID: 501256264}
+  - {fileID: 2140758868}
   - {fileID: 1212774355}
   - {fileID: 1906817111797123004}
   - {fileID: 2992208202519182590}

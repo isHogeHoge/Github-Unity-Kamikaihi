@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-public class AnimaController_25 : MonoBehaviour
+public class CommonAnimation_25 : MonoBehaviour
 {
-    [SerializeField] GameObject cdPlayerBtn;
-    [SerializeField] GameObject Btn_OpenGirlfriendsDoor;
-    [SerializeField] GameObject Btn_OpenBoyfriendsDoor;
-    [SerializeField] GameObject Btn_OpenGeeksDoor;
-    [SerializeField] GameObject Btn_CloseGeeksDoor;
-    [SerializeField] GameObject Btn_OpenCDPlayersDoor;
+    [SerializeField] Image img_cdPlayerBtn;
+    [SerializeField] Button Btn_OpenGirlfriendsDoor;
+    [SerializeField] Button Btn_OpenBoyfriendsDoor;
+    [SerializeField] Button Btn_OpenGeeksDoor;
+    [SerializeField] Button Btn_CloseGeeksDoor;
+    [SerializeField] Button Btn_OpenCDPlayersDoor;
     [SerializeField] GameObject player;
     [SerializeField] GameObject cake;
     [SerializeField] GameObject musicalNotes;
@@ -18,8 +18,18 @@ public class AnimaController_25 : MonoBehaviour
     [SerializeField] GameObject speechBubble;  // Grilfriendの吹き出し
     [SerializeField] GameObject stageManager;
     [SerializeField] Sprite cake1Spr;   // プレーンケーキの画像
+
+    private GeeksMovementCnt gmc;
+    private SpriteRenderer sr_geek;
+    private Animator animator_geek;
     private static int playCount_musicalNotes = 0; // 音符アニメーション再生回数
     private static bool isRuning = false;   // geekがCDを止めに行くアニメーション再生中フラグ
+    private void Start()
+    {
+        gmc = geek.GetComponent<GeeksMovementCnt>();
+        sr_geek = geek.GetComponent<SpriteRenderer>();
+        animator_geek = geek.GetComponent<Animator>();
+    }
 
     // オブジェクトが破棄された時
     private void OnDestroy()
@@ -44,9 +54,9 @@ public class AnimaController_25 : MonoBehaviour
         if(playCount_musicalNotes >= 6 && !isRuning)
         {
             // geekがCDを止めに行くアニメーション再生
-            geek.GetComponent<Animator>().enabled = true;
-            geek.GetComponent<Animator>().Play("GeekGoOut");
-            geek.GetComponent<SpriteRenderer>().enabled = true;
+            animator_geek.enabled = true;
+            animator_geek.Play("GeekGoOut");
+            sr_geek.enabled = true;
             playCount_musicalNotes = 0;
         }
     }
@@ -58,15 +68,15 @@ public class AnimaController_25 : MonoBehaviour
     private void OpenTheGeeksDoor()
     {
         isRuning = true;
-        Btn_OpenGeeksDoor.GetComponent<Button>().enabled = true;
-        Btn_OpenGeeksDoor.GetComponent<Button>().onClick.Invoke();
+        Btn_OpenGeeksDoor.enabled = true;
+        Btn_OpenGeeksDoor.onClick.Invoke();
 
     }
     // "GoOut"アニメーション終了時
     // 移動開始
     private void StartGeekMoving()
     {
-        this.GetComponent<GeeksMovementCnt>().isGoing = true;
+        gmc.isGoing = true;
     }
 
     // "GoIn"アニメーション終了時
@@ -74,16 +84,15 @@ public class AnimaController_25 : MonoBehaviour
     private void CloseTheGeeksDoor()
     {
         isRuning = false;
-        Btn_CloseGeeksDoor.GetComponent<Button>().enabled = true;
-        Btn_CloseGeeksDoor.GetComponent<Button>().onClick.Invoke();
+        Btn_CloseGeeksDoor.enabled = true;
+        Btn_CloseGeeksDoor.onClick.Invoke();
     }
     // 自身を非表示 & アニメーション停止
     private void InActiveGeeksImgAndAnima()
     {
-        // "GoInFlag"がtrueのままだと、再びCDを止めに行く際にアニメーションが"GoOut"→"GoIn"と遷移してしまう
-        this.GetComponent<Animator>().SetBool("GoInFlag", false);
-        this.GetComponent<Animator>().enabled = false;
-        this.GetComponent<SpriteRenderer>().enabled = false;
+        animator_geek.SetBool("GoInFlag", false);
+        animator_geek.enabled = false;
+        sr_geek.enabled = false;
     }
     
     // ++++++++++++++++
@@ -93,24 +102,24 @@ public class AnimaController_25 : MonoBehaviour
     // 音楽の再生&停止を禁止
     private void InActiveCDPlayerBtn()
     {
-        cdPlayerBtn.GetComponent<Image>().enabled = false;
+        img_cdPlayerBtn.enabled = false;
     }
     // CDPlayer部屋の扉を開ける
     private void OpenTheCDPlayersDoor()
     {
-        Btn_OpenCDPlayersDoor.GetComponent<Button>().onClick.Invoke();
+        Btn_OpenCDPlayersDoor.onClick.Invoke();
     }
     // アニメーション終了時
     // 移動再開
     private void RestartGeekMoving()
     {
-        geek.GetComponent<SpriteRenderer>().enabled = true;
-        geek.GetComponent<GeeksMovementCnt>().GeekGoBack();
+        sr_geek.enabled = true;
+        gmc.GeekGoBack();
     }
     // 音楽の再生&停止を可能に
     private void ActiveCDPlayerBtn()
     {
-        cdPlayerBtn.GetComponent<Image>().enabled = true;
+        img_cdPlayerBtn.enabled = true;
     }
     // +++++++++++++++++++++++++++++++++
 
@@ -128,12 +137,12 @@ public class AnimaController_25 : MonoBehaviour
     // 移動アニメーション開始時、自身の扉を開ける
     private void OpenTheGirlfriendsDoor()
     {
-        Btn_OpenGirlfriendsDoor.GetComponent<Button>().onClick.Invoke();
+        Btn_OpenGirlfriendsDoor.onClick.Invoke();
     }
     // 移動アニメーション終了時、Boyfriendの扉を開ける
     private void OpenTheBoyfriendsDoor()
     {
-        Btn_OpenBoyfriendsDoor.GetComponent<Button>().onClick.Invoke();
+        Btn_OpenBoyfriendsDoor.onClick.Invoke();
     }
     // 衝突アニメーション開始時、ケーキを手から落とす
     private void DropTheCake()
@@ -146,9 +155,8 @@ public class AnimaController_25 : MonoBehaviour
     // Cake落下アニメーション終了時
     private void PlayPlayerIsCoveredWithACakeAnima()
     {
-        // Girlfriendが持っているケーキをPlayerが被るアニメーション再生
         // プレーンケーキ
-        if(this.GetComponent<SpriteRenderer>().sprite == cake1Spr)
+        if(cake.GetComponent<SpriteRenderer>().sprite == cake1Spr)
         {
             player.GetComponent<Animator>().Play("PlayerIsCoveredWithACake1");
         }

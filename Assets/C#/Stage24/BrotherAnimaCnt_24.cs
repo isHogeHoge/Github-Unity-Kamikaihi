@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class BrotherAnimaCnt_24 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject garland;  // Brotherのアクセサリー(花輪)
-    [SerializeField] GameObject strawberry; // Brotherのアクセサリー(イチゴ)
+    [SerializeField] Animator animator_player;
+    [SerializeField] Animator animator_accessories;
+    [SerializeField] SpriteRenderer sr_garland;  // アクセサリー(花輪)
+    [SerializeField] SpriteRenderer sr_strawberry; // アクセサリー(イチゴ)
     [SerializeField] GameObject stageManager;
 
     // 出現アニメーション終了時
     private void PlayAccessoriesSwayAnima()
     {
         // (Brotherの動きに合わせて)飾りアイテムが揺れるアニメーション再生
-        this.transform.GetChild(0).GetComponent<Animator>().Play("AccessoriesSway");
+        animator_accessories.Play("AccessoriesSway");
 
     }
 
@@ -22,7 +23,7 @@ public class BrotherAnimaCnt_24 : MonoBehaviour
     private void isPlayBrotherScareAnima()
     {
         // Brotherに飾りアイテムを1つも使用していなかったら、Playerを驚かすアニメーション再生
-        if(!garland.GetComponent<SpriteRenderer>().enabled && !strawberry.GetComponent<SpriteRenderer>().enabled)
+        if(!sr_garland.enabled && !sr_strawberry.enabled)
         {
             this.GetComponent<Animator>().SetBool("ScareFlag", true);
         }
@@ -35,13 +36,13 @@ public class BrotherAnimaCnt_24 : MonoBehaviour
         // アイテム使用不可能に
         this.GetComponent<BoxCollider2D>().enabled = false;
         // Playerゲームオーバーアニメーション再生
-        player.GetComponent<Animator>().Play("PlayerOver2");
+        animator_player.Play("PlayerOver2");
     }
 
     // Centaurに追いかけられるアニメーション開始時
     private void PlayAccessoriesStopAnima()
     {
         // 飾りアイテムアニメーション停止
-        this.transform.GetChild(0).GetComponent<Animator>().Play("AccessoriesStop");
+        animator_accessories.Play("AccessoriesStop");
     }
 }

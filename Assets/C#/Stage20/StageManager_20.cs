@@ -17,21 +17,20 @@ public class StageManager_20 : MonoBehaviour
 
     // ---------- Button -----------
     // 弟
-    public void ClickBrotherBtn(GameObject brother)
+    public void ClickBrotherBtn(Animator animator_brother)
     {
-        Animator animator = brother.GetComponent<Animator>();
         // クリックする度に"BrohterDrink"アニメーションが再生されるのを防ぐ
-        if(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "BrotherDrink")
+        if(animator_brother.GetCurrentAnimatorClipInfo(0)[0].clip.name == "BrotherDrink")
         {
             return;
         }
-        animator.Play("BrotherDrink");
+        animator_brother.Play("BrotherDrink");
     }
     // クッキー
-    public void ClickCookieBtn(GameObject cookieBtn)
+    public void ClickCookieBtn(Image img_cookieBtn)
     {
         // 自身をアイテムをして取得する
-        Sprite cookieSpr = cookieBtn.GetComponent<Image>().sprite;
+        Sprite cookieSpr = img_cookieBtn.sprite;
         itemManger.GetComponent<ItemManager>().ClickItemBtn(cookieSpr);
     }
     // --------------------------------

@@ -8,8 +8,8 @@ public class EnemyController_22 : MonoBehaviour
     [SerializeField] GameObject player;
 
     private EnemyController_22 ec_22;
-    private Animator animator;   // 自身のアニメーター
-    private Rigidbody2D rbody2d; // 自身のRigidbody2D
+    private Animator animator_enemy; 
+    private Rigidbody2D rbody_enemy;
     private Vector3 playerPos;
     private Vector3 enemyPos; 
     private const float speed = 1.2f;
@@ -17,8 +17,8 @@ public class EnemyController_22 : MonoBehaviour
     void Start()
     {
         ec_22 = this.GetComponent<EnemyController_22>();
-        animator = this.GetComponent<Animator>();
-        rbody2d = this.GetComponent<Rigidbody2D>();
+        animator_enemy = this.GetComponent<Animator>();
+        rbody_enemy = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -40,12 +40,12 @@ public class EnemyController_22 : MonoBehaviour
             // 左
             if (playerPos.x < enemyPos.x)
             {
-                animator.Play("EnemyMove_Left");
+                animator_enemy.Play("EnemyMove_Left");
             }
             // 右
             else if (playerPos.x > enemyPos.x)
             {
-                animator.Play("EnemyMove_Right");
+                animator_enemy.Play("EnemyMove_Right");
             }
         }
         // --- 上方向移動 ---
@@ -54,17 +54,17 @@ public class EnemyController_22 : MonoBehaviour
             // 上
             if (Mathf.Abs(playerPos.x - enemyPos.x) <= 0.5f)
             {
-                animator.Play("EnemyMove_Up");
+                animator_enemy.Play("EnemyMove_Up");
             }
             // 左上
             else if (playerPos.x < enemyPos.x)
             {
-                animator.Play("EnemyMove_TopLeft");
+                animator_enemy.Play("EnemyMove_TopLeft");
             }
             // 右上
             else if (playerPos.x > enemyPos.x)
             {
-                animator.Play("EnemyMove_TopRight");
+                animator_enemy.Play("EnemyMove_TopRight");
             }
         }
         // --- 下方向移動 ---
@@ -73,17 +73,17 @@ public class EnemyController_22 : MonoBehaviour
             // 下
             if (Mathf.Abs(playerPos.x - enemyPos.x) <= 0.5f)
             {
-                animator.Play("EnemyMove_Down");
+                animator_enemy.Play("EnemyMove_Down");
             }
             // 左下
             else if (playerPos.x < enemyPos.x)
             {
-                animator.Play("EnemyMove_BottomLeft");
+                animator_enemy.Play("EnemyMove_BottomLeft");
             }
             // 右下
             else if (playerPos.x > enemyPos.x)
             {
-                animator.Play("EnemyMove_BottomRight");
+                animator_enemy.Play("EnemyMove_BottomRight");
             }
         }
         
@@ -100,7 +100,7 @@ public class EnemyController_22 : MonoBehaviour
         // Playerとの距離が一定以下なら、Playerを追従する
         if (Vector2.Distance(playerPos,this.transform.position) <= 3f)
         {
-            rbody2d.MovePosition(Vector3.MoveTowards(this.transform.position, playerPos, speed * Time.deltaTime));
+            rbody_enemy.MovePosition(Vector3.MoveTowards(this.transform.position, playerPos, speed * Time.deltaTime));
         }
     }
 

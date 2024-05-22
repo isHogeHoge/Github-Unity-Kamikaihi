@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class PlayersMovementCnt_24 : MonoBehaviour
 {
+    [SerializeField] GameObject friend2;
     [SerializeField] GameObject player;
     [SerializeField] GameObject friend1;
-    [SerializeField] GameObject hidingFriend1; // 墓石に隠れているFriend1
-    [SerializeField] GameObject well;
-    [SerializeField] GameObject friend2;
-    [SerializeField] GameObject brother;
-    [SerializeField] GameObject ghost;
+    [SerializeField] SpriteRenderer sr_hidingFriend1; // 墓石に隠れているFriend1
+    [SerializeField] Animator animator_ghost;
+    [SerializeField] Animator animator_brother;
 
     private StageManager sm;
     private StageManager_24 sm_24;
@@ -19,14 +18,11 @@ public class PlayersMovementCnt_24 : MonoBehaviour
     private Animator animator_player;
     private Animator animator_friend1;
     private Animator animator_friend2;
-    private Animator animator_brother;
-    private Animator animator_ghost;
     private SpriteRenderer sr_friend1;
-    private SpriteRenderer sr_hidingFriend1;
-    private float playerPosX1 = -0.97f;  // playerのX座標(Friend2に驚かされる時)
-    private float playerPosX2 = 3.4f;   // playerのX座標(Friend1に驚かされる時)
-    private float playerPosX3 = 4.4f;    // playerのX座標(Brotherに驚かされる時)
-    private float playerPosX_Goal = 7.7f;  // PlayerのゴールX座標
+    private float targetPosX_friend2 = -0.97f;  // Friend2に驚かされるポジション
+    private float targetPosX_friend1 = 3.4f;   // Friend1に驚かされるポジション
+    private float targetPosX_brother = 4.4f;    // Brotherに驚かされるポジション
+    private float targetPosX_goal = 7.7f;  // PlayerのゴールX座標
     private const float stagePnlPosX_ScrollR = -4.6f; // (右側へスクロール時)stagePanelのX座標
     private Vector3 targetPos;         // Playerの移動先ポジション
     private Vector3 rightTop;　　　　　 // 画面右上座標
@@ -42,13 +38,13 @@ public class PlayersMovementCnt_24 : MonoBehaviour
         animator_player = player.GetComponent<Animator>();
         animator_friend1 = friend1.GetComponent<Animator>();
         animator_friend2 = friend2.GetComponent<Animator>();
-        animator_brother = brother.GetComponent<Animator>();
-        animator_ghost = ghost.GetComponent<Animator>();
         sr_friend1 = friend1.GetComponent<SpriteRenderer>();
-        sr_hidingFriend1 = hidingFriend1.GetComponent<SpriteRenderer>();
-        
-        // 画面右上の座標を取得
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+
+        // 画面右上の座標を取得(ワールド座標)
+        float cameraWidth = Camera.main.rect.width;
+        float cameraHeight = Camera.main.rect.height;
+        Vector3 cameraPos = Camera.main.WorldToScreenPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0f));
+        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(cameraPos.x + (Screen.width * cameraWidth * 0.5f), cameraPos.y + (Screen.height * cameraHeight * 0.5f), 0f));
     }
 
     void Update()
@@ -74,12 +70,12 @@ public class PlayersMovementCnt_24 : MonoBehaviour
                 sm_24.ScrollStagePnl_Right();
 
                 // stagePanelをスクロールした分だけ、移動先座標(X)も更新する
-                playerPosX2 += stagePnlPosX_ScrollR;
-                playerPosX3 += stagePnlPosX_ScrollR;
-                playerPosX_Goal += stagePnlPosX_ScrollR;
+                targetPosX_friend1 += stagePnlPosX_ScrollR;
+                targetPosX_brother += stagePnlPosX_ScrollR;
+                targetPosX_goal += stagePnlPosX_ScrollR;
 
                 // 次の移動先をFriend1に驚かされるポジションに更新
-                targetPos = new Vector3(playerPosX2, player.transform.position.y, player.transform.position.z);
+                targetPos = new Vector3(targetPosX_friend1, player.transform.position.y, player.transform.position.z);
 
                 canScroll = false;
                 return;
@@ -93,18 +89,23 @@ public class PlayersMovementCnt_24 : MonoBehaviour
             return;
         }
 
-        // Playerの移動ストップ
-        isMoving = false;
-        animator_player.SetBool("StopFlag", true);
-
         // Friend2に驚かされるポジションまで移動後
-        if (player.transform.position.x == playerPosX1)
+        if (player.transform.position.x == targetPosX_friend2)
         {
-            // Friend2出現
-            animator_friend2.enabled = true;
+            // ゲームオーバー
+            if (friend2.activeSelf)
+            {
+                animator_friend2.enabled = true;
+            }
+            // 移動中にFriend2へ蜘蛛アイテムを使用しているなら、移動続行
+            else
+            {
+                targetPos = new Vector3(rightTop.x, player.transform.position.y, player.transform.position.z);
+                return;
+            }
         }
         // Friend1に驚かされるポジションまで移動後
-        else if (player.transform.position.x == playerPosX2)
+        else if (player.transform.position.x == targetPosX_friend1)
         {
             // Friend1出現
             sr_hidingFriend1.enabled = false;
@@ -117,25 +118,29 @@ public class PlayersMovementCnt_24 : MonoBehaviour
                 // Friend1がPlayerを見て気絶するアニメーション再生
                 animator_friend1.SetBool("FaintFlag", true);
                 // 次の移動先をBrotherに驚かされるポジションに設定
-                targetPos = new Vector3(playerPosX3, player.transform.position.y, player.transform.position.z);
+                targetPos = new Vector3(targetPosX_brother, player.transform.position.y, player.transform.position.z);
             }
         }
         // Brotherに驚かされるポジションまで移動後
-        else if(player.transform.position.x == playerPosX3)
+        else if(player.transform.position.x == targetPosX_brother)
         {
             // Brother出現
             animator_brother.enabled = true;
             // 次の移動先をゴールに設定
-            targetPos = new Vector3(playerPosX_Goal, player.transform.position.y, player.transform.position.z);
+            targetPos = new Vector3(targetPosX_goal, player.transform.position.y, player.transform.position.z);
         }
         // ゴールまで移動後
-        else if(player.transform.position.x == playerPosX_Goal)
+        else if(player.transform.position.x == targetPosX_goal)
         {
             // 幽霊出現&ゲームクリア処理
             animator_ghost.enabled = true;
             sm.GameClear(24, this.GetCancellationTokenOnDestroy()).Forget();
             isGoal = true;
         }
+
+        // Playerの移動ストップ
+        isMoving = false;
+        animator_player.SetBool("StopFlag", true);
         // +++++++++++++++++++++++++
         // ----------------------------------
     }
@@ -152,12 +157,11 @@ public class PlayersMovementCnt_24 : MonoBehaviour
     // 「進む」ボタンをクリックした時
     public void ClickGoBtn()
     {
-        // Friend2に驚かされるポジションまで移動
-        if (well.GetComponent<WellController>().isScaredByFriend2)
+        // 移動先ポジションの設定
+        if (friend2.activeSelf)
         {
-            targetPos = new Vector3(playerPosX1, player.transform.position.y, player.transform.position.z);
+            targetPos = new Vector3(targetPosX_friend2, player.transform.position.y, player.transform.position.z);
         }
-        // Friend1に驚かされるポジションまで移動
         else
         {
             targetPos = new Vector3(rightTop.x, player.transform.position.y, player.transform.position.z);

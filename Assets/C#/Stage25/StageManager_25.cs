@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class StageManager_25 : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject grandma;
-    [SerializeField] GameObject geekL; // 左ページのGeek
-    [SerializeField] GameObject geekR; // 右ページのGeek
-    [SerializeField] GameObject girlfriendL; // 左ページのGirlfriend
-    [SerializeField] GameObject girlfriendR; // 右ページのGirlfriend
-    [SerializeField] GameObject boyfriend;
+    [SerializeField] Animator animator_player;
+    [SerializeField] Animator animator_enemy;
+    [SerializeField] GameObject grandmaL;
+    [SerializeField] GameObject geekL; 
+    [SerializeField] GameObject geekR; 
+    [SerializeField] GameObject girlfriendL;
+    [SerializeField] GameObject girlfriendR;
+    [SerializeField] GameObject boyfriendL;
     [SerializeField] GameObject musicalNotes;
     [SerializeField] GameObject stagePanel_UI; // スクロールさせるUI
     [SerializeField] GameObject stagePanel;    // スクロールさせるゲームオブジェクト
 
+    private GeeksMovementCnt gmc;
+    private CommonAnimation_25 ca_25;
+    private GirlfriendRCnt_25 girlfriendCnt;
+    private SpriteRenderer sr_musicalNotes;
+    private Animator animator_musicalNotes;
+    private Animator animator_girlfriendR;
     // Enemy&Playerと衝突するキャラクター
     // Enemyの衝突アニメーション開始時にhitCharの衝突アニメーションを再生する
     internal GameObject hitChar = null; 
     void Start()
     {
+        gmc = geekR.GetComponent<GeeksMovementCnt>();
+        ca_25 = musicalNotes.GetComponent<CommonAnimation_25>();
+        girlfriendCnt = girlfriendR.GetComponent<GirlfriendRCnt_25>();
+        animator_girlfriendR = girlfriendR.GetComponent<Animator>();
+        sr_musicalNotes = musicalNotes.GetComponent<SpriteRenderer>();
+        animator_musicalNotes = musicalNotes.GetComponent<Animator>();
+
         // ステージ初期位置から右に1ページ分だけ移動できるように設定
         stagePanel_UI.GetComponent<StageScrollCnt>().maxCountR = 1;
         stagePanel.GetComponent<StageScrollCnt>().maxCountR = 1;
@@ -28,10 +41,10 @@ public class StageManager_25 : MonoBehaviour
 
     // --------- Button -----------
     // Girlfriend部屋の扉
-    public void ClickGirlfriendsDoorBtn(string state) // Open,Close
+    public void ClickGirlfriendsDoorBtn(string state)
     {
-        // GirlfriendRへ使用できるアイテムがないなら、(扉の開閉に関わらず)コライダーを常にONにする
-        if (girlfriendR.GetComponent<GirlfriendRCnt_25>().usedChocolateItem)
+        // GirlfriendRへ使用できるアイテムがないなら、(扉の開閉に関わらず)コライダーを変化させない
+        if (girlfriendCnt.usedChocolateItem)
         {
             return;
         }
@@ -41,11 +54,11 @@ public class StageManager_25 : MonoBehaviour
         {
             // 扉が開いているなら、GirlfriendRへアイテム使用可(コライダーON)
             case "Open":
-                girlfriendR.GetComponent<Animator>().Play("GirlfriendStop_ColliderOn");
+                animator_girlfriendR.Play("GirlfriendStop_ColliderOn");
                 break;
             // 扉が閉まっているなら、GirlfriendRへアイテム使用不可(コライダーOFF)
             case "Close":
-                girlfriendR.GetComponent<Animator>().Play("GirlfriendStop_ColliderOff");
+                animator_girlfriendR.Play("GirlfriendStop_ColliderOff");
                 break;
             default:
                 Debug.Log($"{state}は無効な文字列です");
@@ -57,21 +70,21 @@ public class StageManager_25 : MonoBehaviour
     public void ClickCDPlayerBtn()
     {
         // 音楽再生中なら、音楽を停止 & Geekを部屋に引き返させる
-        if (musicalNotes.GetComponent<SpriteRenderer>().enabled)
+        if (sr_musicalNotes.enabled)
         {
-            musicalNotes.GetComponent<AnimaController_25>().StopTheMusic();
+            ca_25.StopTheMusic();
             // Geekをアイテムとして取得していないなら、部屋に引き返すアニメーション再生
             if (geekR.activeSelf)
             {
-                geekR.GetComponent<GeeksMovementCnt>().GeekGoBack();
+                gmc.GeekGoBack();
             }
 
         }
         // 音楽停止中なら、音楽を鳴らす
         else
         {
-            musicalNotes.GetComponent<Animator>().enabled = true;
-            musicalNotes.GetComponent<SpriteRenderer>().enabled = true;
+            animator_musicalNotes.enabled = true;
+            sr_musicalNotes.enabled = true;
         }
     }
     // 「スタート」ボタン
@@ -82,43 +95,43 @@ public class StageManager_25 : MonoBehaviour
         if (girlfriendL.GetComponent<SpriteRenderer>().enabled)
         {
             // Girlfriendと衝突(ゲームオーバー)
-            player.GetComponent<Animator>().Play("PlayerMove2");
+            animator_player.Play("PlayerMove2");
             hitChar = girlfriendL;
         }
         // Boyfriendと衝突
-        else if (boyfriend.GetComponent<SpriteRenderer>().enabled)
+        else if (boyfriendL.GetComponent<SpriteRenderer>().enabled)
         {
             // Boyfriendと衝突後、ゲームクリアアニメーション再生
-            enemy.GetComponent<Animator>().SetBool("FallInLoveFlag", true);
-            player.GetComponent<Animator>().Play("PlayerMove2");
-            player.GetComponent<Animator>().SetBool("ClearFlag", true);
-            hitChar = boyfriend;
+            animator_enemy.SetBool("FallInLoveFlag", true);
+            animator_player.Play("PlayerMove2");
+            animator_player.SetBool("ClearFlag", true);
+            hitChar = boyfriendL;
         }
         // Geekと衝突
         else if (geekL.GetComponent<SpriteRenderer>().enabled)
         {
             // Geekと衝突後、ゲームオーバーアニメーション再生
-            enemy.GetComponent<Animator>().SetBool("FallInLoveFlag", true);
-            enemy.GetComponent<Animator>().SetBool("SnatchFlag", true);
-            player.GetComponent<Animator>().Play("PlayerMove2");
+            animator_enemy.SetBool("FallInLoveFlag", true);
+            animator_enemy.SetBool("SnatchFlag", true);
+            animator_player.Play("PlayerMove2");
             hitChar = geekL;
         }
         // Enemyと衝突
         else
         {
             // Grandmaが出現していたら、テレポート
-            if (grandma.GetComponent<SpriteRenderer>().enabled)
+            if (grandmaL.GetComponent<SpriteRenderer>().enabled)
             {
-                grandma.GetComponent<Animator>().Play("GrandmaTeleport");
+                grandmaL.GetComponent<Animator>().Play("GrandmaTeleport");
             }
             // Enemyと衝突後、ゲームオーバーアニメーション再生
-            enemy.GetComponent<Animator>().SetBool("FallInLoveFlag", true);
-            enemy.GetComponent<Animator>().SetBool("SnatchFlag", true);
-            player.GetComponent<Animator>().Play("PlayerMove1");
+            animator_enemy.SetBool("FallInLoveFlag", true);
+            animator_enemy.SetBool("SnatchFlag", true);
+            animator_player.Play("PlayerMove1");
         }
 
         // Enemy移動アニメーション開始
-        enemy.GetComponent<Animator>().Play("EnemyMove");
+        animator_enemy.GetComponent<Animator>().Play("EnemyMove");
     }
     // ------------------------------
 

@@ -8,7 +8,7 @@ public class Collider_CharactersCnt : MonoBehaviour
     [SerializeField] GameObject geek;
     [SerializeField] GameObject girlfriend;
     [SerializeField] GameObject boyfriend;
-    [SerializeField] GameObject cake;
+    [SerializeField] SpriteRenderer sr_cake;
     [SerializeField] GameObject itemManager;
     [SerializeField] Sprite grandmaItemSpr;
     [SerializeField] Sprite geekItemSpr;
@@ -25,32 +25,32 @@ public class Collider_CharactersCnt : MonoBehaviour
             return;
         }
 
-        // 使用したキャラクターを表示
+        Image img_character = col.GetComponent<Image>();
         // Grandma
-        if(col.GetComponent<Image>().sprite == grandmaItemSpr)
+        if(img_character.sprite == grandmaItemSpr)
         {
-            CharacterAppear(col, grandma);
+            CharacterAppear(img_character, grandma);
         }
         // Geek
-        else if(col.GetComponent<Image>().sprite == geekItemSpr)
+        else if(img_character.sprite == geekItemSpr)
         {
-            CharacterAppear(col, geek);
+            CharacterAppear(img_character, geek);
         }
         // Girlfriend
-        else if(col.GetComponent<Image>().sprite == girlfriendItemSpr1 || col.GetComponent<Image>().sprite == girlfriendItemSpr2)
+        else if(img_character.sprite == girlfriendItemSpr1 || img_character.sprite == girlfriendItemSpr2)
         {
             // Girlfriendがチョコレートケーキを持っている状態に変更
-            if (col.GetComponent<Image>().sprite == girlfriendItemSpr2)
+            if (img_character.sprite == girlfriendItemSpr2)
             {
-                cake.GetComponent<SpriteRenderer>().sprite = chocolateCakeSpr;
+                sr_cake.sprite = chocolateCakeSpr;
                 girlfriend.GetComponent<Animator>().Play("GirlfriendHaveACake2");
             }
-            CharacterAppear(col, girlfriend);
+            CharacterAppear(img_character, girlfriend);
         }
         // Boyfriend
         else
         {
-            CharacterAppear(col, boyfriend);
+            CharacterAppear(img_character, boyfriend);
         }
 
         this.GetComponent<BoxCollider2D>().enabled = false;
@@ -58,12 +58,12 @@ public class Collider_CharactersCnt : MonoBehaviour
     /// <summary>
     /// アイテム消費 & キャラクター出現処理
     /// </summary>
-    /// <param name="col">使用したキャラクターアイテム</param>
+    /// <param name="img_character">使用したキャラクターアイテム</param>
     /// <param name="someone">表示するキャラクター</param>
-    private void CharacterAppear(Collider2D col,GameObject someone)
+    private void CharacterAppear(Image img_character,GameObject someone)
     {
         // アイテム使用処理
-        col.GetComponent<Image>().sprite = null;
+        img_character.sprite = null;
         itemManager.GetComponent<ItemManager>().UsedItem();
 
         someone.GetComponent<SpriteRenderer>().enabled = true;

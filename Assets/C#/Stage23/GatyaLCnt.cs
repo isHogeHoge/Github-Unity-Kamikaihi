@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 public class GatyaLCnt : MonoBehaviour
 {
     [SerializeField] GameObject posterLBtn; // 「故障中」ポスター取得ボタン
-    [SerializeField] GameObject posterL; // 「故障中」ポスター
-    [SerializeField] GameObject player;
+    [SerializeField] Animator animator_player;
+    [SerializeField] SpriteRenderer sr_posterL; // 「故障中」ポスター
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite coinItemSpr;
@@ -30,17 +27,16 @@ public class GatyaLCnt : MonoBehaviour
         if (itemSpr == coinItemSpr)
         {
             // Playerがガチャを回すアニメーション再生
-            player.GetComponent<Animator>().Play("PlayerTurnTheGatyaL");
+            animator_player.Play("PlayerTurnTheGatyaL");
         }
         // 「故障中」ポスターアイテム使用
         else
         {
             // ガチャの前に「故障中」ポスターを表示 & ガチャを回せないようにする
             posterLBtn.SetActive(true);
-            posterL.GetComponent<SpriteRenderer>().enabled = true;
+            sr_posterL.GetComponent<SpriteRenderer>().enabled = true;
             this.GetComponent<BoxCollider2D>().enabled = false;
         }
-
 
     }
 }

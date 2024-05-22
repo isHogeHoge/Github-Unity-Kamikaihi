@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b8002c38a9f4110aa76ce58decf453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCol_well: {fileID: 1080702820}
   player: {fileID: 1823223350}
   stageManager: {fileID: 614732092}
 --- !u!1001 &488174146
@@ -1273,13 +1274,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d75cddc7b4e241a29a36aaf956a0ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friend2: {fileID: 344663070}
   player: {fileID: 1823223350}
   friend1: {fileID: 1579020609}
-  hidingFriend1: {fileID: 800195936}
-  well: {fileID: 1080702817}
-  friend2: {fileID: 344663070}
-  brother: {fileID: 1545910140}
-  ghost: {fileID: 1149351574}
+  sr_hidingFriend1: {fileID: 800195938}
+  animator_ghost: {fileID: 1149351577}
+  animator_brother: {fileID: 1545910143}
 --- !u!114 &614732104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,10 +2103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cfbf0d6cb7f43288b6178ab07c8cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskBtn: {fileID: 631536562}
-  surprisedFriend2: {fileID: 1363541682}
-  faintingFriend2: {fileID: 246997824}
-  mask: {fileID: 737708322}
+  maskBtn: {fileID: 631536565}
+  friend2: {fileID: 344663070}
+  sr_surprisedFriend2: {fileID: 1363541684}
+  sr_faintingFriend2: {fileID: 246997826}
+  sr_mask: {fileID: 737708324}
   itemManager: {fileID: 617880588}
   stageManager: {fileID: 614732092}
   spiderSpr: {fileID: 21300000, guid: a4d7a243138f445fbb64693bbfb00bab, type: 3}
@@ -3088,13 +3089,13 @@ Transform:
   - {fileID: 737708323}
   - {fileID: 1823223351}
   - {fileID: 341710797}
-  - {fileID: 1149351575}
   - {fileID: 227782862}
   - {fileID: 745616024}
   - {fileID: 1121878353}
   - {fileID: 1910239994}
   - {fileID: 1579020610}
   - {fileID: 800195937}
+  - {fileID: 1149351575}
   - {fileID: 1545910141}
   - {fileID: 1246669138}
   m_Father: {fileID: 0}
@@ -3126,7 +3127,7 @@ GameObject:
   - component: {fileID: 1363541683}
   - component: {fileID: 1363541684}
   m_Layer: 0
-  m_Name: SurpricedFriend1
+  m_Name: SurprisedFriend2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3672,9 +3673,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb141652ded74c88befa458a3df4370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1823223350}
-  garland: {fileID: 2104665307}
-  strawberry: {fileID: 504712938}
+  animator_player: {fileID: 1823223353}
+  animator_accessories: {fileID: 1280382746}
+  sr_garland: {fileID: 2104665309}
+  sr_strawberry: {fileID: 504712940}
   stageManager: {fileID: 614732092}
 --- !u!114 &1545910147
 MonoBehaviour:
@@ -3825,6 +3827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b8002c38a9f4110aa76ce58decf453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCol_well: {fileID: 0}
   player: {fileID: 1823223350}
   stageManager: {fileID: 614732092}
 --- !u!1 &1594729276 stripped
@@ -3906,9 +3909,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3827792
+    x: 0.3589825
     y: 0
-    width: 0.23444156
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -4469,9 +4472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb141652ded74c88befa458a3df4370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  garland: {fileID: 0}
-  strawberry: {fileID: 0}
+  animator_player: {fileID: 0}
+  animator_accessories: {fileID: 0}
+  sr_garland: {fileID: 0}
+  sr_strawberry: {fileID: 0}
   stageManager: {fileID: 614732092}
 --- !u!114 &1823223357
 MonoBehaviour:
