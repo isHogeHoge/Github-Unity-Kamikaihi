@@ -779,6 +779,63 @@ MonoBehaviour:
   triosSushi: {fileID: 906642592}
   itemManager: {fileID: 6804129038510842530}
   sushiSpr: {fileID: 21300000, guid: 87efb677f530b4feaa821ee9bb4cdce4, type: 3}
+--- !u!1001 &464915769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581253826255398173, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015993470343392900, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
+      propertyPath: m_Name
+      value: ClearCamera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1feec9c619caa41faa5331928b7f5d15, type: 3}
 --- !u!1001 &468620737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -906,6 +963,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5621831127669075955, guid: 00c8a157475c84b8abcf215044ca8789, type: 3}
   m_PrefabInstance: {fileID: 468620737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &468620740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5621831127669075952, guid: 00c8a157475c84b8abcf215044ca8789, type: 3}
+  m_PrefabInstance: {fileID: 468620737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468620739}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &500625708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4723902890994592725, guid: a02a2aad13f8e46a0a6e55a8c05a5121, type: 3}
@@ -1303,11 +1371,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0445b9d36a1164b58b9797560dbfc0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lButton: {fileID: 0}
-  playersSushi: {fileID: 0}
-  friend1sSushi: {fileID: 751560186}
-  friend2sSushi: {fileID: 0}
-  brother: {fileID: 0}
+  img_LButton: {fileID: 468620740}
+  sr_playersSushi: {fileID: 87377795}
+  sr_friend1sSushi: {fileID: 751560188}
+  sr_friend2sSushi: {fileID: 669923931}
+  animator_brother: {fileID: 1550298653}
   brothersSushi: {fileID: 0}
   stageManager: {fileID: 0}
   stagePanel_UI: {fileID: 0}
@@ -1363,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e1f9a14e8cb4ce492510b9599c6443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1682734945}
+  animator_player: {fileID: 1682734949}
   triosSushi: {fileID: 906642592}
   stagePanel_UI: {fileID: 508421365}
   stagePanel: {fileID: 1245102722}
@@ -2173,11 +2241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faee77bec2324cea8c06e3aa4a8b7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushiImg: {fileID: 837510755}
+  sushiImg: {fileID: 837510757}
   eatBtn: {fileID: 2044311080}
   triosSushi: {fileID: 906642592}
+  sr_sushiInFrontOfPlayer: {fileID: 110606246}
   stageManager: {fileID: 614732092}
-  sushiInFrontOfPlayer: {fileID: 110606244}
 --- !u!4 &952547330
 Transform:
   m_ObjectHideFlags: 0
@@ -2787,11 +2855,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0445b9d36a1164b58b9797560dbfc0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lButton: {fileID: 0}
-  playersSushi: {fileID: 0}
-  friend1sSushi: {fileID: 0}
-  friend2sSushi: {fileID: 669923929}
-  brother: {fileID: 0}
+  img_LButton: {fileID: 468620740}
+  sr_playersSushi: {fileID: 87377795}
+  sr_friend1sSushi: {fileID: 751560188}
+  sr_friend2sSushi: {fileID: 669923931}
+  animator_brother: {fileID: 1550298653}
   brothersSushi: {fileID: 0}
   stageManager: {fileID: 0}
   stagePanel_UI: {fileID: 0}
@@ -3499,11 +3567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0445b9d36a1164b58b9797560dbfc0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lButton: {fileID: 468620739}
-  playersSushi: {fileID: 87377793}
-  friend1sSushi: {fileID: 0}
-  friend2sSushi: {fileID: 0}
-  brother: {fileID: 1550298650}
+  img_LButton: {fileID: 468620740}
+  sr_playersSushi: {fileID: 87377795}
+  sr_friend1sSushi: {fileID: 751560188}
+  sr_friend2sSushi: {fileID: 669923931}
+  animator_brother: {fileID: 1550298653}
   brothersSushi: {fileID: 1443243726}
   stageManager: {fileID: 614732092}
   stagePanel_UI: {fileID: 508421365}
@@ -3733,9 +3801,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3589825
     y: 0
-    width: 1
+    width: 0.28203496
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -6741,6 +6809,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 464915769}
   - {fileID: 1747236631}
   - {fileID: 1751242405}
   - {fileID: 6605863045485553026}

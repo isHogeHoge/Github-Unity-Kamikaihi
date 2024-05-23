@@ -43,35 +43,27 @@ public class SushiController : MonoBehaviour
             // クリックした場所から伸びるrayに当たったオブジェクト(layerが"Sushi")を取得
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, Mathf.Infinity,layerMask);
-            if (!hit2d)
-            {
-                return;
-            }
+            if (!hit2d) return;
             clickedSushi = hit2d.transform.gameObject;
             SpriteRenderer sr_clickedSushi = clickedSushi.GetComponent<SpriteRenderer>();
 
             // クリックした寿司(取得可能)だけアイテム取得処理を行う
-            if (clickedSushi != this.gameObject || !sr_clickedSushi.enabled)
+            if (clickedSushi == this.gameObject && sr_clickedSushi.enabled)
             {
-                return;
-            }
-            // 皿の上にある寿司を、アイテムとして取得
-            im.ClickItemBtn(sushiSpr);
-            if (im.isFull) // アイテム所持数Max
-            {
-                return;
-            }
-            sr_clickedSushi.enabled = false;
+                // 皿の上にある寿司を、アイテムとして取得
+                im.ClickItemBtn(sushiSpr);
+                if (im.isFull) return;
+                sr_clickedSushi.enabled = false;
 
-            // trioのテーブルにある寿司が0個なら、寿司パネルを非アクティブに
-            // trioのテーブルにある寿司が2個以下なら、「食べる」ボタンを非アクティブに
-            if(this.transform.parent.gameObject == triosSushi)
-            {
-                MinusSushiCount();
-                isInActiveSushiPnlAndEatBtn();
+                // trioのテーブルにある寿司が0個なら、寿司パネルを非アクティブに
+                // trioのテーブルにある寿司が2個以下なら、「食べる」ボタンを非アクティブに
+                if (this.transform.parent.gameObject == triosSushi)
+                {
+                    MinusSushiCount();
+                    isInActiveSushiPnlAndEatBtn();
+                }
+                clickedSushi = null;
             }
-            clickedSushi = null;
-            
         }
     }
 

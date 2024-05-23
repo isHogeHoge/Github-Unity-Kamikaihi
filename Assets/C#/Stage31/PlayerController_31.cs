@@ -4,14 +4,13 @@ using UnityEngine;
 using TMPro;
 public class PlayerController_31 : MonoBehaviour
 {
-    [SerializeField] GameObject canvas;
     [SerializeField] GameObject stagePanel;
     [SerializeField] GameObject tutorialText_U;
     [SerializeField] GameObject tutorialText_D;
-    [SerializeField] GameObject playersLife;
     [SerializeField] GameObject stageManager;
 
     private StageManager_31 sm_31;
+    private Animator animator_player;
     private float minX = -2.24f; // 移動範囲の最小値(X座標)
     private float maxX = 2.34f;  // 移動範囲の最大値(X座標)
     private Vector3 direction;   // Playerの移動方向
@@ -20,6 +19,7 @@ public class PlayerController_31 : MonoBehaviour
     private void Start()
     {
         sm_31 = stageManager.GetComponent<StageManager_31>();
+        animator_player = this.GetComponent<Animator>();
     }
 
     private void Update()
@@ -58,13 +58,13 @@ public class PlayerController_31 : MonoBehaviour
         {
             // 右
             case "RIGHT":
-                this.GetComponent<Animator>().Play("PlayerMove_TopRight");
+                animator_player.Play("PlayerMove_TopRight");
                 direction = new Vector3(1, 0, 0);
                 isMoving = true;
                 break;
             // 左
             case "LEFT":
-                this.GetComponent<Animator>().Play("PlayerMove_TopLeft");
+                animator_player.Play("PlayerMove_TopLeft");
                 direction = new Vector3(-1, 0, 0);
                 isMoving = true;
                 break;
@@ -77,7 +77,7 @@ public class PlayerController_31 : MonoBehaviour
     // 離した時
     public void ClickMoveBtn_Up()
     {
-        this.GetComponent<Animator>().Play("PlayerMove_Up");
+        animator_player.Play("PlayerMove_Up");
         isMoving = false;
     }
     // -------------------

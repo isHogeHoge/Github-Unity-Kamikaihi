@@ -10,8 +10,8 @@ public class PoliceController : MonoBehaviour
 
     private StageManager_30 sm_30;
     private Animator animator_police;
-    private Animator animator_player;
     private GameObject player; // アクティブなPlayer
+    private Animator animator_player;
     private Vector3 targetPos;
     private bool isMoving = true;
 

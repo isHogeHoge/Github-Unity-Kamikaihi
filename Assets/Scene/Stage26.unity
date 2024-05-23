@@ -307,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dc2c39dbaf24b8bbbcfff441cef4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1141703059}
-  brokenWatermelon: {fileID: 1323978988}
-  watermelonSeeds: {fileID: 868079998}
-  rButton: {fileID: 1978201647}
+  animator_player: {fileID: 1141703063}
+  animator_brokenWatermelon: {fileID: 1323978992}
+  img_watermelonSeeds: {fileID: 868080000}
+  img_RButton: {fileID: 1978201649}
   stageManager: {fileID: 1992910598}
   itemManager: {fileID: 1602852310}
   watermelonSpr: {fileID: 21300000, guid: 631783b843ccf4bb5ac501dfa858e622, type: 3}
@@ -4363,6 +4363,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3661776015906108005, guid: 9f99f14e6d4dc41f8a20cf3f0bf47d4c, type: 3}
   m_PrefabInstance: {fileID: 1978201646}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1978201649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3661776015906108007, guid: 9f99f14e6d4dc41f8a20cf3f0bf47d4c, type: 3}
+  m_PrefabInstance: {fileID: 1978201646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978201647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1992910598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1906817111337588352, guid: b4e5241eed2064a68a7bd421d0dd0c7d, type: 3}

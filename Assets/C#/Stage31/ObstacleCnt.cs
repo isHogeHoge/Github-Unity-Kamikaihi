@@ -1,19 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
 
 // 障害物オブジェクト全てにアタッチされる
 public class ObstacleCnt : MonoBehaviour
 {
-    [SerializeField] GameObject canvas;
-    [SerializeField] GameObject stagePanel;
-    [SerializeField] GameObject playersLife;
+    [SerializeField] RectTransform rect_canvas;
+    [SerializeField] RectTransform rect_stagePanel;
+    [SerializeField] RectTransform rect_playersLife;
     [SerializeField] GameObject score_parent; // スコアPrefabの代入先(親オブジェクト)
     [SerializeField] GameObject effect_parent;// エフェクトPrefabの代入先(親オブジェクト)
-    [SerializeField] GameObject LmoveBtn;
+    [SerializeField] RectTransform rect_LmoveBtn;
     [SerializeField] GameObject player;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject prefab_1Points;
@@ -23,6 +18,7 @@ public class ObstacleCnt : MonoBehaviour
     [SerializeField] GameObject prefab_effect;
 
     private StageManager_31 sm_31;
+    private RectTransform rect_obstacle;
     private int score = 0;
     private bool wasAdded_lowScore = false;   // ロースコア加算済みフラグ
     private bool wasAdded_highScore = false; // ハイスコア加算済みフラグ
@@ -30,6 +26,7 @@ public class ObstacleCnt : MonoBehaviour
     private void Start()
     {
         sm_31 = stageManager.GetComponent<StageManager_31>();
+        rect_obstacle = this.GetComponent<RectTransform>();
     }
 
     // 自身が移動ボタンより下に移動したら、(ロー)スコアを加算する
@@ -42,16 +39,16 @@ public class ObstacleCnt : MonoBehaviour
         }
 
         // 移動ボタン&自身の上辺Y座標を取得
-        float moveBtn_Y = LmoveBtn.GetComponent<RectTransform>().anchoredPosition.y;
-        float moveBtn_TopY = moveBtn_Y + (LmoveBtn.GetComponent<RectTransform>().sizeDelta.y / 2);
+        float moveBtn_Y = rect_LmoveBtn.anchoredPosition.y;
+        float moveBtn_TopY = moveBtn_Y + (rect_LmoveBtn.sizeDelta.y / 2);
         float this_TopY = CalculateThisTopY();
 
         // 自身が移動ボタンより下に移動したら
         if (this_TopY < moveBtn_TopY)
         {
             // Playerとの距離に応じて、スコアを加算&表示する
-            float playerPosX = playersLife.GetComponent<RectTransform>().anchoredPosition.x;
-            float thisPosX = this.GetComponent<RectTransform>().anchoredPosition.x;
+            float playerPosX = rect_playersLife.anchoredPosition.x;
+            float thisPosX = rect_obstacle.anchoredPosition.x;
             float distanceX_1points = 400f; // 1点となる距離の基準値
             float distanceX_5points = 150f; // 5点となる距離の基準値
             GameObject lowScore_Prefab = null; // 表示するスコアPrefab
@@ -87,9 +84,9 @@ public class ObstacleCnt : MonoBehaviour
     // 自身の上辺Y座標を算出するメソッド
     private float CalculateThisTopY()
     {
-        float stagePanel_Y = stagePanel.GetComponent<RectTransform>().anchoredPosition.y;
-        float this_Y = this.GetComponent<RectTransform>().anchoredPosition.y;
-        float this_TopY = stagePanel_Y + this_Y + (GetComponent<RectTransform>().sizeDelta.y / 2); // StagePanel(親オブジェクト)の移動分も含める
+        float stagePanel_Y = rect_stagePanel.anchoredPosition.y;
+        float this_Y = rect_obstacle.anchoredPosition.y;
+        float this_TopY = stagePanel_Y + this_Y + (rect_obstacle.sizeDelta.y / 2); // StagePanel(親オブジェクト)の移動分も含める
         return this_TopY;
     }
 
@@ -97,7 +94,7 @@ public class ObstacleCnt : MonoBehaviour
     private void GenerateScoreObj(GameObject ScorePrefab)
     {
         // 座標を設定
-        Vector3 scorePos = new Vector3(GetComponent<RectTransform>().anchoredPosition.x, CalculateThisTopY(), 0f);
+        Vector3 scorePos = new Vector3(rect_obstacle.anchoredPosition.x, CalculateThisTopY(), 0f);
 
         // score_parentに生成したスコアエフェクトを代入する
         GameObject scoreObj = Instantiate(ScorePrefab, scorePos, Quaternion.identity);
@@ -141,7 +138,7 @@ public class ObstacleCnt : MonoBehaviour
         // ワールド座標 → スクリーン座標
         Vector2 screenPos = Camera.main.WorldToScreenPoint(hitPos);
         // スクリーン座標 → RectTransform座標
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPos, Camera.main, out hitPos_rect);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rect_canvas, screenPos, Camera.main, out hitPos_rect);
         // -----------------------------------------------
 
         // 衝突位置にエフェクトを生成

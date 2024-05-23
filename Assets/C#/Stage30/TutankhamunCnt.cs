@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TutankhamunCnt : MonoBehaviour
 {
-    [SerializeField] GameObject tutankhamunBtn;
+    [SerializeField] Button tutankhamunBtn;
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite goldCardSpr;
@@ -18,11 +18,12 @@ public class TutankhamunCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // ゴールドカードアイテム使用
-        if (col.GetComponent<Image>().sprite == goldCardSpr)
+        if (img_item.sprite == goldCardSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 自身がカードを飲み込むアニメーション再生
@@ -34,7 +35,7 @@ public class TutankhamunCnt : MonoBehaviour
     // カードを飲み込んだ後、自身を開閉できるボタンを使用可能に
     private void ActiveTutankhamunBtn()
     {
-        tutankhamunBtn.GetComponent<Button>().enabled = true;
+        tutankhamunBtn.enabled = true;
     }
     // --------------------------
 }

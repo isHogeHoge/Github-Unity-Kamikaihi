@@ -295,12 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -544,12 +544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -886,12 +886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -1159,12 +1159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -1674,12 +1674,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -2013,12 +2013,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -2176,12 +2176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -2370,12 +2370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -2826,12 +2826,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -3100,12 +3100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -3325,12 +3325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -3490,12 +3490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -3653,12 +3653,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -3830,12 +3830,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -4107,12 +4107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -4328,12 +4328,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -4609,12 +4609,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -4864,12 +4864,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -5208,12 +5208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -5401,12 +5401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -5442,20 +5442,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01d085e29bc043d197063e0799661c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stagePanel: {fileID: 1729283930}
+  rect_stagePanel: {fileID: 1729283931}
+  img_playersLife: {fileID: 1514978713}
   tutorialText_U: {fileID: 63226442}
   tutorialText_D: {fileID: 1469735953}
   fartherClearImg: {fileID: 1188329868}
   middleClearImg: {fileID: 1688755335}
+  img_player_clear: {fileID: 1379052185}
   closerClearImg: {fileID: 463849550}
-  scoreText_Playing: {fileID: 723853102}
-  scoreText_Clear: {fileID: 994216696}
+  scoreText_Playing: {fileID: 723853104}
+  scoreText_Clear: {fileID: 994216698}
   moveBtn: {fileID: 859782102}
-  titleBtn: {fileID: 1101573608}
+  img_titleBtn: {fileID: 1101573611}
   topBorder: {fileID: 1641249080}
-  playersLife: {fileID: 1514978710}
   player: {fileID: 739099576}
-  player_clear: {fileID: 1379052182}
 --- !u!1 &623284037
 GameObject:
   m_ObjectHideFlags: 0
@@ -5878,12 +5878,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -6175,12 +6175,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -6307,11 +6307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5761a3c716a2645fba8a3668210c8cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
   stagePanel: {fileID: 1729283930}
   tutorialText_U: {fileID: 63226442}
   tutorialText_D: {fileID: 1469735953}
-  playersLife: {fileID: 1514978710}
   stageManager: {fileID: 614732092}
 --- !u!1 &756364256
 GameObject:
@@ -6564,12 +6562,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -6751,12 +6749,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -6947,12 +6945,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -7123,12 +7121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -7472,12 +7470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -7680,12 +7678,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -8067,12 +8065,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -8224,12 +8222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -9173,12 +9171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -9336,12 +9334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -9580,12 +9578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -9777,12 +9775,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -10126,12 +10124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -10265,12 +10263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -11132,12 +11130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -11370,12 +11368,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -11591,12 +11589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -11775,12 +11773,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -11955,12 +11953,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -12146,12 +12144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -12352,12 +12350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -12585,12 +12583,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -12799,12 +12797,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -13162,12 +13160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -13486,12 +13484,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -13827,12 +13825,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -14118,12 +14116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -14298,7 +14296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6630b892fbf4f497686039783d4e1593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
+  rect_canvas: {fileID: 882161160}
+  rect_playersLife: {fileID: 1514978711}
   player: {fileID: 739099576}
 --- !u!50 &1514978716
 Rigidbody2D:
@@ -14592,12 +14591,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -14940,12 +14939,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -15176,12 +15175,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -15416,12 +15415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -15697,12 +15696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -15885,12 +15884,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -16085,12 +16084,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -16320,12 +16319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -16680,12 +16679,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -17045,12 +17044,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -17187,9 +17186,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3589825
+    x: 0.35586306
     y: 0
-    width: 0.28203496
+    width: 0.28827387
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -17611,12 +17610,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -17788,12 +17787,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -18279,12 +18278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -18517,12 +18516,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -18848,12 +18847,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -19284,12 +19283,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -19550,12 +19549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}
@@ -19956,12 +19955,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ff96b9274f4488840bd143f105f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 882161156}
-  stagePanel: {fileID: 1729283930}
-  playersLife: {fileID: 1514978710}
+  rect_canvas: {fileID: 882161160}
+  rect_stagePanel: {fileID: 1729283931}
+  rect_playersLife: {fileID: 1514978711}
   score_parent: {fileID: 1166033408}
   effect_parent: {fileID: 1976956906}
-  LmoveBtn: {fileID: 167228533}
+  rect_LmoveBtn: {fileID: 167228534}
   player: {fileID: 739099576}
   stageManager: {fileID: 614732092}
   prefab_1Points: {fileID: 8218152828774865006, guid: dac25feddd2034cc98a9084a6b4fe417, type: 3}

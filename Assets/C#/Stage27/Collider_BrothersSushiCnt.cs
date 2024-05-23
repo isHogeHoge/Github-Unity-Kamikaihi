@@ -9,10 +9,15 @@ public class Collider_BrothersSushiCnt : MonoBehaviour
     [SerializeField] Sprite shrimpSpr1; // えび寿司(わさびあり)画像
     [SerializeField] Sprite shrimpSpr2; // えび寿司(わさび抜き)画像
 
+    private SpriteRenderer sr_brothersSushi;
+    private void Start()
+    {
+        sr_brothersSushi = this.GetComponent<SpriteRenderer>();
+    }
     private void OnTriggerExit2D(Collider2D col)
     {
         // (アイテム以外と接触)または(アイテムホールド中)または(皿に別の寿司がある)なら、メソッドを抜ける
-        if (col.gameObject.tag != "Item" || Input.GetMouseButton(0) || this.GetComponent<SpriteRenderer>().enabled)
+        if (col.gameObject.tag != "Item" || Input.GetMouseButton(0) || sr_brothersSushi.enabled)
         {
             return;
         }
@@ -26,14 +31,14 @@ public class Collider_BrothersSushiCnt : MonoBehaviour
         // えび寿司はわさびありの画像に固定
         if(itemSpr == shrimpSpr1 || itemSpr == shrimpSpr2)
         {
-            this.GetComponent<SpriteRenderer>().sprite = shrimpSpr1;
+            sr_brothersSushi.sprite = shrimpSpr1;
         }
         // それ以外の寿司はアイテム画像をそのまま代入
         else
         {
-            this.GetComponent<SpriteRenderer>().sprite = itemSpr;
+            sr_brothersSushi.sprite = itemSpr;
         }
-        this.GetComponent<SpriteRenderer>().enabled = true;
+        sr_brothersSushi.enabled = true;
 
         // 再度クリックした時のアイテム画像を設定
         this.GetComponent<SushiController>().sushiSpr = itemSpr;

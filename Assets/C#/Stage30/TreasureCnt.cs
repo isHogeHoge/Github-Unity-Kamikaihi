@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TreasureCnt : MonoBehaviour
 {
-    [SerializeField] GameObject playerR;
+    [SerializeField] Animator animator_playerR;
     [SerializeField] GameObject itemManager;
     // アイテム画像
     [SerializeField] Sprite furoshikiSpr; // 風呂敷
@@ -17,19 +17,20 @@ public class TreasureCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 風呂敷アイテム使用
-        if (col.GetComponent<Image>().sprite == furoshikiSpr)
+        if (img_item.sprite == furoshikiSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 宝を取得
             this.GetComponent<SpriteRenderer>().enabled = false;
-            playerR.GetComponent<Animator>().Play("PlayerGetATreasure");
+            animator_playerR.Play("PlayerGetATreasure");
 
             // Playerゲームオーバー時、足元の宝が表示されるように設定
-            playerR.transform.GetChild(0).gameObject.SetActive(true);
+            animator_playerR.transform.GetChild(0).gameObject.SetActive(true);
 
         }
 

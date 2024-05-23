@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class CustomerAnimaCnt_28 : MonoBehaviour
 {
-    [SerializeField] GameObject seatLBtn;
-    [SerializeField] GameObject seatMBtn;
-    [SerializeField] GameObject ramenL;
-    [SerializeField] GameObject ramenM;
-    [SerializeField] GameObject clerk;
+    [SerializeField] Button seatLBtn;
+    [SerializeField] Button seatMBtn;
+    [SerializeField] SpriteRenderer sr_ramenL;
+    [SerializeField] SpriteRenderer sr_ramenM;
+    [SerializeField] Animator animator_clerk;
     [SerializeField] Sprite dishOfRamen;
 
     // +++++ CustomerL&M +++++
@@ -22,11 +22,11 @@ public class CustomerAnimaCnt_28 : MonoBehaviour
         {
             // 退出したのがCustomerL
             case "CustomerL":
-                ramenL.GetComponent<SpriteRenderer>().sprite = dishOfRamen;
+                sr_ramenL.sprite = dishOfRamen;
                 break;
             // 退出したのがCustomerM
             case "CustomerM":
-                ramenM.GetComponent<SpriteRenderer>().sprite = dishOfRamen;
+                sr_ramenM.sprite = dishOfRamen;
                 break;
             default:
                 Debug.Log($"{customer}は無効な値です");
@@ -42,19 +42,19 @@ public class CustomerAnimaCnt_28 : MonoBehaviour
         {
             // 退出したのがCustomerL
             case "CustomerL":
-                ramenL.GetComponent<SpriteRenderer>().enabled = false;
-                seatLBtn.GetComponent<Button>().enabled = true;
+                sr_ramenL.enabled = false;
+                seatLBtn.enabled = true;
                 break;
             // 退出したのがCustomerM
             case "CustomerM":
-                ramenM.GetComponent<SpriteRenderer>().enabled = false;
-                seatMBtn.GetComponent<Button>().enabled = true;
+                sr_ramenM.enabled = false;
+                seatMBtn.enabled = true;
                 break;
             default:
                 Debug.Log($"{customer}は無効な値です");
                 break;
         }
-        clerk.GetComponent<Animator>().Play("ClerkWalk");
+        animator_clerk.Play("ClerkWalk");
     }
     // +++++++++++++++++++++++
 

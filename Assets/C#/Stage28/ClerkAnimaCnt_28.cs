@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ClerkAnimaCnt_28 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject ramenM;
+    [SerializeField] Animator animator_player;
+    [SerializeField] SpriteRenderer sr_ramenM;
     [SerializeField] Sprite slimeRamenSpr;
     [SerializeField] Sprite garlickyRamenSpr;
 
@@ -14,26 +14,26 @@ public class ClerkAnimaCnt_28 : MonoBehaviour
     private void ActiveRamenM()
     {
         // Playerの前にラーメンを表示
-        ramenM.GetComponent<SpriteRenderer>().enabled = true;
+        sr_ramenM.enabled = true;
     }
     // 料理を提供するアニメーション終了時
     private void PlayerEatARamen()
     {
         // スライムラーメンなら即座にゲームオーバー
-        if (ramenM.GetComponent<SpriteRenderer>().sprite == slimeRamenSpr)
+        if (sr_ramenM.sprite == slimeRamenSpr)
         {
-            player.GetComponent<Animator>().SetBool("DeadFlag", true);
+            animator_player.SetBool("DeadFlag", true);
         }
         // それ以外ならPlayerがラーメンを食べるアニメーション再生
         else
         {
             // ニンニクラーメンならラーメンを食べた後ゲームオーバー
-            if (ramenM.GetComponent<SpriteRenderer>().sprite == garlickyRamenSpr)
+            if (sr_ramenM.sprite == garlickyRamenSpr)
             {
-                player.GetComponent<Animator>().SetBool("OverFlag", true);
+                animator_player.SetBool("OverFlag", true);
             }
 
-            player.GetComponent<Animator>().Play("PlayerEat1");
+            animator_player.Play("PlayerEat1");
         }
     }
 }

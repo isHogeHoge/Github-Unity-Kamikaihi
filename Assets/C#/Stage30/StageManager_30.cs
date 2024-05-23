@@ -14,31 +14,38 @@ public enum ActiveLaser
 
 public class StageManager_30 : MonoBehaviour
 {
-    [SerializeField] GameObject nightScopeBtn;
+    [SerializeField] Image img_nightScopeBtn;
     [SerializeField] GameObject redPanel; // (ゲームオーバー時)画面を赤くする点滅させるパネル
     [SerializeField] GameObject greenPanel; // (暗視スコープ装着中)画面を緑色にするパネル
-    [SerializeField] GameObject redLasers;
-    [SerializeField] GameObject greenLaser;
-    [SerializeField] GameObject goBtn;
-    [SerializeField] GameObject backBtn;
-    [SerializeField] GameObject playerL;
-    [SerializeField] GameObject playerR;
+    [SerializeField] BoxCollider2D boxCol_redLasers;
+    [SerializeField] Image img_goBtn;
+    [SerializeField] Image img_backBtn;
+    [SerializeField] Animator animator_playerL;
+    [SerializeField] Animator animator_playerR;
     [SerializeField] GameObject police;
-    [SerializeField] GameObject tutankhamun;
-    [SerializeField] GameObject treasuresStand;
+    [SerializeField] Animator animator_tutankhamun;
+    [SerializeField] SpriteRenderer sr_greenLaser;
+    [SerializeField] Animator animator_treasuresStand;
     [SerializeField] GameObject stagePanel_UI; // スクロールさせるUI
     [SerializeField] GameObject stagePanel;    // スクロールさせるゲームオブジェクト
     [SerializeField] Sprite redSwitchSpr;     // レーザースイッチ(赤)画像
     [SerializeField] Sprite greenSwitchSpr;   // レーザースイッチ(緑)画像
 
+    private StageScrollCnt scrollCnt_UI;
+    private StageScrollCnt scrollCnt;
+    private PlayerLController_30 playerLCnt;
     internal ActiveLaser currentLaser = ActiveLaser.red; // アクティブなレーザーを"赤"に設定
     private bool isOpen = false;  // ツタンカーメン開閉状態フラグ
 
     void Start()
     {
+        playerLCnt = animator_playerL.GetComponent<PlayerLController_30>();
+        scrollCnt_UI = stagePanel_UI.GetComponent<StageScrollCnt>();
+        scrollCnt = stagePanel.GetComponent<StageScrollCnt>();
+        
         // ステージ初期位置から右に1ページ分だけ移動できるように設定
-        stagePanel_UI.GetComponent<StageScrollCnt>().maxCountR = 1;
-        stagePanel.GetComponent<StageScrollCnt>().maxCountR = 1;
+        scrollCnt_UI.maxCountR = 1;
+        scrollCnt.maxCountR = 1;
     }
 
 
@@ -48,8 +55,8 @@ public class StageManager_30 : MonoBehaviour
     public void ClickGoBtn()
     {
         // Player(L)移動開始
-        playerL.GetComponent<Animator>().SetBool("walkFlag", true);
-        playerL.GetComponent<PlayerLController_30>().isMoving = true;
+        animator_playerL.SetBool("walkFlag", true);
+        playerLCnt.isMoving = true;
     }
 
     // ツタンカーメン
@@ -59,15 +66,15 @@ public class StageManager_30 : MonoBehaviour
         if (isOpen)
         {
             // 中の暗視スコープを取得不可能に
-            tutankhamun.GetComponent<Animator>().Play("TutankhamunSmile");
-            nightScopeBtn.GetComponent<Image>().enabled = false;
+            animator_tutankhamun.Play("TutankhamunSmile");
+            img_nightScopeBtn.enabled = false;
         }
         // 閉 → 開
         else
         {
             // 中の暗視スコープを取得可能に
-            tutankhamun.GetComponent<Animator>().Play("TutankhamunIsOpen");
-            nightScopeBtn.GetComponent<Image>().enabled = true;
+            animator_tutankhamun.Play("TutankhamunIsOpen");
+            img_nightScopeBtn.enabled = true;
         }
         isOpen = !isOpen;
     }
@@ -77,32 +84,32 @@ public class StageManager_30 : MonoBehaviour
     {
         // 台スライド → 台下の穴からPlayer脱出
         CantGameControl();
-        treasuresStand.GetComponent<Animator>().enabled = true;
+        animator_treasuresStand.enabled = true;
         await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
-        playerR.GetComponent<Animator>().Play("PlayerGetInTheHole");
+        animator_playerR.Play("PlayerGetInTheHole");
 
     }
     // レーザー切り替えスイッチ
     // レーザー(赤・緑)切り替え処理
-    public void ClickSwitchOfLaserBtn(GameObject switchOfLaserBtn)
+    public void ClickSwitchOfLaserBtn(Image img_switchOfLaserBtn)
     {
         // 赤 → 緑
         if (currentLaser == ActiveLaser.red)
         {
             // レーザー(赤)を非アクティブに
-            for (var i = 0; i < redLasers.transform.childCount; i++)
+            for (var i = 0; i < boxCol_redLasers.transform.childCount; i++)
             {
-                redLasers.transform.GetChild(i).GetComponent<Image>().enabled = false;
+                boxCol_redLasers.transform.GetChild(i).GetComponent<Image>().enabled = false;
             }
-            redLasers.GetComponent<BoxCollider2D>().enabled = false;
+            boxCol_redLasers.enabled = false;
 
             // レーザー(緑)をアクティブに
             // Playerが暗視スコープを装備していないなら、レーザー(緑)を表示する
-            if (!playerL.GetComponent<Animator>().GetBool("isWearing"))
+            if (!animator_playerL.GetBool("isWearing"))
             {
-                greenLaser.GetComponent<SpriteRenderer>().enabled = true;
+                sr_greenLaser.enabled = true;
             }
-            switchOfLaserBtn.GetComponent<Image>().sprite = greenSwitchSpr;
+            img_switchOfLaserBtn.sprite = greenSwitchSpr;
             currentLaser = ActiveLaser.green;
 
         }
@@ -111,18 +118,18 @@ public class StageManager_30 : MonoBehaviour
         {
             // レーザー(赤)をアクティブに
             // Playerが暗視スコープを装備してるなら、レーザー(赤)を表示
-            if (playerL.GetComponent<Animator>().GetBool("isWearing"))
+            if (animator_playerL.GetBool("isWearing"))
             {
-                for (var i = 0; i < redLasers.transform.childCount; i++)
+                for (var i = 0; i < boxCol_redLasers.transform.childCount; i++)
                 {
-                    redLasers.transform.GetChild(i).GetComponent<Image>().enabled = true;
+                    boxCol_redLasers.transform.GetChild(i).GetComponent<Image>().enabled = true;
                 }
             }
-            redLasers.GetComponent<BoxCollider2D>().enabled = true;
+            boxCol_redLasers.enabled = true;
 
             // レーザー(緑)を非アクティブに
-            greenLaser.GetComponent<SpriteRenderer>().enabled = false;
-            switchOfLaserBtn.GetComponent<Image>().sprite = redSwitchSpr;
+            sr_greenLaser.enabled = false;
+            img_switchOfLaserBtn.sprite = redSwitchSpr;
             currentLaser = ActiveLaser.red;
         }
     }
@@ -134,21 +141,21 @@ public class StageManager_30 : MonoBehaviour
     /// <param name="dir">"RIGHT"or"LEFT"</param>
     internal void ScrollStagePnl(string dir)
     {
-        stagePanel_UI.GetComponent<StageScrollCnt>().ScrollStagePnl(dir);
-        stagePanel.GetComponent<StageScrollCnt>().ScrollStagePnl(dir);
+        scrollCnt_UI.ScrollStagePnl(dir);
+        scrollCnt.ScrollStagePnl(dir);
     }
 
     // アクティブなPlayerを返すメソッド
     internal GameObject GetActivePlayer()
     {
         GameObject player = null;
-        if (playerL.activeSelf)
+        if (animator_playerL.gameObject.activeSelf)
         {
-            player = playerL;
+            player = animator_playerL.gameObject;
         }
         else
         {
-            player = playerR;
+            player = animator_playerR.gameObject;
         }
         return player;
     }
@@ -161,11 +168,12 @@ public class StageManager_30 : MonoBehaviour
 
         // ゲーム操作を禁止 & Playerの動きをストップ
         CantGameControl();
-        playerL.GetComponent<PlayerLController_30>().isMoving = false;
+        playerLCnt.isMoving = false;
 
         // PlayerL(PlayerR)のゲームオーバーアニメーションを再生
-        GetActivePlayer().GetComponent<Animator>().applyRootMotion = true;
-        GetActivePlayer().GetComponent<Animator>().SetBool("isOver", true);
+        Animator animator_player = GetActivePlayer().GetComponent<Animator>();
+        animator_player.applyRootMotion = true;
+        animator_player.SetBool("isOver", true);
 
         // Police移動開始
         police.SetActive(true);
@@ -174,8 +182,8 @@ public class StageManager_30 : MonoBehaviour
     // ゲーム操作禁止処理
     public void CantGameControl()
     {
-        goBtn.GetComponent<Image>().enabled = false;
-        backBtn.GetComponent<Image>().enabled = false;
+        img_goBtn.enabled = false;
+        img_backBtn.enabled = false;
         this.GetComponent<StageManager>().CantGameControl();
     }
 }

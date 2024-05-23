@@ -9,12 +9,17 @@ public class CardScannerCnt : MonoBehaviour
 {
     [SerializeField] GameObject playerL;
     [SerializeField] GameObject sliverCard;
-    [SerializeField] GameObject door;
+    [SerializeField] Animator animator_door;
     [SerializeField] GameObject itemManager;
     [SerializeField] GameObject stageManager;
     // アイテム画像
     [SerializeField] Sprite sliverCardSpr;
 
+    private StageManager_30 sm_30;
+    private void Start()
+    {
+        sm_30 = stageManager.GetComponent<StageManager_30>();
+    }
     // 接触判定(Item)
     private async void OnTriggerExit2D(Collider2D col)
     {
@@ -24,14 +29,15 @@ public class CardScannerCnt : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // シルバーカードアイテム使用
-        if (col.GetComponent<Image>().sprite == sliverCardSpr)
+        if (img_item.sprite == sliverCardSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
-            stageManager.GetComponent<StageManager_30>().CantGameControl();
+            sm_30.CantGameControl();
 
             // カードをスキャンするアニメーション再生
             sliverCard.GetComponent<SpriteRenderer>().enabled = true;
@@ -39,18 +45,19 @@ public class CardScannerCnt : MonoBehaviour
             await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
             // ドアが開くアニメーション再生
-            door.GetComponent<Animator>().enabled = true;
+            animator_door.enabled = true;
             await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
             // Playerが逮捕されるアニメーション再生(ゲームオーバー)
             // Playerが画面左側にいるならスクロール
-            GameObject player = stageManager.GetComponent<StageManager_30>().GetActivePlayer();
+            GameObject player = sm_30.GetActivePlayer();
             if (player == playerL)
             {
-                stageManager.GetComponent<StageManager_30>().ScrollStagePnl("LEFT");
+                sm_30.ScrollStagePnl("LEFT");
             }
-            player.GetComponent<Animator>().applyRootMotion = true;
-            player.GetComponent<Animator>().SetBool("isArrested", true);
+            Animator animator_player = player.GetComponent<Animator>();
+            animator_player.applyRootMotion = true;
+            animator_player.SetBool("isArrested", true);
         }
 
     }

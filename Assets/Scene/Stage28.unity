@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seatLBtn: {fileID: 0}
-  seatMBtn: {fileID: 793984354}
-  ramenL: {fileID: 0}
-  ramenM: {fileID: 486339364}
-  clerk: {fileID: 2070566457}
+  seatMBtn: {fileID: 793984356}
+  sr_ramenL: {fileID: 890152221}
+  sr_ramenM: {fileID: 486339365}
+  animator_clerk: {fileID: 2070566458}
   dishOfRamen: {fileID: 21300000, guid: 15ca654ae3d884582ac79e599d3e8384, type: 3}
 --- !u!114 &57130971 stripped
 MonoBehaviour:
@@ -393,12 +393,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fbbbbfd53ea4e60a18b99208752fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn_BoardOfUsualRamen: {fileID: 827649887}
-  btn_BoardOfGarlickyRamen: {fileID: 310105722}
-  btn_BoardOfSlimeRamen: {fileID: 1192533710}
-  signBoard: {fileID: 543151191}
+  btn_BoardOfUsualRamen: {fileID: 827649889}
+  btn_BoardOfGarlickyRamen: {fileID: 310105724}
+  btn_BoardOfSlimeRamen: {fileID: 1192533712}
+  sr_signBoard: {fileID: 543151192}
   hunter: {fileID: 263321482}
-  clerk: {fileID: 2070566457}
+  animator_clerk: {fileID: 2070566458}
 --- !u!1 &203832515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,11 +2441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e2152b3dfb04b969b120e7452efb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seatLBtn: {fileID: 203832515}
-  seatMBtn: {fileID: 0}
-  ramenL: {fileID: 890152220}
-  ramenM: {fileID: 0}
-  clerk: {fileID: 2070566457}
+  seatLBtn: {fileID: 203832517}
+  seatMBtn: {fileID: 793984356}
+  sr_ramenL: {fileID: 890152221}
+  sr_ramenM: {fileID: 486339365}
+  animator_clerk: {fileID: 2070566458}
   dishOfRamen: {fileID: 21300000, guid: 15ca654ae3d884582ac79e599d3e8384, type: 3}
 --- !u!1001 &1005951135
 PrefabInstance:
@@ -3916,8 +3916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a315f09296ebd4c2f9b81c11a9c0aae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 178991747}
-  ramenM: {fileID: 486339364}
+  animator_player: {fileID: 178991750}
+  sr_ramenM: {fileID: 486339365}
   slimeRamenSpr: {fileID: 21300000, guid: 8a7573ec370274cc0bc88d6ef9e33d83, type: 3}
   garlickyRamenSpr: {fileID: 21300000, guid: 0d565e906d099448792219ab2fe8d381, type: 3}
 --- !u!1001 &60401939671393390
@@ -4380,8 +4380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438e6c0107c734460b723a0e11d1fc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerL: {fileID: 974381486}
-  customerM: {fileID: 40978984}
+  animator_customerL: {fileID: 974381487}
+  animator_customerM: {fileID: 40978985}
 --- !u!1001 &2406440567917162757
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-public class AnimaController_27 : MonoBehaviour
+public class CommonAnimation_27 : MonoBehaviour
 {
-    [SerializeField] GameObject lButton;
-    [SerializeField] GameObject playersSushi;
-    [SerializeField] GameObject friend1sSushi;
-    [SerializeField] GameObject friend2sSushi;
-    [SerializeField] GameObject brother;
+    [SerializeField] Image img_LButton;
+    [SerializeField] SpriteRenderer sr_playersSushi;
+    [SerializeField] SpriteRenderer sr_friend1sSushi;
+    [SerializeField] SpriteRenderer sr_friend2sSushi;
+    [SerializeField] Animator animator_brother;
     [SerializeField] GameObject brothersSushi;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject stagePanel_UI; // スクロールさせるUI
@@ -20,7 +20,7 @@ public class AnimaController_27 : MonoBehaviour
     // ゲームオーバーアニメーション終了時
     private void PlayBrotherClearAnima()
     {
-        brother.GetComponent<Animator>().Play("BrotherClear");
+        animator_brother.Play("BrotherClear");
     }
     // ゲームクリアニメーション終了時
     private void isPlayBrotherOverAnima()
@@ -29,11 +29,11 @@ public class AnimaController_27 : MonoBehaviour
         // アニメーション再生終了時にゲームクリア処理を行う
         if (brothersSushi.GetComponent<SushiController>().sushiSpr == shrimpWithWasabi)
         {
-            brother.GetComponent<Animator>().Play("BrotherOver");
+            animator_brother.Play("BrotherOver");
         }
         else
         {
-            brother.GetComponent<Animator>().Play("BrotherStart_Clear");
+            animator_brother.Play("BrotherStart_Clear");
         }
     }
     // ゲームオーバー(orクリア)アニメーション終了後
@@ -42,7 +42,7 @@ public class AnimaController_27 : MonoBehaviour
     {
         stagePanel_UI.GetComponent<StageScrollCnt>().ScrollStagePnl("RIGHT");
         stagePanel.GetComponent<StageScrollCnt>().ScrollStagePnl("RIGHT");
-        lButton.GetComponent<Image>().enabled = false;
+        img_LButton.enabled = false;
     }
     // --------------------------------
 
@@ -53,13 +53,13 @@ public class AnimaController_27 : MonoBehaviour
         switch (someone)
         {
             case "Player":
-                playersSushi.GetComponent<SpriteRenderer>().enabled = false;
+                sr_playersSushi.enabled = false;
                 break;
             case "Friend1":
-                friend1sSushi.GetComponent<SpriteRenderer>().enabled = false;
+                sr_friend1sSushi.enabled = false;
                 break;
             case "Friend2":
-                friend2sSushi.GetComponent<SpriteRenderer>().enabled = false;
+                sr_friend2sSushi.enabled = false;
                 break;
             default:
                 Debug.Log($"{someone}は無効な文字列です");

@@ -6,28 +6,33 @@ using UnityEngine.UI;
 
 public class PlayerAnimaCnt_28 : MonoBehaviour
 {
-    [SerializeField] GameObject btn_BoardOfUsualRamen;
-    [SerializeField] GameObject btn_BoardOfGarlickyRamen;
-    [SerializeField] GameObject btn_BoardOfSlimeRamen;
-    [SerializeField] GameObject signBoard;
+    [SerializeField] Button btn_BoardOfUsualRamen;
+    [SerializeField] Button btn_BoardOfGarlickyRamen;
+    [SerializeField] Button btn_BoardOfSlimeRamen;
+    [SerializeField] SpriteRenderer sr_signBoard;
     [SerializeField] GameObject hunter;
-    [SerializeField] GameObject clerk;
+    [SerializeField] Animator animator_clerk;
 
+    private Animator animator_player;
     private int playCount_EatAnima = 0; // "PlayerEat"アニメーションの再生回数
+    private void Start()
+    {
+        animator_player = this.GetComponent<Animator>();
+    }
 
     // 席についた後、注文をできるようにする
     private void CanOrder()
     {
-        clerk.GetComponent<Animator>().Play("ClerkWalk");
-        btn_BoardOfUsualRamen.GetComponent<Button>().enabled = true;
-        btn_BoardOfGarlickyRamen.GetComponent<Button>().enabled = true;
-        btn_BoardOfSlimeRamen.GetComponent<Button>().enabled = true;
+        animator_clerk.Play("ClerkWalk");
+        btn_BoardOfUsualRamen.enabled = true;
+        btn_BoardOfGarlickyRamen.enabled = true;
+        btn_BoardOfSlimeRamen.enabled = true;
     }
 
     // 料理を待つアニメーション開始時、Clerkが料理を作るアニメーション再生
     private void PlayClerkCookAnima()
     {
-        clerk.GetComponent<Animator>().Play("ClerkCook");
+        animator_clerk.Play("ClerkCook");
     }
 
     // 料理を食べるアニメーション終了時
@@ -42,7 +47,7 @@ public class PlayerAnimaCnt_28 : MonoBehaviour
         // 4回再生されていたら、席を立つアニメーション再生
         else if (playCount_EatAnima == 4)
         {
-            this.GetComponent<Animator>().Play("PlayerStandUp");
+            animator_player.Play("PlayerStandUp");
         }
 
     }
@@ -51,7 +56,7 @@ public class PlayerAnimaCnt_28 : MonoBehaviour
     private void isHunterGoBackOrGoIn()
     {
         // 店の前に「準備中」の看板があれば、Hunterが帰りゲームクリア
-        if (signBoard.GetComponent<SpriteRenderer>().enabled)
+        if (sr_signBoard.enabled)
         {
             hunter.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -59,7 +64,7 @@ public class PlayerAnimaCnt_28 : MonoBehaviour
         else
         {
             hunter.GetComponent<Animator>().Play("HunterGoIn1");
-            this.GetComponent<Animator>().SetBool("OverFlag", true);
+            animator_player.SetBool("OverFlag", true);
         }
     }
 

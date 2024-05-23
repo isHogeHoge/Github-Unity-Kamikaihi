@@ -17,11 +17,12 @@ public class SignBoardCnt_28 : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // 看板アイテム使用
-        if (col.GetComponent<Image>().sprite == signBoardItemSpr)
+        if (img_item.sprite == signBoardItemSpr)
         {
             // アイテム使用処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             // 店の前に「準備中」の看板を表示

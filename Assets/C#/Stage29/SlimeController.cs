@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] GameObject clickCancelPnl;
+    [SerializeField] Animator animator_player;
 
     private bool isOver = false;   // ゲームオーバーフラグ
 
@@ -28,7 +28,7 @@ public class SlimeController : MonoBehaviour
         }
         // slimeがすべて非アクティブなら、ゲームオーバー処理
         clickCancelPnl.SetActive(true);
-        player.GetComponent<Animator>().Play("PlayerIsPickedup");
+        animator_player.Play("PlayerIsPickedup");
         isOver = true;
 
     }

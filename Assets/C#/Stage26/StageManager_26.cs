@@ -9,11 +9,13 @@ public class StageManager_26 : MonoBehaviour
     [SerializeField] Sprite helmetSpr;    
     [SerializeField] Sprite watermelonSpr;
 
+    private ItemManager im;
     private int count_gottenWatermelonR = 0; // アイテムとして取得したスイカの数
     private int count_totalWatermelonR = 6;   // 屋台に並んでいるスイカの数
 
     void Start()
     {
+        im = itemManager.GetComponent<ItemManager>();
         // ステージ初期位置から右に1ページ分だけ移動できるように設定
         this.GetComponent<StageScrollCnt>().maxCountR = 1;
     }
@@ -23,7 +25,7 @@ public class StageManager_26 : MonoBehaviour
     public void ClickWatermelonBtnR()
     {
         // アイテム所持数がMax(5)なら、取得したスイカの数をカウントアップしない
-        if (!itemManager.GetComponent<ItemManager>().isFull)
+        if (!im.isFull)
         {
             count_gottenWatermelonR++;
         }
@@ -31,11 +33,11 @@ public class StageManager_26 : MonoBehaviour
         // 最後にクリックしたスイカはヘルメットアイテムに変更
         if(count_gottenWatermelonR == count_totalWatermelonR)
         {
-            itemManager.GetComponent<ItemManager>().ClickItemBtn(helmetSpr); // アイテム取得処理
+            im.ClickItemBtn(helmetSpr); // アイテム取得処理
             return;
         }
         // それ以外はスイカアイテムに
-        itemManager.GetComponent<ItemManager>().ClickItemBtn(watermelonSpr);　// アイテム取得処理
+        im.ClickItemBtn(watermelonSpr);　// アイテム取得処理
     }
     // ----------------------------
 }

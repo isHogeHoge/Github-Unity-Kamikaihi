@@ -13,7 +13,7 @@ public class ClerkController : MonoBehaviour
     private Animator animator_clerk; 
     private List<float> speeds_readAnima; // 新聞を読むアニメーションの再生スピード候補
     private List<float> speeds_turnAnima; // 右を向くアニメーションの再生スピード候補
-    private float count_PlayReadAnima = 0;   // 新聞を読むアニメーションの再生回数
+    private float playCount_readAnima = 0;   // 新聞を読むアニメーションの再生回数
 
     void Start()
     {
@@ -36,15 +36,15 @@ public class ClerkController : MonoBehaviour
     private void isTurnRightorLeft()
     {
         // このアニメーション再生回数を+1
-        count_PlayReadAnima++;
+        playCount_readAnima++;
 
         // このアニメーションが10回再生されていたら、左を向くアニメーション再生 & 足元のコイン取得可能に
-        if(count_PlayReadAnima == 10)
+        if(playCount_readAnima == 10)
         {
             animator_clerk.Play("ClerkTurnLeft");
             coin1Btn.enabled = true;
 
-            count_PlayReadAnima = 0;
+            playCount_readAnima = 0;
         }
         // 10回未満なら、右を向くアニメーション再生
         else

@@ -8,20 +8,20 @@ using UnityEngine.UI;
 using TMPro;
 public class StageManager_31 : MonoBehaviour
 {
-    [SerializeField] GameObject stagePanel; 
+    [SerializeField] RectTransform rect_stagePanel;
+    [SerializeField] Image img_playersLife;
     [SerializeField] GameObject tutorialText_U;
     [SerializeField] GameObject tutorialText_D;
     [SerializeField] GameObject fartherClearImg;
     [SerializeField] GameObject middleClearImg;
+    [SerializeField] Image img_player_clear;
     [SerializeField] GameObject closerClearImg;
-    [SerializeField] GameObject scoreText_Playing;
-    [SerializeField] GameObject scoreText_Clear;
+    [SerializeField] TextMeshProUGUI scoreText_Playing;
+    [SerializeField] TextMeshProUGUI scoreText_Clear;
     [SerializeField] GameObject moveBtn;
-    [SerializeField] GameObject titleBtn;
+    [SerializeField] Image img_titleBtn;
     [SerializeField] GameObject topBorder;
-    [SerializeField] GameObject playersLife;
-    [SerializeField] GameObject player;       // Player_Playing
-    [SerializeField] GameObject player_clear;
+    [SerializeField] GameObject player;
 
     internal GameState gameState = GameState.playing;
     CancellationTokenSource cts;
@@ -50,20 +50,24 @@ public class StageManager_31 : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = true;
             await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: cts.Token);
             moveBtn.SetActive(true);
-            playersLife.GetComponent<Image>().enabled = true;
+            img_playersLife.enabled = true;
         }
-        // 画面タップ(キャンセル)時に呼ばれる処理 
+        // 画面タップ(スキップ)時に呼ばれる処理 
         catch
         {
-            // チュートリアル終了時の状態に
-            // チュートリアルテキストのアニメーションを最後までスキップ
-            tutorialText_U.GetComponent<Animator>().Play(tutorialText_U.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 1);
-            tutorialText_D.GetComponent<Animator>().Play(tutorialText_D.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 1);
             // チュートリアルテキスト,Player,移動ボタンを全て表示
+            tutorialText_U.SetActive(true);
             tutorialText_D.SetActive(true);
             player.GetComponent<SpriteRenderer>().enabled = true;
             moveBtn.SetActive(true);
-            playersLife.GetComponent<Image>().enabled = true;
+            img_playersLife.enabled = true;
+
+            // チュートリアルテキストのアニメーションを最後までスキップ
+            Animator animator_tutorialText_U = tutorialText_U.GetComponent<Animator>();
+            Animator animator_tutorialText_D = tutorialText_D.GetComponent<Animator>();
+            animator_tutorialText_U.Play(animator_tutorialText_U.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 1);
+            animator_tutorialText_D.Play(animator_tutorialText_D.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 1);
+            
 
         }
     }
@@ -90,12 +94,11 @@ public class StageManager_31 : MonoBehaviour
         }
 
         // オブジェクトのスクロール
-        if (stagePanel.activeSelf)
+        if (rect_stagePanel.gameObject.activeSelf)
         {
-            RectTransform rect = stagePanel.GetComponent<RectTransform>();
-            rect.anchoredPosition = Vector3.MoveTowards(rect.anchoredPosition, endPos, scrollSpeed * Time.deltaTime);
+            rect_stagePanel.anchoredPosition = Vector3.MoveTowards(rect_stagePanel.anchoredPosition, endPos, scrollSpeed * Time.deltaTime);
             // Playerが最後までオブジェクトに衝突しなかったら(stagePanelが最後までスクロールしたら)ステージクリア処理
-            if (rect.anchoredPosition.y == endPos.y)
+            if (rect_stagePanel.anchoredPosition.y == endPos.y)
             {
                 GameClear(this.GetCancellationTokenOnDestroy()).Forget();
             }
@@ -105,12 +108,12 @@ public class StageManager_31 : MonoBehaviour
     // スコア加算処理
     internal void AddScore(int score)
     {
-        if (!scoreText_Playing.GetComponent<TextMeshProUGUI>().enabled)
+        if (!scoreText_Playing.enabled)
         {
-            scoreText_Playing.GetComponent<TextMeshProUGUI>().enabled = true;
+            scoreText_Playing.enabled = true;
         }
         totalScore += score;
-        scoreText_Playing.GetComponent<TextMeshProUGUI>().text = $"SCORE {totalScore}";
+        scoreText_Playing.text = $"SCORE {totalScore}";
     }
 
     // ゲーム操作禁止処理
@@ -118,8 +121,8 @@ public class StageManager_31 : MonoBehaviour
     {
         scrollSpeed = 0f;
         topBorder.SetActive(false);
-        playersLife.GetComponent<Image>().enabled = false;
-        scoreText_Playing.SetActive(false);
+        img_playersLife.enabled = false;
+        scoreText_Playing.gameObject.SetActive(false);
         moveBtn.SetActive(false);
     }
 
@@ -129,7 +132,7 @@ public class StageManager_31 : MonoBehaviour
         CantGameControl();
         gameState = GameState.gameOver;
         player.GetComponent<Animator>().Play("PlayerOver");
-        GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
+        this.GetComponent<StageManager>().GameOver(this.GetCancellationTokenOnDestroy()).Forget();
     }
 
     // ゲームクリア処理
@@ -150,7 +153,7 @@ public class StageManager_31 : MonoBehaviour
         {
             // Playerを切り替える
             player.GetComponent<SpriteRenderer>().enabled = false;
-            player_clear.GetComponent<Image>().enabled = true;
+            img_player_clear.enabled = true;
 
             // キャラクター画像 → 合計点数 → タイトル移行ボタンを順に表示
             closerClearImg.SetActive(true);
@@ -160,13 +163,13 @@ public class StageManager_31 : MonoBehaviour
             fartherClearImg.SetActive(true);
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: ct);
 
-            scoreText_Clear.GetComponent<TextMeshProUGUI>().text = $"SCORE {totalScore}";
-            scoreText_Clear.GetComponent<TextMeshProUGUI>().enabled = true;
+            scoreText_Clear.text = $"SCORE {totalScore}";
+            scoreText_Clear.enabled = true;
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: ct);
 
-            titleBtn.GetComponent<Image>().enabled = true;
+            img_titleBtn.enabled = true;
 
-            stagePanel.SetActive(false);
+            rect_stagePanel.gameObject.SetActive(false);
         }
     }
 

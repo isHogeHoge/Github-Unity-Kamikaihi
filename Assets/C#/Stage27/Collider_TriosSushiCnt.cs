@@ -12,10 +12,12 @@ public class Collider_TriosSushiCnt : MonoBehaviour
     [SerializeField] Sprite shrimpSpr1; // えび寿司(わさびあり)画像
     [SerializeField] Sprite shrimpSpr2; // えび寿司(わさび抜き)画像
 
-    private SushiController sc;
+    private SushiController sushiCnt;
+    private SpriteRenderer sr_shrimp;
     private void Start()
     {
-        sc = triosSushi.transform.GetChild(0).GetComponent<SushiController>();
+        sushiCnt = triosSushi.transform.GetChild(0).GetComponent<SushiController>();
+        sr_shrimp = triosSushi.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
     private void OnTriggerExit2D(Collider2D col)
     {
@@ -25,23 +27,23 @@ public class Collider_TriosSushiCnt : MonoBehaviour
             return;
         }
 
-        Sprite itemSpr = col.GetComponent<Image>().sprite;
+        Image img_sushi = col.GetComponent<Image>();
         // 皿の上に寿司を表示
         // えび寿司(わさびあり)
-        if(itemSpr == shrimpSpr1)
+        if(img_sushi.sprite == shrimpSpr1)
         {
             // すでにえび寿司(わさび抜き)が皿にあるならメソッドを抜ける
-            if (triosSushi.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled)
+            if (sr_shrimp.enabled)
             {
                 return;
             }
             ActiveShrimp(shrimpSpr1);
         }
         // えび寿司(わさび抜き)
-        else if(itemSpr == shrimpSpr2)
+        else if(img_sushi.sprite == shrimpSpr2)
         {
             // すでにえび寿司(わさびあり)が皿にあるならメソッドを抜ける
-            if (triosSushi.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled)
+            if (sr_shrimp.enabled)
             {
                 return;
             }
@@ -50,17 +52,17 @@ public class Collider_TriosSushiCnt : MonoBehaviour
         // えび寿司以外は、そのまま表示
         else
         {
-            GameObject obj = triosSushi.transform.Find($"{itemSpr.name}").gameObject;
-            obj.GetComponent<SpriteRenderer>().enabled = true;
+            GameObject sushi = triosSushi.transform.Find($"{img_sushi.sprite.name}").gameObject;
+            sushi.GetComponent<SpriteRenderer>().enabled = true;
         }
 
         // trioのテーブルにある寿司が1個以上なら、寿司パネルをアクティブに
         // Trioのテーブル上にある寿司が3個以上なら、「食べる」ボタンを表示
-        sc.PlusSushiCount();
-        sc.isActiveSushiPnlAndEatBtn();
+        sushiCnt.PlusSushiCount();
+        sushiCnt.isActiveSushiPnlAndEatBtn();
 
         // アイテム使用処理
-        col.GetComponent<Image>().sprite = null;
+        img_sushi.sprite = null;
         itemManager.GetComponent<ItemManager>().UsedItem();
     }
 
@@ -68,8 +70,8 @@ public class Collider_TriosSushiCnt : MonoBehaviour
     private void ActiveShrimp(Sprite shrimpSpr)
     {
         // アイテムパネルに表示する画像を、えび寿司(わさび抜き)に
-        triosSushi.transform.GetChild(0).GetComponent<SushiController>().sushiSpr = shrimpSpr;
-        triosSushi.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        sushiCnt.sushiSpr = shrimpSpr;
+        sr_shrimp.enabled = true;
         triosSushi.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = true;
 
     }

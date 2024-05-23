@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b601e48d4a447b5acda660cbe9d06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutankhamunBtn: {fileID: 1187277208}
+  tutankhamunBtn: {fileID: 1187277210}
   itemManager: {fileID: 6804129038510842530}
   goldCardSpr: {fileID: 21300000, guid: e241c4659dbe04bc9ab703d0c151987b, type: 3}
 --- !u!1 &174477708
@@ -1648,18 +1648,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26ce3fbd68c846a58b6b7de52d9c41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightScopeBtn: {fileID: 1128302604}
+  img_nightScopeBtn: {fileID: 1128302607}
   redPanel: {fileID: 1920936903}
   greenPanel: {fileID: 1935917051}
-  redLasers: {fileID: 1341080429}
-  greenLaser: {fileID: 1844158044}
-  goBtn: {fileID: 1640097935}
-  backBtn: {fileID: 1665297321}
-  playerL: {fileID: 1957450364}
-  playerR: {fileID: 2065577661}
+  boxCol_redLasers: {fileID: 1341080433}
+  img_goBtn: {fileID: 1640097938}
+  img_backBtn: {fileID: 1665297324}
+  animator_playerL: {fileID: 1957450367}
+  animator_playerR: {fileID: 2065577663}
   police: {fileID: 318895654}
-  tutankhamun: {fileID: 72407412}
-  treasuresStand: {fileID: 486386229}
+  animator_tutankhamun: {fileID: 72407415}
+  sr_greenLaser: {fileID: 1844158046}
+  animator_treasuresStand: {fileID: 486386232}
   stagePanel_UI: {fileID: 508421365}
   stagePanel: {fileID: 1245102722}
   redSwitchSpr: {fileID: 21300000, guid: 4e5e89a2607344d7c9574d1cf29a4e07, type: 3}
@@ -3206,7 +3206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerL: {fileID: 1957450364}
   sliverCard: {fileID: 2044514792}
-  door: {fileID: 545629435}
+  animator_door: {fileID: 545629438}
   itemManager: {fileID: 6804129038510842530}
   stageManager: {fileID: 594362030}
   sliverCardSpr: {fileID: 21300000, guid: 96fc8741df4f1475c909b003499c7fa4, type: 3}
@@ -4132,8 +4132,8 @@ MonoBehaviour:
         m_MethodName: ClickSwitchOfLaserBtn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1613974341}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1613974344}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4771,9 +4771,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.35586306
     y: 0
-    width: 1
+    width: 0.28827387
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -6016,10 +6016,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickCancelPnl: {fileID: 5712918}
-  switchOfLaserBtn: {fileID: 1613974341}
-  greenPanel: {fileID: 1935917051}
+  img_switchOfLaserBtn: {fileID: 1613974344}
+  img_greenPanel: {fileID: 1935917053}
   redLasers: {fileID: 1341080429}
-  greenLaser: {fileID: 1844158044}
+  sr_greenLaser: {fileID: 1844158046}
+  boxCol_greenLaser: {fileID: 1844158047}
   playerR: {fileID: 2065577661}
   itemManager: {fileID: 6804129038510842530}
   stageManager: {fileID: 594362030}
@@ -6098,9 +6099,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87685db90ca2f4c5883d518f4eae832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenPanel: {fileID: 1935917051}
+  img_greenPanel: {fileID: 1935917053}
   redLasers: {fileID: 1341080429}
-  greenLaser: {fileID: 1844158044}
+  sr_greenLaser: {fileID: 1844158046}
+  boxCol_greenLaser: {fileID: 1844158047}
   itemManager: {fileID: 6804129038510842530}
   stageManager: {fileID: 594362030}
   nightScopeSpr: {fileID: 21300000, guid: 5fa306e142703415095f7e6cc708ab40, type: 3}
@@ -6344,14 +6346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3976604a9146644f2b9422202090c015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standBtn: {fileID: 517455175}
+  standBtn: {fileID: 517455177}
   backBtn: {fileID: 1665297321}
   rButton: {fileID: 1760871611}
   lButton: {fileID: 468620739}
   fadePanel: {fileID: 858638378}
-  cardScanner: {fileID: 1317696508}
-  treasure: {fileID: 2110716638}
-  clearImg: {fileID: 1923292063}
+  boxCol_cardScanner: {fileID: 1317696512}
+  boxCol_treasure: {fileID: 2110716641}
+  sr_clearImg: {fileID: 1923292065}
   stageManager: {fileID: 594362030}
 --- !u!114 &2065577666
 MonoBehaviour:
@@ -6890,7 +6892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1fa20f801554d50b539a481a3bc5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerR: {fileID: 2065577661}
+  animator_playerR: {fileID: 2065577663}
   itemManager: {fileID: 6804129038510842530}
   furoshikiSpr: {fileID: 21300000, guid: 098a0b450d3a9470aaf38e012e8962ca, type: 3}
 --- !u!1001 &60401939671393390

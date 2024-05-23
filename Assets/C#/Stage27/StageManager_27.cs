@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StageManager_27 : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] Animator animator_player;
     [SerializeField] GameObject triosSushi;
     [SerializeField] GameObject stagePanel_UI; // スクロールさせるUI
     [SerializeField] GameObject stagePanel;    // スクロールさせるゲームオブジェクト
@@ -30,7 +30,7 @@ public class StageManager_27 : MonoBehaviour
         // Playerが手に取る寿司が、えび寿司(わさび抜き)ならクリア
         if(sushiInFrontOfPlayer.GetComponent<SushiController>().sushiSpr == shrimpWithOutWasabi)
         {
-            player.GetComponent<Animator>().SetBool("ClearFlag", true);
+            animator_player.SetBool("ClearFlag", true);
         }
     }
 }

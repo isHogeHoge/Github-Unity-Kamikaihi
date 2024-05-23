@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KinakoCnt : MonoBehaviour
 {
-    private Transform slime; // 対象のスライム(親オブジェクト)のTransform
+    private Transform slime;
 
     private void Start()
     {

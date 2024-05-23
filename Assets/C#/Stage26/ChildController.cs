@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ChildController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject brokenWatermelon; // 木刀で割られたスイカ
-    [SerializeField] GameObject watermelonSeeds;
-    [SerializeField] GameObject rButton;
+    [SerializeField] Animator animator_player;
+    [SerializeField] Animator animator_brokenWatermelon;
+    [SerializeField] Image img_watermelonSeeds;
+    [SerializeField] Image img_RButton;
     [SerializeField] GameObject stageManager;
     [SerializeField] GameObject itemManager;
     // アイテム画像
@@ -25,11 +25,12 @@ public class ChildController : MonoBehaviour
             return;
         }
 
+        Image img_item = col.GetComponent<Image>();
         // スイカアイテム使用
-        if (col.GetComponent<Image>().sprite == watermelonSpr)
+        if (img_item.sprite == watermelonSpr)
         {
             // アイテム消費処理
-            col.GetComponent<Image>().sprite = null;
+            img_item.sprite = null;
             itemManager.GetComponent<ItemManager>().UsedItem();
 
             count_brokenWatermelon++;
@@ -44,7 +45,7 @@ public class ChildController : MonoBehaviour
             else
             {
                 // スイカが木刀で割られるアニメーション再生
-                brokenWatermelon.GetComponent<Animator>().Play("BrokenWatermelonActive");
+                animator_brokenWatermelon.Play("BrokenWatermelonActive");
             }
 
         }
@@ -55,9 +56,9 @@ public class ChildController : MonoBehaviour
     // スイカのタネを表示
     private void ActiveWatermelonSeeds()
     {
-        if (!watermelonSeeds.GetComponent<Image>().enabled)
+        if (!img_watermelonSeeds.enabled)
         {
-            watermelonSeeds.GetComponent<Image>().enabled = true;
+            img_watermelonSeeds.enabled = true;
         }
     }
     // アニメーション終了後、ゲームオーバー
@@ -70,8 +71,8 @@ public class ChildController : MonoBehaviour
         }
 
         stageManager.GetComponent<StageScrollCnt>().ScrollStagePnl("LEFT");
-        rButton.GetComponent<Image>().enabled = false;
-        player.GetComponent<Animator>().Play("PlayerOver4");
+        img_RButton.enabled = false;
+        animator_player.Play("PlayerOver4");
         wasPlayed_SpitOutAnima = true;
     }
     // ---------------------------------------

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class StageManager_28 : MonoBehaviour
 {
-    [SerializeField] GameObject customerL;
-    [SerializeField] GameObject customerM;
+    [SerializeField] Animator animator_customerL;
+    [SerializeField] Animator animator_customerM;
     void Start()
     {
         // 5秒後にCustomerL,10秒後にCustomerMが退出する
@@ -17,11 +17,11 @@ public class StageManager_28 : MonoBehaviour
     // CustomerR退出処理
     private void CustomerLGoOut()
     {
-        customerL.GetComponent<Animator>().Play("CustomerLGoOut");
+        animator_customerL.Play("CustomerLGoOut");
     }
     // CustomerM退出処理
     private void CustomerMGoOut()
     {
-        customerM.GetComponent<Animator>().Play("CustomerMGoOut");
+        animator_customerM.Play("CustomerMGoOut");
     }
 }
