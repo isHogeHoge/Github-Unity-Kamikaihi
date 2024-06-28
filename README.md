@@ -1,3 +1,6 @@
+【プレイ動画URL】<br>
+https://youtu.be/DOo5647j80g<br>
+<br>
 【作品説明】<br>
 ・制作人数：1人<br>
 ・制作期間：7ヶ月<br>
