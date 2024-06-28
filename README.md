@@ -14,7 +14,7 @@
 ・セーブデータ(jsonデータ)について<br>
 /Assets/C#/Stage_CommonのHogeDataManagerスクリプトでjsonデータの読み込み書き込みを行なっております。<br>
 jsonデータは/Assets/StreamingAssets/Datas_jsonフォルダ内にございます。<br>
+・ステージは/Assets/StreamingAssets/Datas_json/StageDataList.jsonの”isReleased”変数をtrueに変更することで解放されます。初期状態では、ステージ1から5のみ開放済みとなっております。<br>
 ・BGMについて<br>
 ゲーム開始時シーン(StageSelectScene)のBGMオブジェクトをシーンまたぎで使い回しています。ですので、ステージ1から31をProjectビューから直接読み込む際は、/Assets/Prefab/Game_Common/AudioPlayerBGMをHierarchyビューに追加してください。<br>
-・ステージは/Assets/StreamingAssets/Datas_json/StageDataList.jsonの”isReleased”変数をtrueに変更することで解放されます。初期状態では、ステージ1から5のみ開放済みとなっております。<br>
 お手数おかけいたしますが、何卒よろしくお願いいたします。<br>
