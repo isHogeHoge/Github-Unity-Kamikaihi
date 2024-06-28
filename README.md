@@ -1,0 +1,20 @@
+【作品説明】<br>
+・制作人数：1人<br>
+・制作期間：7ヶ月<br>
+・ゲームエンジン：Unity(2022.3.20)<br>
+・ゲーム内容<br>
+「ドッキリ神回避」 というゲームを目コピしたものになります。カードコレクション機能以外は、全て実装いたしました。<br>
+<br>
+【アピールポイント】<br>
+・jsonファイルを用いて、セーブ機能を自作しました。また、UnityエディターとiOS上でデータのセーブ・ロードが行えるように、プリプロセッサを利用しました。<br>
+・ゲーム・ステージの共通クラスを複数作ることで、可読性や再利用性を高めるよう意識しました。<br>
+・ステージ5,11,29で重複するSwitch文をインターフェースに置き換えるなど、ポリモーフィズムを活用することで、コードの複雑さを軽減しました。<br>
+<br>
+【その他】<br>
+・セーブデータ(jsonデータ)について<br>
+/Assets/C#/Stage_CommonのHogeDataManagerスクリプトでjsonデータの読み込み書き込みを行なっております。<br>
+jsonデータは/Assets/StreamingAssets/Datas_jsonフォルダ内にございます。<br>
+・BGMについて<br>
+ゲーム開始時シーン(StageSelectScene)のBGMオブジェクトをシーンまたぎで使い回しています。ですので、ステージ1から31をProjectビューから直接読み込む際は、/Assets/Prefab/Game_Common/AudioPlayerBGMをHierarchyビューに追加してください。<br>
+・ステージは/Assets/StreamingAssets/Datas_json/StageDataList.jsonの”isReleased”変数をtrueに変更することで解放されます。初期状態では、ステージ1から5のみ開放済みとなっております。<br>
+お手数おかけいたしますが、何卒よろしくお願いいたします。<br>
